@@ -32,7 +32,12 @@
   }
 </style>
 
-<div {% render 'section-properties' %}>
+<div {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id | handle }}"{% endif %} {% render 'section-properties' %}>
+  {%- if request.design_mode and section.settings.anchor_id != blank -%}
+    <div style="position:absolute; top:8px; left:8px; z-index:5; background:#111; color:#fff; font-size:11px; line-height:1; padding:4px 6px; border-radius:3px; font-family:monospace; pointer-events:none;">
+      #{{ section.settings.anchor_id | handle }}
+    </div>
+  {%- endif -%}
   <div class="section-stack">
     {%- assign link_url = section.settings.link_url | default: section.settings.collection.url -%}
     {%- if customer and customer.tags contains 'wholesale' -%}
@@ -96,6 +101,16 @@
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Anchor"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Add a unique ID (e.g. best-sellers) to scroll to this section. Link a button to #your-id."
+    },
     {
       "type": "collection",
       "id": "collection",

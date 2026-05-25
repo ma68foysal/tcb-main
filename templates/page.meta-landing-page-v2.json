@@ -25,7 +25,8 @@
             "title2": "",
             "heading_tag": "h0",
             "button_text": "",
-            "button_link": "shopify://collections/all-products",
+            "button_link": "#fetured",
+            "scroll_to_anchor": "",
             "text_color": "#ffffff",
             "button_background": "#f5edde",
             "button_text_color": "#39180f",
@@ -68,7 +69,8 @@
             "subheading": "Your 20% is locked in - applied automatically",
             "content": "",
             "button_text": "Shop the Bestsellers ↓",
-            "button_url": "shopify://collections/all-products",
+            "button_url": "#fetured",
+            "scroll_to_anchor": "",
             "animate_impact_text": false,
             "animate_impact_text_duration": 2
           }
@@ -109,6 +111,7 @@
             "content": "<p>Free shipping when your cart hits $70</p>",
             "button_text": "",
             "button_url": "",
+            "scroll_to_anchor": "",
             "animate_impact_text": false,
             "animate_impact_text_duration": 2
           }
@@ -238,6 +241,7 @@
         "h2 {font-family: Legitima; font-style: italic;}"
       ],
       "settings": {
+        "anchor_id": "fetured",
         "collection": "all-products",
         "products": [],
         "full_width": true,
@@ -271,6 +275,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Angie M.",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "Best Dark Chocolate Ever!",
             "content": "<p>\"I was a bit skeptical about how this chocolate bar would taste with just 3 ingredients, but one bite changed my relationship with chocolate. The Conscious Bar is the only bar I will eat now. Thank you.\"</p>"
           }
@@ -282,6 +288,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Catherine D.",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "It is definitely smooth and rich in chocolate!",
             "content": "<p>\"I am so spoiled now. No other chocolate, and I have tasted plenty, is as delicious and satisfying as the Conscious bar. And it is not too sweet. The use of dates for sweetening makes the taste so much more chocolatey.\"</p>"
           }
@@ -293,6 +301,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Phyllis",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "Delicious",
             "content": "<p>\"Bar is delicious and doesn't raise glucose.\"</p>"
           }
@@ -304,6 +314,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Terri G.",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "",
             "content": "<p>\"Im diabetic and cant eat many things that are sweet and tasty. This is a treasure. I allow myself 2 squares a night and my numbers are good. This chocolate is fantastic.\"</p>"
           }
@@ -330,7 +342,9 @@
         "heading_color": "",
         "heading_gradient": "",
         "testimonial_card_background": "",
-        "testimonial_card_text_color": ""
+        "testimonial_card_text_color": "",
+        "verified_badge_background": "#2e7d4f",
+        "verified_badge_text_color": "#ffffff"
       }
     },
     "impact_text_BpJ6tQ": {
@@ -345,6 +359,7 @@
             "content": "<p>Inherits the full-width comparison infographic from the control. No body copy required - the image carries the story.</p>",
             "button_text": "",
             "button_url": "",
+            "scroll_to_anchor": "",
             "animate_impact_text": true,
             "animate_impact_text_duration": 2.7
           }
@@ -391,6 +406,7 @@
             "heading_tag": "h0",
             "button_text": "",
             "button_link": "",
+            "scroll_to_anchor": "",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
@@ -421,6 +437,38 @@
         "background_gradient": ""
       }
     },
+    "featured_testimonial_jayC": {
+      "type": "featured-testimonial",
+      "settings": {
+        "anchor_id": "",
+        "full_width": true,
+        "subheading": "Yes, it costs more than a candy bar.",
+        "description": "<p>It's also the only one made of two organic ingredients, that your body actually thanks you for.</p>",
+        "quote": "<p>“FINALLY! a chocolate that doesn’t make you want to eat every last piece…. Don’t balk at the price: Conscious Bars are an excellent value.”</p>",
+        "author_name": "Jay C.",
+        "author_label": "Smooth Dark Chocolate",
+        "show_verified_badge": true,
+        "verified_badge_text": "Verified Buyer",
+        "verified_badge_background": "#2e7d4f",
+        "verified_badge_text_color": "#ffffff",
+        "content_max_width": 900,
+        "padding_vertical": 72,
+        "subheading_size": 16,
+        "description_size": 13,
+        "quote_size": 30,
+        "quote_font_family": "Legitima, Georgia, serif",
+        "author_size": 13,
+        "label_size": 12,
+        "background": "#3a2418",
+        "background_gradient": "",
+        "text_color": "#ffffff",
+        "subheading_color": "#ffffff",
+        "description_color": "#cfc1b0",
+        "quote_color": "#d4b896",
+        "author_color": "#ffffff",
+        "label_color": "#bfae9a"
+      }
+    },
     "impact_text_TQLDzq": {
       "type": "impact-text",
       "blocks": {
@@ -433,6 +481,7 @@
             "content": "",
             "button_text": "",
             "button_url": "",
+            "scroll_to_anchor": "",
             "animate_impact_text": false,
             "animate_impact_text_duration": 2
           }
@@ -548,6 +597,7 @@
         "h2 {font-family: Legitima; font-style: italic;}"
       ],
       "settings": {
+        "anchor_id": "fetured-collection",
         "collection": "all-products",
         "products": [],
         "full_width": true,
@@ -583,7 +633,8 @@
             "content": "<p>Order minimum is $35 - most first boxes are 5 to 7 bars. Free shipping kicks in at $70.</p>",
             "link_url": "",
             "link_text": "",
-            "link_style": "link"
+            "link_style": "link",
+            "scroll_to_anchor": ""
           }
         },
         "item_xPpkn4": {
@@ -593,9 +644,10 @@
             "title": "",
             "heading_tag": "h3",
             "content": "<p>✓ 20% auto-applied · ✓ Free ship $70+ · ✓ Plastic-free pack</p>",
-            "link_url": "",
+            "link_url": "#fetured-collection",
             "link_text": "Shop the Bestsellers - 20% Auto-Applied →",
-            "link_style": "button"
+            "link_style": "button",
+            "scroll_to_anchor": ""
           }
         }
       },
@@ -731,6 +783,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Andrés Preschel | Exercise Physiologist, Lifestyle Medicine Author and Podcast Host",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "",
             "content": "<p>“I’m a big believer in transparency... how you do one thing is how you do everything. The Conscious Bar is no exception; it’s clearly an extremely healthy, truly sustainable and ethically sourced chocolate bar that you can feel REALLY good about all the way through. The chocolate is exquisite, but this brand sets the bar high for so much more than its mere indulgence. Thank you!\"</p>"
           }
@@ -743,6 +797,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "Liana Werner-Gray | Certified Nutritionist & Best-Selling Author 'Cancer-Free with Food'",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "",
             "content": "<p>“The first thing I did when I saw The Conscious Bar chocolate was to look at the ingredients and I must say, wow! A premium chocolate bar, vegan & gently sweetened with organic dates! I was so excited to try it, and as soon as I tasted it I was amazed. The flavors are incredible, very uplifting and you can clearly taste the pure ingredients which are essentially two superfoods and nothing else.<br/></p>"
           }
@@ -755,6 +811,8 @@
             "show_rating": true,
             "rating": 5,
             "author": "John Iatrellis | Corporate Executive Chef, Lifehouse Hotels",
+            "show_verified_badge": true,
+            "verified_badge_text": "Verified Buyer",
             "title": "",
             "content": "<p>\"The Conscious Bar is truly innovating the craft chocolate space. As a Chef we try to speak the language of the foods from the lands in which our journey has allowed us to experience. These guys speak in the most fluent and natural epicurean language with delicious, clean & honest ingredients that fuel the soul and literally give back to mother nature through their commitment to sustainability.\"</p>"
           }
@@ -783,7 +841,9 @@
         "heading_color": "",
         "heading_gradient": "",
         "testimonial_card_background": "rgba(0,0,0,0)",
-        "testimonial_card_text_color": "#2f130c"
+        "testimonial_card_text_color": "#2f130c",
+        "verified_badge_background": "#2e7d4f",
+        "verified_badge_text_color": "#ffffff"
       }
     },
     "scrolling_text_zdynWa": {
@@ -819,7 +879,8 @@
             "content": "<p><strong>Working directly with farmers</strong> enables us to ensure the welfare and success of the entire value chain. This also allows us to provide & market our products responsibility so that our customers can enjoy the experience of indulging in our products while feeling at ease that our farmers are well taken care of. </p>",
             "link_url": "shopify://pages/direct-trade",
             "link_text": "LEARN MORE",
-            "link_style": "button"
+            "link_style": "button",
+            "scroll_to_anchor": ""
           }
         },
         "item_fUmkwE": {
@@ -832,7 +893,8 @@
             "content": "<p>Our packaging is<strong> plastic free</strong>, made entirely with post consumer waste products (<strong>PCW</strong>). Our interior film wrappers and exterior sealing stickers are also <strong>compostable & biodegradable</strong>, made out of eco-friendly materials such as eucalyptus wood pulp obtained from controlled plantations...</p>",
             "link_url": "shopify://pages/sustainability",
             "link_text": "LEARN MORE",
-            "link_style": "button"
+            "link_style": "button",
+            "scroll_to_anchor": ""
           }
         },
         "item_ULqRxD": {
@@ -845,7 +907,8 @@
             "content": "<p>Chocolate can be more than a treat—it can be a powerhouse of nutrition. With <strong>Organic Cacao</strong> and <strong>Organic Dates</strong> as our main ingredients, The Conscious Bar offers indulgence that’s as nourishing as it is delicious – and we have the science to back it up. Let’s dive into the data, shall we?</p>",
             "link_url": "shopify://pages/the-science",
             "link_text": "LEARN MORE",
-            "link_style": "button"
+            "link_style": "button",
+            "scroll_to_anchor": ""
           }
         }
       },
@@ -969,6 +1032,7 @@
     "testimonials_RbAMjB",
     "impact_text_BpJ6tQ",
     "slideshow_QijWGX",
+    "featured_testimonial_jayC",
     "impact_text_TQLDzq",
     "images_with_text_scrolling_ECV7kL",
     "featured_collection_9mrTdH",

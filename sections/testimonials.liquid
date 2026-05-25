@@ -33,6 +33,33 @@
         --testimonial-list-carousel-item-width: calc(100% / 3 - (var(--grid-gutter) / 3 * 2));
       }
     }
+
+    {%- assign vb_bg = section.settings.verified_badge_background -%}
+    {%- if vb_bg == blank or vb_bg == 'rgba(0,0,0,0)' -%}{%- assign vb_bg = '#2e7d4f' -%}{%- endif -%}
+    {%- assign vb_color = section.settings.verified_badge_text_color -%}
+    {%- if vb_color == blank or vb_color == 'rgba(0,0,0,0)' -%}{%- assign vb_color = '#ffffff' -%}{%- endif -%}
+
+    #shopify-section-{{ section.id }} .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: {{ vb_bg }};
+      color: {{ vb_color }};
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .verified-badge svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
   </style>
 
   <div {% render 'section-properties' %}>
@@ -76,7 +103,17 @@
                     {%- endif -%}
 
                     {%- if block.settings.author != blank -%}
-                      <p class="text-subdued">{{ block.settings.author | escape }}</p>
+                      <p class="text-subdued">
+                        {{ block.settings.author | escape }}
+                        {%- if block.settings.show_verified_badge -%}
+                          <span class="verified-badge">
+                            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            {{ block.settings.verified_badge_text | default: 'Verified Buyer' | escape }}
+                          </span>
+                        {%- endif -%}
+                      </p>
                     {%- endif -%}
                   </div>
                 </div>
@@ -147,6 +184,18 @@
           "type": "text",
           "id": "author",
           "label": "Author"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_verified_badge",
+          "label": "Show Verified Buyer badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "verified_badge_text",
+          "label": "Verified badge text",
+          "default": "Verified Buyer"
         },
         {
           "type": "text",
@@ -241,6 +290,22 @@
       "type": "color",
       "id": "testimonial_card_text_color",
       "label": "Testimonial card text"
+    },
+    {
+      "type": "header",
+      "content": "Verified badge"
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_background",
+      "label": "Badge background",
+      "default": "#2e7d4f"
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_text_color",
+      "label": "Badge text",
+      "default": "#ffffff"
     }
   ],
   "presets": [

@@ -13499,10 +13499,6 @@ shopify-accelerated-checkout {
 .product-limited-edition-mint .quantity-selector {
   border-color: #1e7d42;
 }
-.product-limited-edition-mint .product-quantity-display {
-  border-color: #1e7d42;
-}
-
 /* Mint Chocolate Chip Limited Edition badge — replaces the default gold gradient */
 .limited_edition_badge--mint {
   background: #1e7d42 !important;

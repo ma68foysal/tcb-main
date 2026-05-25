@@ -1,0 +1,360 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  {%- assign vb_bg = section.settings.verified_badge_background -%}
+  {%- if vb_bg == blank or vb_bg == 'rgba(0,0,0,0)' -%}{%- assign vb_bg = '#2e7d4f' -%}{%- endif -%}
+  {%- assign vb_color = section.settings.verified_badge_text_color -%}
+  {%- if vb_color == blank or vb_color == 'rgba(0,0,0,0)' -%}{%- assign vb_color = '#ffffff' -%}{%- endif -%}
+
+  #shopify-section-{{ section.id }} {
+    --ft-quote-color: {{ section.settings.quote_color | default: '#d4b896' }};
+    --ft-author-color: {{ section.settings.author_color | default: '#ffffff' }};
+    --ft-label-color: {{ section.settings.label_color | default: '#bfae9a' }};
+    --ft-subheading-color: {{ section.settings.subheading_color | default: '#ffffff' }};
+    --ft-description-color: {{ section.settings.description_color | default: '#cfc1b0' }};
+    --ft-content-max-width: {{ section.settings.content_max_width }}px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial {
+    text-align: center;
+    max-width: var(--ft-content-max-width);
+    margin-inline: auto;
+    padding-block: {{ section.settings.padding_vertical }}px;
+    padding-inline: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__subheading {
+    color: var(--ft-subheading-color);
+    font-size: {{ section.settings.subheading_size }}px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__description {
+    color: var(--ft-description-color);
+    font-size: {{ section.settings.description_size }}px;
+    line-height: 1.5;
+    margin: 0 auto 28px;
+    max-width: 520px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__quote {
+    color: var(--ft-quote-color);
+    font-family: {{ section.settings.quote_font_family | default: 'Legitima, Georgia, serif' }};
+    font-style: italic;
+    font-size: clamp(20px, 3.2vw, {{ section.settings.quote_size }}px);
+    line-height: 1.4;
+    margin: 0 auto 28px;
+    max-width: 760px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__author-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ft-author-color);
+    font-weight: 600;
+    font-size: {{ section.settings.author_size }}px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__label {
+    color: var(--ft-label-color);
+    font-style: italic;
+    font-size: {{ section.settings.label_size }}px;
+    margin-top: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: {{ vb_bg }};
+    color: {{ vb_color }};
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 3px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} .featured-testimonial__badge svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+</style>
+
+<div {% if section.settings.anchor_id != blank %}id="{{ section.settings.anchor_id | handle }}"{% endif %} {% render 'section-properties' %}>
+  {%- if request.design_mode and section.settings.anchor_id != blank -%}
+    <div style="position:absolute; top:8px; left:8px; z-index:5; background:#111; color:#fff; font-size:11px; line-height:1; padding:4px 6px; border-radius:3px; font-family:monospace; pointer-events:none;">
+      #{{ section.settings.anchor_id | handle }}
+    </div>
+  {%- endif -%}
+
+  <div class="featured-testimonial">
+    {%- if section.settings.subheading != blank -%}
+      <p class="featured-testimonial__subheading">{{ section.settings.subheading | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <div class="featured-testimonial__description">{{ section.settings.description }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.quote != blank -%}
+      <blockquote class="featured-testimonial__quote">{{ section.settings.quote }}</blockquote>
+    {%- endif -%}
+
+    {%- if section.settings.author_name != blank -%}
+      <div class="featured-testimonial__author-row">
+        <span>{{ section.settings.author_name | escape }}</span>
+        {%- if section.settings.show_verified_badge -%}
+          <span class="featured-testimonial__badge">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.verified_badge_text | default: 'Verified Buyer' | escape }}
+          </span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.author_label != blank -%}
+      <div class="featured-testimonial__label">{{ section.settings.author_label | escape }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured testimonial",
+  "class": "shopify-section--featured-testimonial",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Anchor"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Add a unique ID (e.g. featured-quote) to scroll to this section."
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Yes, it costs more than a candy bar."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>It's also the only one made of two organic ingredients, that your body actually thanks you for.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote",
+      "default": "<p>&ldquo;FINALLY! a chocolate that doesn&rsquo;t make you want to eat every last piece&hellip;. Don&rsquo;t balk at the price: Conscious Bars are an excellent value.&rdquo;</p>"
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author name",
+      "default": "Jay C."
+    },
+    {
+      "type": "text",
+      "id": "author_label",
+      "label": "Author sub-label",
+      "info": "Shown in italics below the author (e.g. product name).",
+      "default": "Smooth Dark Chocolate"
+    },
+    {
+      "type": "header",
+      "content": "Verified badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_badge",
+      "label": "Show Verified Buyer badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "verified_badge_text",
+      "label": "Badge text",
+      "default": "Verified Buyer"
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_background",
+      "label": "Badge background",
+      "default": "#2e7d4f"
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_text_color",
+      "label": "Badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 900
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 20,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "header",
+      "content": "Typography sizes"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "quote_size",
+      "label": "Quote max size",
+      "min": 18,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "quote_font_family",
+      "label": "Quote font family (CSS)",
+      "info": "CSS font-family stack. Leave default for theme italic serif.",
+      "default": "Legitima, Georgia, serif"
+    },
+    {
+      "type": "range",
+      "id": "author_size",
+      "label": "Author size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Sub-label size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#3a2418"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Default text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#cfc1b0"
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote color",
+      "default": "#d4b896"
+    },
+    {
+      "type": "color",
+      "id": "author_color",
+      "label": "Author color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Sub-label color",
+      "default": "#bfae9a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured testimonial"
+    }
+  ]
+}
+{% endschema %}

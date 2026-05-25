@@ -31,7 +31,7 @@
     <div {% unless section.settings.stack_mobile %}class="scroll-area bleed {% if section.blocks.size < 3 %}sm:unbleed{% else %}md:unbleed{% endif %}"{% endunless %}>
       <div class="impact-text impact-text--{{ section.settings.text_alignment }} {% unless section.settings.stack_mobile %}impact-text--scroll{% endunless %}">
           {%- for block in section.blocks -%}
-            <div class="snap-center" {{ block.shopify_attributes }}>
+            <div class="snap-center{% if block.settings.scroll_to_anchor != blank %} has-scroll-to{% endif %}" {% if block.settings.scroll_to_anchor != blank %}data-scroll-to="{{ block.settings.scroll_to_anchor | handle }}"{% endif %} {{ block.shopify_attributes }}>
               {%- if block.settings.title != blank -%}
                 <h2 class="impact-text__text heading break-all">
                   <impact-text {% if block.settings.animate_impact_text %}count-up="{{ block.settings.animate_impact_text_duration }}"{% endif %} reveal-js>
@@ -73,6 +73,26 @@
       </div>
     </div>
   </div>
+
+  <style>
+    #shopify-section-{{ section.id }} .has-scroll-to { cursor: pointer; }
+  </style>
+
+  <script>
+    (function() {
+      var root = document.getElementById('shopify-section-{{ section.id }}');
+      if (!root) return;
+      root.querySelectorAll('[data-scroll-to]').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          if (e.target.closest('a, button')) return;
+          var target = document.getElementById(el.dataset.scrollTo);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
 {%- endif -%}
 
 {% schema %}
@@ -122,6 +142,12 @@
           "type": "url",
           "id": "button_url",
           "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "scroll_to_anchor",
+          "label": "Scroll to anchor ID",
+          "info": "Enter another section's Anchor ID (e.g. best-sellers, no #). Clicking this block scrolls to that section."
         },
         {
           "type": "header",

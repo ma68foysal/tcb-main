@@ -24,7 +24,7 @@
 
           {%- case block.type -%}
             {%- when 'item' -%}
-              <div class="multi-column__item justify-{{ section.settings.text_alignment }} snap-start" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {{ block.shopify_attributes }}>
+              <div class="multi-column__item justify-{{ section.settings.text_alignment }} snap-start{% if block.settings.scroll_to_anchor != blank %} has-scroll-to{% endif %}" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {% if block.settings.scroll_to_anchor != blank %}data-scroll-to="{{ block.settings.scroll_to_anchor | handle }}"{% endif %} {{ block.shopify_attributes }}>
                 {%- if block.settings.video != blank -%}
                   <video-media autoplay style="--aspect-ratio: {{ block.settings.video.aspect_ratio }}">
                     {{ block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'metadata', class: 'rounded' }}
@@ -66,6 +66,26 @@
       </div>
     </div>
   </div>
+
+  <style>
+    #shopify-section-{{ section.id }} .has-scroll-to { cursor: pointer; }
+  </style>
+
+  <script>
+    (function() {
+      var root = document.getElementById('shopify-section-{{ section.id }}');
+      if (!root) return;
+      root.querySelectorAll('[data-scroll-to]').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          if (e.target.closest('a, button')) return;
+          var target = document.getElementById(el.dataset.scrollTo);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
 {%- endif -%}
 
 {% schema %}
@@ -283,6 +303,12 @@
             }
           ],
           "default": "link"
+        },
+        {
+          "type": "text",
+          "id": "scroll_to_anchor",
+          "label": "Scroll to anchor ID",
+          "info": "Enter another section's Anchor ID (e.g. best-sellers, no #). Clicking this column scrolls to that section."
         }
       ]
     },

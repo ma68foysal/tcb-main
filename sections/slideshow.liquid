@@ -152,7 +152,11 @@ LIQUID
         </div>
       {%- endcapture -%}
 
-      {%- if block.settings.button_link != blank and block.settings.button_text == blank -%}
+      {%- if block.settings.scroll_to_anchor != blank -%}
+        <div id="block-{{ block.id }}" class="slideshow__slide has-scroll-to {% if forloop.first %}is-selected{% endif %}" data-slide-type="{{ block.type }}" data-scroll-to="{{ block.settings.scroll_to_anchor | handle }}" role="group" {{ block.shopify_attributes }}>
+          {{- slide -}}
+        </div>
+      {%- elsif block.settings.button_link != blank and block.settings.button_text == blank -%}
         <a id="block-{{ block.id }}" href="{{ block.settings.button_link }}" class="slideshow__slide {% if forloop.first %}is-selected{% endif %}" data-slide-type="{{ block.type }}" role="group" {{ block.shopify_attributes }}>
           {{- slide -}}
         </a>
@@ -206,6 +210,26 @@ LIQUID
     {%- endif -%}
   </slideshow-carousel>
 </x-slideshow>
+
+<style>
+  #shopify-section-{{ section.id }} .slideshow__slide.has-scroll-to { cursor: pointer; }
+</style>
+
+<script>
+  (function() {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    root.querySelectorAll('[data-scroll-to]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        if (e.target.closest('a, button')) return;
+        var target = document.getElementById(el.dataset.scrollTo);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -537,6 +561,12 @@ LIQUID
           "info": "Leave the button text empty to make the slide fully clickable."
         },
         {
+          "type": "text",
+          "id": "scroll_to_anchor",
+          "label": "Scroll to anchor ID",
+          "info": "Enter another section's Anchor ID (e.g. best-sellers, no #). Clicking this slide scrolls to that section. Overrides Button link's slide-clickable behavior."
+        },
+        {
           "type": "header",
           "content": "Slide colors"
         },
@@ -767,6 +797,12 @@ LIQUID
           "id": "button_link",
           "label": "Button link",
           "info": "Leave the button text empty to make the slide fully clickable."
+        },
+        {
+          "type": "text",
+          "id": "scroll_to_anchor",
+          "label": "Scroll to anchor ID",
+          "info": "Enter another section's Anchor ID (e.g. best-sellers, no #). Clicking this slide scrolls to that section. Overrides Button link's slide-clickable behavior."
         },
         {
           "type": "header",
