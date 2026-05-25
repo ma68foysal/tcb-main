@@ -1,0 +1,608 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "impact_text_am9LC4": {
+      "type": "impact-text",
+      "blocks": {
+        "item_TxwdYa": {
+          "type": "item",
+          "settings": {
+            "title": "Redefine What Sweetness Means.",
+            "title2": "",
+            "subheading": "",
+            "content": "<p>We are building the future of chocolate—ethical, healthy, and absolutely guilt-free. Join us in making the world a little happier, one bar at a time.</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_TxwdYa"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 70px; }}",
+        ".section-blends {padding-top: 40px; padding-bottom: 0px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.6,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#39180f",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "slideshow_ipcQzX": {
+      "type": "slideshow",
+      "blocks": {
+        "video_7Lbed8": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/ORBIT-5-01-LITE (1).mp4",
+            "content_max_width": 1080,
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-start-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "word_with_spacing": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "rgba(0,0,0,0)",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_7Lbed8"
+      ],
+      "custom_css": [
+        ".slideshow_title2 {font-family: Legitima; font-style: italic;}",
+        ".subheading {font-weight: 400 !important;}",
+        ".slideshow_content {display: flex; flex-direction: column-reverse;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_and": false,
+        "allow_transparent_header": false,
+        "show_initial_transition": false,
+        "image_size": "lg",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "rich_text_FKCxWG": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_deQUkk": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Our Cacao’s Journey from the Semuliki Forest"
+          }
+        },
+        "heading_fj8GnX": {
+          "type": "heading",
+          "settings": {
+            "text": "Sourcing With Integrity",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_nhekTX": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe that every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, through <em>Latitude Craft Chocolate</em>. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and offering you chocolate with an incredible, ethically rooted flavor. </p><p><em>Latitude Trade Company</em> produces award-winning specialty cacao employing more than 50 organized rural collection points for producers to sell fresh cacao weekly into the network. The producers receive a premium cash price at the point-of-sale. Semuliki Forest cacao is sourced from the region around Bundibugyo in Western Uganda.</p>"
+          }
+        },
+        "richtext_nxfc6f": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, via Latitude Craft Chocolate. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and delivering chocolate with ethically rooted flavor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_deQUkk",
+        "heading_fj8GnX",
+        "richtext_nhekTX",
+        "richtext_nxfc6f"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "scrolling_text_L7Ag9U": {
+      "type": "scrolling-text",
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "text": "The Conscious Bar",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 20,
+        "background": "#39180f",
+        "background_gradient": "",
+        "text_color": "#e5dac6",
+        "text_gradient": ""
+      }
+    },
+    "multi_column_6bDbXF": {
+      "type": "multi-column",
+      "blocks": {
+        "item_p9axdP": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Single-Origin Purity",
+            "heading_tag": "h4",
+            "content": "<p>By sourcing exclusively from the Semuliki Forest, we capture the region's distinctive flavor profile—deep, fudgy chocolate notes with hints of fruit and spice. This single-origin approach ensures consistency and authenticity in every bite.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_ptjmER": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Empowering Communities",
+            "heading_tag": "h4",
+            "content": "<p>Our direct trade model invests in long-term community projects, including education, healthcare, and sustainable farming initiatives. By prioritizing these areas, we contribute to the overall well-being and development of the farming communities.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_qCtJGV": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Direct Collaboration:",
+            "heading_tag": "h4",
+            "content": "<p>Our farmers are paid 20-30% above local market prices, providing cash payments at over 50 rural collection points. This approach not only offers immediate financial support but also fosters economic stability within the community.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_3EwkKV": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_efmrhJ": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_p9axdP",
+        "item_ptjmER",
+        "item_qCtJGV",
+        "item_3EwkKV",
+        "item_efmrhJ"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "x-large",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "What Direct Trade Means in Practice",
+        "content": "",
+        "background": "#f5edde",
+        "background_gradient": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(181, 131, 72, 0.78) 100%)",
+        "text_color": "#39180f"
+      }
+    },
+    "media_with_text_Aq4MtC": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_3dFmeR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-293.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Bridging Farmers",
+            "content": "<p><em><strong>Latitude Trade Company</strong></em> produces award-winning specialty cacao employing more than 50 organized rural collection points for producers to sell fresh cacao weekly into the network. The producers receive a premium cash price at the point-of-sale. Semuliki Forest cacao is sourced from the region around Bundibugyo in Western Uganda. </p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#b58348",
+            "background_gradient": "linear-gradient(221deg, rgba(181, 131, 72, 0.45), rgba(181, 131, 72, 0.71) 100%)",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_bihzew": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Eqdr.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Quality and Fair Trade",
+            "content": "<p>​Compañía Exportadora de Cacao de Aroma y Orgánico (CECAO) is an Ecuadorian exporter of organic, Fair Trade-certified cacao. Partnering with 10 community-based associations, CECAO supports over 1,800 producers, ensuring fair prices and sustainable farming practices. Each association manages its own fermentation and drying facilities to maintain high-quality standards.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#d0af87",
+            "background_gradient": "linear-gradient(180deg, rgba(208, 175, 135, 1), rgba(208, 175, 135, 0.8) 100%)",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_3dFmeR",
+        "image_bihzew"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 48px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "spacing": "none"
+      }
+    },
+    "specification_table_rJPKAB": {
+      "type": "specification-table",
+      "blocks": {
+        "row_kjeCpe": {
+          "type": "row",
+          "settings": {
+            "heading": "",
+            "value": "<p>Most chocolate comes with a hidden cost—to your health and to the planet. We decided to change the script.</p><p>At The Conscious Bar, we combine superfoods like organic cacao and dates to create an indulgence that heals rather than harms. From the forests of Uganda to our plastic-free packaging, every decision we make is rooted in respect. We aren't just selling bars; we are leading a movement towards conscious consumption.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_kjeCpe"
+      ],
+      "custom_css": [
+        ".section-blends {padding-top: 48px; padding-bottom: 48px;}",
+        ".feature-chart__table-row {display: flex; flex-direction: column;}",
+        ".subheading {font-family: Legitima; font-style: italic;}"
+      ],
+      "name": "Specification table",
+      "settings": {
+        "full_width": true,
+        "subheading": "The Mission",
+        "title": "More Than Just Chocolate",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 9,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "specification_table_BK8aiV": {
+      "type": "specification-table",
+      "blocks": {
+        "row_3EQTMU": {
+          "type": "row",
+          "settings": {
+            "heading": "Deeply Collaborative",
+            "value": "<p>We are a small, tight-knit team. Whether it’s Slack brainstorming sessions or weekly strategy calls, your voice matters. We value clarity, kindness, and honest feedback over corporate jargon.</p>"
+          }
+        },
+        "row_P37Ba6": {
+          "type": "row",
+          "settings": {
+            "heading": "Obsessed with Quality",
+            "value": "<p>\"Good enough\" isn't in our recipe. Whether it's the code on our website or the cacao in our bars, we sweat the details. We take pride in craftsmanship in everything we do.</p>"
+          }
+        },
+        "row_3qWLAW": {
+          "type": "row",
+          "settings": {
+            "heading": "Growth Mindset",
+            "value": "<p>Just like our ingredients, we want you to grow naturally. We support experimentation, learning new tools, and taking ownership of your projects. If you have a better way to do it, we want to see it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_3EQTMU",
+        "row_P37Ba6",
+        "row_3qWLAW"
+      ],
+      "custom_css": [
+        ".section-blends {padding-top: 48px; padding-bottom: 48px;}",
+        ".subheading {font-family: Legitima; font-style: italic;}"
+      ],
+      "name": "Specification table",
+      "settings": {
+        "full_width": true,
+        "subheading": "Culture & Values",
+        "title": "Life Inside The Conscious Bar",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 9,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "image_with_text_overlay_8g4tdV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_AifhUL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Direct Trade"
+          }
+        },
+        "heading_xgcNwP": {
+          "type": "heading",
+          "settings": {
+            "text": "Sourcing With Integrity",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_gmKy3T": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, via Latitude Craft Chocolate. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and delivering chocolate with ethically rooted flavor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_AifhUL",
+        "heading_xgcNwP",
+        "richtext_gmKy3T"
+      ],
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/EDITED--2.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "images_with_text_scrolling_fNr4dJ": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_cJCJTp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-346_3e3a08a8-ce00-4d7d-8334-67748000e17b.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Generational Expertise",
+            "content": "<p>Many of our farmers have inherited their cacao farms, carrying forward time-honored techniques that produce consistently high-quality cacao. This generational knowledge is invaluable in maintaining the integrity of our chocolate.</p>"
+          }
+        },
+        "item_YT7ntL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-653.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Empowering Women",
+            "content": "<p>We proudly support female-led farms, recognizing the pivotal role women play in agriculture. Nearly <em>50% of the farms are female owned. </em>Their leadership brings strength, skill, and innovation to farming practices, fostering a more inclusive and prosperous community.</p>"
+          }
+        },
+        "item_6Wmz94": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-74-2.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Sustainability in Action",
+            "content": "<p>Fair compensation enables farmers to invest in sustainable practices, such as organic farming and environmental conservation. These efforts ensure the long-term health of the land and the quality of the cacao.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_cJCJTp",
+        "item_YT7ntL",
+        "item_6Wmz94"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 32px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "scrolling_text_PVh9PP": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "text": "Sustainable Packaging",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "#212619",
+        "background_gradient": "",
+        "text_color": "#f5edde",
+        "text_gradient": ""
+      }
+    },
+    "faq_CweLwV": {
+      "type": "faq",
+      "blocks": {
+        "item_frrE7e": {
+          "type": "item",
+          "settings": {
+            "title": "Part-Time Contractor — Social Media & Community Manager (Miami)",
+            "content": "<h4>About The Conscious Bar</h4><p>The Conscious Bar is redefining chocolate as a nourishing pleasure—built on real ingredients, real education, and real community.</p><p></p><h4>The Role (Contractor)</h4><p>You’ll own the <em>day-to-day execution</em> of our organic social presence and community. You are not the lead strategist, but you are the person who makes the plan come alive: posting consistently, engaging the community in real time, and capturing native content when needed.</p><p></p><h4>Key Responsibilities</h4><p><strong>Publishing + Scheduling</strong></p><ul><li>Manage scheduling and posting across all organic platforms (Instagram, TikTok, etc.).</li><li>Own the publishing calendar and ensure consistency across channels.</li><li>Coordinate with Creative Director/creative team to receive assets and post on time.</li></ul><p><strong>Captions + Platform Execution</strong></p><ul><li>Write/edit platform-specific captions in TCB voice (clean, minimal, witty, educational when needed).</li><li>Handle tagging, hashtags, geo-tags (Miami), and platform-native formatting best practices.</li><li>Maintain organized workflows for assets, drafts, approvals, and versioning.</li></ul><p><strong>Community Management (Comments + DMs)</strong></p><ul><li>Respond to comments across platforms quickly and in brand voice.</li><li>Respond to DMs, triage support needs, and escalate when necessary.</li><li>Track FAQs, objections, and recurring community themes; report insights weekly.</li></ul><p><strong>Stories Posting + Community Building</strong></p><ul><li>Post Stories daily: scheduled assets + timely, “in the moment” content.</li><li>Keep Stories feeling alive using polls, question boxes, quizzes, reposts, UGC, and community prompts.</li><li>Maintain Story hygiene (high frequency, low friction, native feel).</li></ul><p><strong>Native iPhone Content Capture (A Must)</strong></p><ul><li>Shoot native-to-platform iPhone content as needed (Stories/Reels/TikTok style).</li><li>Capture quick BTS, in-store moments, team moments, product moments, and Miami lifestyle moments.</li><li>Maintain strong composition, lighting, framing, and aesthetic consistency with the brand.</li><li>Coordinate with team occasionally to record certain moments/content when prompted.</li></ul><p><strong>Trend + Culture Fluency</strong></p><ul><li>Stay current on organic IG/TikTok trends, platform features, editing styles, and cultural moments.</li><li>Understand internet language, memes, sounds, formats, pop culture, and “what’s hitting right now.”</li><li>Bring trend opportunities to the team (lightweight suggestions + “we should post this today” instincts).</li></ul><p><strong>On-Camera Presence</strong></p><ul><li>Comfortable filming selfie-style clips and appearing on camera when needed (quick community updates, story Q&As, reactions, etc.).</li></ul><h4>Requirements</h4><ul><li><strong>Miami local</strong> (in-person availability as needed).</li><li>Strong experience running organic IG + TikTok (you know them like the back of your hand).</li><li>Excellent on-camera comfort + confident, natural presence.</li><li>Strong iPhone shooting skills + a great eye for aesthetics (framing, lighting, vibe).</li><li>Deep cultural fluency: trends, pop culture, and social media moments.</li><li>Health + wellness nerd energy (ingredients, labels, wellness lifestyle familiarity).</li><li>Loves chocolate (genuinely).</li></ul><h4>Nice-to-Haves</h4><ul><li>Light editing skills (CapCut, Reels/TikTok native edits, subtitles).</li><li>Experience with wellness/CPG brands.</li><li>UGC instincts and creator coordination experience.</li></ul><h4>Time Commitment</h4><ul><li>Part-time contractor (typical range: ~10–20 hrs/week depending on content volume).</li><li>Some weekend responsiveness may be required for community.</li></ul><h4>Success Looks Like</h4><ul><li>We post consistently without gaps.</li><li>Comments/DMs feel fast, warm, at times witty and “real.”</li><li>Stories feel like a community hub (not just announcements)<br/></li><li>IG Lives + Live Shopping moments now and then</li><li>Native iPhone content adds freshness and cultural relevance.</li></ul><h4>Contractor Note</h4><p>This is a <strong>1099 contractor</strong> position.</p>",
+            "button_label": "Apply Now",
+            "button_link": "https://form.typeform.com/to/cppC6K3O"
+          }
+        },
+        "item_APi8Hg": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Growth Marketing Manager",
+            "content": "<p><strong>Job Title:</strong> Graphics Designer<strong>Location:</strong> Remote</p><p><strong>Job Type:</strong> Part-time, Monthly Contract</p><p><strong>Experience Level:</strong> Intermediate (1–2 years)</p><p><strong>Salary:</strong> Negotiable</p><p><strong>About Batin Studio:</strong><br/>Batin Studio is a dynamic digital product design and development agency specializing in creating bespoke e‑commerce solutions and brand experiences. We design and build products that help our clients stand out in the crowded online marketplace.</p><p><strong>Role Overview:</strong><br/>We are looking for an experienced Graphics Designer to join our team on a part-time, contract basis. You’ll be responsible for creating compelling visual assets across social media, marketing campaigns, and other brand touchpoints. </p><p><br/></p><p><strong>Key Responsibilities:</strong></p><p></p><ul><li>Design high-quality static posts, carousels, story packs, and promotional graphics for social media channels.</li><li>Create product cut‑outs, hero images, and other visual assets that align with brand guidelines.</li><li>Work closely with our design lead to translate concepts into polished visuals.</li><li>Organize design files for easy reuse and iteration.</li><li>Ensure all designs adhere to brand aesthetics, typography, and color palettes.</li></ul><p></p><p><strong>Qualifications:</strong></p><p></p><ul><li>1–2 years of professional graphic design experience.</li><li>Proficiency with Figma and at least one of Canva, Photoshop, or Illustrator.</li><li>Strong portfolio demonstrating social media design and visual storytelling.</li><li>Excellent attention to detail, layout, and composition.</li><li>Ability to manage multiple projects and deliver on time.</li><li>Clear written and verbal communication skills.</li></ul><p></p><p><strong>Contract & Growth:</strong></p><p></p><ul><li>This role is structured as a monthly contract (~15–20 hours/week).</li><li>After two months, we’ll review performance with the option of transitioning to a full-time position.</li><li>Salary is negotiable based on experience and demonstrated skill.</li></ul><p></p><p><strong>How to Apply: </strong>Interested candidates are invited to submit their resume and portfolio through the following Google Form: https://forms.gle/uibUHdQJKPaHPVA99</p><p><strong>Application Deadline:</strong> 20th September, 2025</p><p>Batin Studio is an equal opportunity employer. We value diversity and are committed to creating an inclusive environment for all employees.</p>",
+            "button_label": "Apply Now",
+            "button_link": "https://forms.gle/256FwTBbeqyBLhXU7"
+          }
+        }
+      },
+      "block_order": [
+        "item_frrE7e",
+        "item_APi8Hg"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Open Positions",
+        "content": "<p>Use this text to share information about your product or shipping policies.</p>",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "impact_text_am9LC4",
+    "slideshow_ipcQzX",
+    "rich_text_FKCxWG",
+    "scrolling_text_L7Ag9U",
+    "multi_column_6bDbXF",
+    "media_with_text_Aq4MtC",
+    "specification_table_rJPKAB",
+    "specification_table_BK8aiV",
+    "image_with_text_overlay_8g4tdV",
+    "images_with_text_scrolling_fNr4dJ",
+    "scrolling_text_PVh9PP",
+    "faq_CweLwV"
+  ]
+}

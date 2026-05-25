@@ -1,0 +1,88 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_tradepage_jWhjP4": {
+      "type": "image-with-text-tradepage",
+      "blocks": {
+        "source_item_U6yPdP": {
+          "type": "source_item",
+          "settings": {
+            "image": "shopify://shop_images/chocolate_news.jpg",
+            "title": "Chocolate News",
+            "current_batch": false,
+            "link": "shopify://blogs/news",
+            "badge_speciality": "Specialty of the farm"
+          }
+        },
+        "source_item_b6Lg3h": {
+          "type": "source_item",
+          "settings": {
+            "image": "shopify://shop_images/science_and_nutrition.jpg",
+            "title": "Science & Nutrition",
+            "current_batch": false,
+            "link": "shopify://blogs/cacao",
+            "badge_speciality": "Specialty of the farm"
+          }
+        },
+        "source_item_RqhkaM": {
+          "type": "source_item",
+          "settings": {
+            "image": "shopify://shop_images/recipes.jpg",
+            "title": "Recipes",
+            "current_batch": false,
+            "link": "shopify://blogs/recipes",
+            "badge_speciality": "Specialty of the farm"
+          }
+        }
+      },
+      "block_order": [
+        "source_item_U6yPdP",
+        "source_item_b6Lg3h",
+        "source_item_RqhkaM"
+      ],
+      "custom_css": [
+        ".source-labels {display: none;}",
+        ".sources-section {padding-top: 0px;}"
+      ],
+      "name": "Image-with-text-trade",
+      "settings": {
+        "heading": "TCB Magazine",
+        "subheading": "",
+        "stack_mobile": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "custom_html_fmpde3": {
+      "type": "custom-html",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "html": "<div class=\"klaviyo-form-WwnVfB\"></div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "image_with_text_tradepage_jWhjP4",
+    "main",
+    "custom_html_fmpde3"
+  ]
+}

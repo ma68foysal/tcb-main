@@ -1,0 +1,759 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "slideshow_ipcQzX": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RN6Y9H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-0054.jpg",
+            "mobile_image": "shopify://shop_images/EDITED-0054_6a07c9cf-3687-41f2-8544-42a942a89634.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Sourcing Isn’t a Back-End Process",
+            "title": "It’s the Beginning of Everything",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_RN6Y9H"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "show_and": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "impact_text_am9LC4": {
+      "type": "impact-text",
+      "blocks": {
+        "item_TxwdYa": {
+          "type": "item",
+          "settings": {
+            "title": "What Direct Trade Means To Us",
+            "subheading": "",
+            "content": "<p>Every ingredient tells a story. At The Conscious Bar, we partner directly with farmers to source high-quality, ethically grown cacao. Discover the origins and communities behind our ingredients.</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_TxwdYa"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 70px; }}",
+        ".section-blends {padding-top: 40px; padding-bottom: 0px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.6,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "linear-gradient(180deg, rgba(57, 24, 15, 0.851) 15%, rgba(181, 131, 72, 0.7608) 85%)",
+        "text_color": "#39180f",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "text_with_icons_AyYFcw": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_B7afi8": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-earth",
+            "custom_icon": "shopify://shop_images/Traceable_Origins_f4b92f5f-f06c-414f-ad36-a0f77197b163.png",
+            "mobile_icon_width": 48,
+            "icon_width": 72,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Traceable Origins",
+            "content": "<p>We maintain full transparency in our sourcing, allowing you to trace every bean back to the Semuliki Forest. This traceability guarantees quality and accountability in every bar.</p>"
+          }
+        },
+        "item_efCc4j": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-money",
+            "custom_icon": "shopify://shop_images/Beyond_Fair_Wages_e4d9881d-6b27-4396-b3d2-2b6aea5ea872.png",
+            "mobile_icon_width": 48,
+            "icon_width": 72,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Beyond Fair Wages",
+            "content": "<p>Our direct trade model ensures farmers receive competitive, stable pay, empowering them to build better futures for themselves and their communities. This approach fosters trust and mutual respect throughout the supply chain.</p>"
+          }
+        },
+        "item_qeAWee": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-validation",
+            "custom_icon": "shopify://shop_images/Taste_you_can_trust_d68da69e-1858-44d4-bdfd-d0d6fc2a04d7.png",
+            "mobile_icon_width": 48,
+            "icon_width": 72,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Taste You Can Trust",
+            "content": "<p>By eliminating middlemen and focusing on direct relationships, we preserve the true flavors of cacao, offering you a chocolate experience that's both authentic and indulgent.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_B7afi8",
+        "item_efCc4j",
+        "item_qeAWee"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 8px; padding-bottom: 48px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "",
+        "heading_tag": "h5",
+        "text_alignment": "center",
+        "icon_spacing": "medium",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_with_text_overlay_8g4tdV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_AifhUL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Direct Trade"
+          }
+        },
+        "heading_xgcNwP": {
+          "type": "heading",
+          "settings": {
+            "text": "Sourcing With Integrity",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_gmKy3T": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, via Latitude Craft Chocolate. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and delivering chocolate with ethically rooted flavor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_AifhUL",
+        "heading_xgcNwP",
+        "richtext_gmKy3T"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/EDITED--2.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "rich_text_FKCxWG": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_deQUkk": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Our Cacao’s Journey from the Semuliki Forest"
+          }
+        },
+        "heading_fj8GnX": {
+          "type": "heading",
+          "settings": {
+            "text": "Sourcing With Integrity",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_nhekTX": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe that every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, through <em>Latitude Craft Chocolate</em>. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and offering you chocolate with an incredible, ethically rooted flavor. </p><p><em>Latitude Trade Company</em> produces award-winning specialty cacao employing more than 50 organized rural collection points for producers to sell fresh cacao weekly into the network. The producers receive a premium cash price at the point-of-sale. Semuliki Forest cacao is sourced from the region around Bundibugyo in Western Uganda.</p>"
+          }
+        },
+        "richtext_nxfc6f": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At The Conscious Bar, we believe every bar of chocolate should make the world a little better. That’s why we source our cacao through direct partnerships with farmers in Uganda's Semuliki Forest, via Latitude Craft Chocolate. This isn’t just about fair wages—it’s about creating a brighter future for farming communities, preserving the land, and delivering chocolate with ethically rooted flavor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_deQUkk",
+        "heading_fj8GnX",
+        "richtext_nhekTX",
+        "richtext_nxfc6f"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "scrolling_text_L7Ag9U": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "text": "The Source",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "#39180f",
+        "background_gradient": "",
+        "text_color": "#f5edde",
+        "text_gradient": ""
+      }
+    },
+    "multi_column_6bDbXF": {
+      "type": "multi-column",
+      "blocks": {
+        "item_p9axdP": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Single-Origin Purity",
+            "heading_tag": "h4",
+            "content": "<p>By sourcing exclusively from the Semuliki Forest, we capture the region's distinctive flavor profile—deep, fudgy chocolate notes with hints of fruit and spice. This single-origin approach ensures consistency and authenticity in every bite.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_ptjmER": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Empowering Communities",
+            "heading_tag": "h4",
+            "content": "<p>Our direct trade model invests in long-term community projects, including education, healthcare, and sustainable farming initiatives. By prioritizing these areas, we contribute to the overall well-being and development of the farming communities.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_qCtJGV": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Direct Collaboration:",
+            "heading_tag": "h4",
+            "content": "<p>Our farmers are paid 20-30% above local market prices, providing cash payments at over 50 rural collection points. This approach not only offers immediate financial support but also fosters economic stability within the community.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_3EwkKV": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_efmrhJ": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_p9axdP",
+        "item_ptjmER",
+        "item_qCtJGV",
+        "item_3EwkKV",
+        "item_efmrhJ"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "x-large",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "What Direct Trade Means in Practice",
+        "content": "",
+        "background": "#f5edde",
+        "background_gradient": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(181, 131, 72, 0.78) 100%)",
+        "text_color": "#39180f"
+      }
+    },
+    "media_with_text_Aq4MtC": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_3dFmeR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-293.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Bridging Farmers",
+            "content": "<p><em><strong>Latitude Trade Company</strong></em> produces award-winning specialty cacao employing more than 50 organized rural collection points for producers to sell fresh cacao weekly into the network. The producers receive a premium cash price at the point-of-sale. Semuliki Forest cacao is sourced from the region around Bundibugyo in Western Uganda. </p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#b58348",
+            "background_gradient": "linear-gradient(221deg, rgba(181, 131, 72, 0.45), rgba(181, 131, 72, 0.71) 100%)",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_bihzew": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Eqdr.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Quality and Fair Trade",
+            "content": "<p>​Compañía Exportadora de Cacao de Aroma y Orgánico (CECAO) is an Ecuadorian exporter of organic, Fair Trade-certified cacao. Partnering with 10 community-based associations, CECAO supports over 1,800 producers, ensuring fair prices and sustainable farming practices. Each association manages its own fermentation and drying facilities to maintain high-quality standards.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#d0af87",
+            "background_gradient": "linear-gradient(180deg, rgba(208, 175, 135, 1), rgba(208, 175, 135, 0.8) 100%)",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_3dFmeR",
+        "image_bihzew"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 48px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "spacing": "none"
+      }
+    },
+    "impact_text_a4HWf7": {
+      "type": "impact-text",
+      "blocks": {
+        "item_M6mRc9": {
+          "type": "item",
+          "settings": {
+            "title": "Why This Matters?",
+            "subheading": "",
+            "content": "<p>Sourcing isn’t just about logistics — it’s about equity, integrity, and quality. When farmers are supported through fair pricing and sustainable practices, they can invest back into their land, communities, and product.</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_M6mRc9"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 56px; }}",
+        ".section-blends {padding-top: 32px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.9,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#39180f",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "image_with_text_tradepage_gVBJFA": {
+      "type": "image-with-text-tradepage",
+      "blocks": {
+        "source_item_w3wzdn": {
+          "type": "source_item",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "title": "Explore Uganda Cacao",
+            "current_batch": false,
+            "link": "shopify://pages/uganda",
+            "badge_speciality": "Transparent trade"
+          }
+        },
+        "source_item_QmEqzj": {
+          "type": "source_item",
+          "settings": {
+            "image": "shopify://shop_images/Ecuador_farm_thumbnail.jpg",
+            "title": "Explore Ecuador Cacao",
+            "current_batch": true,
+            "link": "shopify://pages/ecuador",
+            "badge_speciality": "Transparent trade"
+          }
+        },
+        "source_item_krU8Df": {
+          "type": "source_item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/image_8.png",
+            "title": "Semuliki Forest, Uganda",
+            "current_batch": false,
+            "link": "shopify://pages/direct-trade-1",
+            "badge_speciality": "Specialty of the farm"
+          }
+        }
+      },
+      "block_order": [
+        "source_item_w3wzdn",
+        "source_item_QmEqzj",
+        "source_item_krU8Df"
+      ],
+      "custom_css": [
+        ".section-full {padding-top: 0px; padding-bottom: 0px;}",
+        ".h0 {background: linear-gradient( 180deg, rgba(57, 24, 15, 0.851) 15%, rgba(181, 131, 72, 0.7608) 85% ); background-clip: text; color: transparent; font-size: 70px;}"
+      ],
+      "settings": {
+        "heading": "Our Global Sourcing Partners",
+        "subheading": "Every ingredient tells a story. At The Conscious Bar, we partner directly with farmers to source high-quality, ethically grown cacao. Discover the origins and communities behind our ingredients."
+      }
+    },
+    "specification_table_rJPKAB": {
+      "type": "specification-table",
+      "blocks": {
+        "row_kjeCpe": {
+          "type": "row",
+          "settings": {
+            "heading": "Relationship-Based",
+            "value": "<p>We source through trusted partners like<a href=\"https://latitudecraftchocolate.com/\"> <span style=\"text-decoration:underline\">Latitude Trade Company</span></a> in Uganda and<a href=\"https://www.uncommoncacao.com/\"> <span style=\"text-decoration:underline\">Uncommon Cacao</span></a> in Ecuador — organizations built on transparency, traceability, and direct farmer support.</p>"
+          }
+        },
+        "row_epmfiJ": {
+          "type": "row",
+          "settings": {
+            "heading": "Traceable & Transparent",
+            "value": "<p>Every lot is mapped and documented, from farm to fermentation.</p>"
+          }
+        },
+        "row_zjDT4j": {
+          "type": "row",
+          "settings": {
+            "heading": "Farmer-Centric Pricing",
+            "value": "<p>Our partners ensure producers set their own prices above market and Fair Trade minimums.</p>"
+          }
+        },
+        "row_wgjgfA": {
+          "type": "row",
+          "settings": {
+            "heading": "Post-Harvest Excellence",
+            "value": "<p>All cacao is fermented and dried under professional oversight, ensuring quality and food safety.</p>"
+          }
+        },
+        "row_z8rYbL": {
+          "type": "row",
+          "settings": {
+            "heading": "Environmental Stewardship",
+            "value": "<p>All partner organizations prioritize agroforestry, soil health, and long-term sustainability in farming systems.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_kjeCpe",
+        "row_epmfiJ",
+        "row_zjDT4j",
+        "row_wgjgfA",
+        "row_z8rYbL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 48px; padding-bottom: 32px;}"
+      ],
+      "name": "Specification table",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "What Direct Trade Means in Practice",
+        "content": "<p>Where and how cacao is grown determines everything from the flavor in the bar to the income of the farmer. This page outlines the sourcing principles we follow and why those decisions matter — both to the people producing the cacao and to the chocolate it becomes.</p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 9,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "images_with_text_scrolling_fNr4dJ": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_cJCJTp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-346_3e3a08a8-ce00-4d7d-8334-67748000e17b.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Generational Expertise",
+            "content": "<p>Many of our farmers have inherited their cacao farms, carrying forward time-honored techniques that produce consistently high-quality cacao. This generational knowledge is invaluable in maintaining the integrity of our chocolate.</p>"
+          }
+        },
+        "item_YT7ntL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-653.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Empowering Women",
+            "content": "<p>We proudly support female-led farms, recognizing the pivotal role women play in agriculture. Nearly <em>50% of the farms are female owned. </em>Their leadership brings strength, skill, and innovation to farming practices, fostering a more inclusive and prosperous community.</p>"
+          }
+        },
+        "item_6Wmz94": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/EDITED-74-2.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Sustainability in Action",
+            "content": "<p>Fair compensation enables farmers to invest in sustainable practices, such as organic farming and environmental conservation. These efforts ensure the long-term health of the land and the quality of the cacao.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_cJCJTp",
+        "item_YT7ntL",
+        "item_6Wmz94"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 32px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "scrolling_text_PVh9PP": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "text": "Sustainable Packaging",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "#212619",
+        "background_gradient": "",
+        "text_color": "#f5edde",
+        "text_gradient": ""
+      }
+    },
+    "faq_dAbGJK": {
+      "type": "faq",
+      "blocks": {
+        "item_3N6Uzr": {
+          "type": "item",
+          "settings": {
+            "title": "What makes direct trade different from fair trade?",
+            "content": "<p>Direct trade goes beyond fair trade standards by building direct, long-term relationships with farmers. We bypass traditional commodity markets, paying farmers directly and ensuring they receive fair compensation that truly reflects their work and expertise.</p>"
+          }
+        },
+        "item_gGzFxt": {
+          "type": "item",
+          "settings": {
+            "title": "Who are our cacao farmers?",
+            "content": "<p><strong>Uganda: </strong>Our cacao in Uganda is cultivated by smallholder farmers in the Semuliki Forest, where generations of expertise and a deep passion for the land shine through. Through Latitude Trade Co. (LTC), a vertically integrated certified B Corp founded in 2016, we partner with over 4,664 certified organic smallholder producers. Notably, nearly 50% (2,266) are women and 69% (3,228) are under 35 years old, illustrating a vibrant, youthful, and dynamic farming community.</p><p><strong>Ecuador: </strong>In Ecuador, our premium cacao is sourced through CECAO—an Organic and Fair Trade-certified exporter that champions sustainable, high-quality production. CECAO collaborates with 10 community-based associations, supporting a network of approximately 1,800 producers. These dedicated farmers follow innovative and eco-friendly practices, ensuring that every bean meets rigorous quality standards while upholding ethical sourcing values.</p>"
+          }
+        },
+        "item_P8FJRY": {
+          "type": "item",
+          "settings": {
+            "title": "How does our sourcing model support our farmers?",
+            "content": "<p> Our direct trade approach benefits farmers by ensuring they receive premium cash prices at the point-of-sale. In Uganda, Latitude Trade Co. (LTC) empowers over 4,664 certified organic producers—nearly 50% of whom are women and 69% under 35—with sustainable income and modern agricultural support. In Ecuador, CECAO works with 10 community-based associations to support approximately 1,800 producers, providing them with technical assistance and a reliable market that reinforces ethical and sustainable practices.</p>"
+          }
+        },
+        "item_q478yg": {
+          "type": "item",
+          "settings": {
+            "title": "What sustainable farming practices do our farmers employ?",
+            "content": "<p>In Uganda’s Semuliki Forest, farmers blend traditional techniques with modern sustainable practices to preserve the land and maintain quality. They work collectively with LTC to ensure environmentally responsible farming. In Ecuador, the network coordinated by CECAO uses eco-friendly methods, including rigorous fermentation and drying processes and intercropping techniques, to safeguard soil health and enhance the cacao’s flavor profile.</p>"
+          }
+        },
+        "item_dHGTLz": {
+          "type": "item",
+          "settings": {
+            "title": "How do these practices translate into better quality chocolate for customers?",
+            "content": "<p>By sourcing directly from dedicated, ethically supported farmers in Uganda and Ecuador, we ensure that every bean is grown under optimal conditions and harvested with care. This direct connection to our sourcing communities not only supports sustainable livelihoods but also delivers rich, authentic flavors in every chocolate bar you enjoy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_3N6Uzr",
+        "item_gGzFxt",
+        "item_P8FJRY",
+        "item_q478yg",
+        "item_dHGTLz"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 32px; padding-bottom: 8px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#fdf8ee",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ipcQzX",
+    "impact_text_am9LC4",
+    "text_with_icons_AyYFcw",
+    "image_with_text_overlay_8g4tdV",
+    "rich_text_FKCxWG",
+    "scrolling_text_L7Ag9U",
+    "multi_column_6bDbXF",
+    "media_with_text_Aq4MtC",
+    "impact_text_a4HWf7",
+    "image_with_text_tradepage_gVBJFA",
+    "specification_table_rJPKAB",
+    "images_with_text_scrolling_fNr4dJ",
+    "scrolling_text_PVh9PP",
+    "faq_dAbGJK"
+  ]
+}

@@ -1,0 +1,175 @@
+<style>
+    .join-circle-section {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #754E36, #2E170B);
+      border-radius: 16px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .join-circle-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 184px;
+      background: url('https://cdn.shopify.com/s/files/1/0511/7067/2831/files/Adobe_Express_-_file_3.png?v=1752374004') no-repeat center/contain;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .join-text {
+      z-index: 2;
+      width: 100%;
+    }
+
+    .join-text h2 {
+      font-size: 56px;
+      color: #F5EDDE;
+    }
+
+    .join-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #F5EDDE;
+    }
+
+    .join-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border-radius: 30px;
+      padding: 5px 5px 5px 15px;
+      overflow: hidden;
+      z-index: 2;
+      width: 100%;
+      justify-content: flex-end;
+    }
+    .input_number{
+      background-color: transparent;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border: 1px solid #B79558;
+      border-radius: 30px;
+      padding: 16px 24px;
+    }
+
+    .join-form input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      flex: 1;
+      background-color: transparent;
+      width: 100%;
+    }
+
+    .country-code {
+      color: #B79558;
+      border-right: 1px solid #B79558;
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+
+    .join-form a {
+      background: linear-gradient(to right, #E5C48F, #B79558);
+      color: #2E170B;
+      border: none;
+      border-radius: 60px;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 50%;
+      display: flexS;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media(max-width: 768px) {
+      a {
+    width: fit-content;
+  }
+      p,  h2 {
+        text-align: center;
+      }
+      .join-circle-section {
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 0 !important;
+      }
+
+      .join-text, .join-form {
+        max-width: 100%;
+        flex-direction: column;
+        padding-left: 0 !important;
+      }
+      .join-form button {
+        width: 100% !important;
+    }
+      .join-text h2 {
+        font-size: 40px !important;
+    }
+    #shopify-section-{{ section.id }}{
+        padding: 0 !important;
+    }
+</style>
+
+<section class="section join-circle-section">
+  <div class="join-text">
+    <h2 class="heading">{{ section.settings.heading_text }}</h2>
+    <p>{{ section.settings.paragraph_text }}</p>
+  </div>
+  <form class="join-form">
+    <div class="input_number" style="display: none;">
+      <span class="country-code">+1</span>
+      <input id="phone" type="tel" placeholder="Your phone number" required>
+    </div>
+    <a href="{{ section.settings.circle_link }}">{{ section.settings.button_text }}</a>
+  </form>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter V2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading",
+      "default": "Join The Circle"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_text",
+      "label": "Paragraph",
+      "default": "Join The Circle and we’ll text you first when it matters. New drops.\nBig moves. Exclusive access."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Join The Circle"
+    },
+    {
+      "type": "url",
+      "id": "circle_link",
+      "label": "Link for Join The Circle button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter V2"
+    }
+  ]
+}
+{% endschema %}
+

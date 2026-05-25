@@ -1,0 +1,287 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "slideshow_v2_8RA9rR": {
+      "type": "slideshow_v2",
+      "blocks": {
+        "image_pNQdrN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/the_circle_header_B.jpg",
+            "mobile_image": "shopify://shop_images/the_circle_header_mobile_B.jpg",
+            "circle_link": "https://theconsciousbar.attn.tv/p/kuB/landing-page",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "subheading": "Early access. Secret drops. Private promos. Exclusive giveaways. If you’re in The Circle, you see it first and sometimes, you’re the only one who sees it at all.",
+            "title": "The Circle is where",
+            "title2": "our people live",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#e5dac6",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 25,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_pNQdrN"
+      ],
+      "custom_css": [
+        ".slideshow_content {max-width: 36rem;}",
+        ".slideshow2_title2 {font-family: legitima-italic; font-style: italic;}"
+      ],
+      "name": "Slideshow_v2",
+      "settings": {
+        "full_width": true,
+        "show_and": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "scrolling_text_wN8REt": {
+      "type": "scrolling-text",
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "The Circle",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 20,
+        "background": "#39180f",
+        "background_gradient": "linear-gradient(90deg, rgba(48, 62, 49, 1), rgba(19, 29, 20, 1) 100%)",
+        "text_color": "#f5edde",
+        "text_gradient": ""
+      }
+    },
+    "featured_collection_qxp4hb": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        "h2 {font-family: legitima-italic; font-style: italic;}",
+        ".prose p {margin-top: 8px;}"
+      ],
+      "name": "Featured collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "olive-oil-rosemary-limited-edition",
+          "passion-fruit-crunch-limited-edition"
+        ],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "NEW LIMITED EDITION SET",
+        "heading_tag": "h2",
+        "content": "<p>Only for a limited time.  <a href=\"https://theconsciousbar.attn.tv/p/kuB/landing-page\" target=\"_blank\" title=\"Circle signup page\">Join The Circle</a> to get early access next time.</p>",
+        "link_url": "shopify://collections/all",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "multi_column_6Wx9Hd": {
+      "type": "multi-column",
+      "blocks": {
+        "item_GGQgGP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/First_Dibs_2.png",
+            "column_size": "3",
+            "title": "First Dibs",
+            "heading_tag": "h4",
+            "content": "<p>Be the first to pre-order every new flavor, bundle, or product before they go public.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_qGdY7e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Circle-Only_Drops_2.png",
+            "column_size": "3",
+            "title": "Circle-Only Drops",
+            "heading_tag": "h4",
+            "content": "<p>Access flavors and merch made <em>exclusively</em> for Circle members — they won’t hit the site.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_fV3ktg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Private_Sales_Promos_2.png",
+            "column_size": "3",
+            "title": "Private Sales & Promos",
+            "heading_tag": "h4",
+            "content": "<p>Surprise discounts and limited-time deals only shared via SMS to the Circle.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_LELWNA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Giveaways_2.png",
+            "column_size": "3",
+            "title": "Giveaways",
+            "heading_tag": "h4",
+            "content": "<p>Win free bars, cash, limited gear, or unreleased product — no entry, just membership.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_iACrEW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Taste_Panel_Access_2.png",
+            "column_size": "3",
+            "title": "Taste Panel Access",
+            "heading_tag": "h4",
+            "content": "<p>Help decide what flavors we release next. Reply to join testing rounds and vote in product polls.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_B97T8j": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Insider_Access_2.png",
+            "column_size": "3",
+            "title": "Insider Access",
+            "heading_tag": "h4",
+            "content": "<p>Get a closer look at how we’re building The Conscious Bar — our sourcing, our process, and our why.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_GGQgGP",
+        "item_qGdY7e",
+        "item_fV3ktg",
+        "item_LELWNA",
+        "item_iACrEW",
+        "item_B97T8j"
+      ],
+      "custom_css": [
+        ".section-full {padding-top: 40px; padding-bottom: 40px;}",
+        ".multi-column__item {justify-items: center;}",
+        ".rounded {border-radius: 0;}",
+        ".subheading {font-family: Legitima; font-style: italic;}",
+        "img {max-width: 130px;}"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "BENEFITS",
+        "title": "What You Get?",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multiple_images_with_text_KqKRib": {
+      "type": "multiple-images-with-text",
+      "blocks": {
+        "item_UzRCY7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Why_We_Built_The_Circle.jpg",
+            "image_rotation_degrees": 1.5,
+            "subheading": "",
+            "title": "Why We Built The Circle",
+            "content": "<p>We made this space for the people who get it. The ones who believe chocolate can do more. That cravings aren’t something to fight — they’re something to honor. That taste should come with trust. <strong>The Circle is where we share our best stuff first.</strong> Where we drop things we’re too excited about to keep secret. Where your opinion helps shape what’s coming next. You’re not just buying bars. You’re part of what we’re building.</p>",
+            "button_url": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_UzRCY7"
+      ],
+      "name": "Multiple images with text",
+      "settings": {
+        "full_width": false,
+        "images_layout": "stacked",
+        "collage_images_alignment": "middle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "newsletter_v2_7e8PHY": {
+      "type": "newsletter_v2",
+      "custom_css": [],
+      "name": "Newsletter V2",
+      "settings": {
+        "heading_text": "Join The Circle",
+        "paragraph_text": "Join The Circle and we’ll text you first when it matters. New drops.\nBig moves. Exclusive access.",
+        "button_text": "Join The Circle",
+        "circle_link": "https://theconsciousbar.attn.tv/p/kuB/landing-page"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_v2_8RA9rR",
+    "scrolling_text_wN8REt",
+    "featured_collection_qxp4hb",
+    "multi_column_6Wx9Hd",
+    "multiple_images_with_text_KqKRib",
+    "newsletter_v2_7e8PHY"
+  ]
+}

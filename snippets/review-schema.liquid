@@ -1,0 +1,44 @@
+{%- comment -%}
+  Review Schema for AI Search Engines
+  ====================================
+  This snippet outputs AggregateRating schema for products with JudgeMe reviews.
+  It enhances AI understanding of product ratings and reviews.
+
+  Usage: {% render 'review-schema', product: product %}
+
+  Note: This uses JudgeMe metafields (product.metafields.judgeme)
+  or Shopify's native reviews metafields (product.metafields.reviews)
+{%- endcomment -%}
+
+{%- liquid
+  assign has_judgeme = false
+  assign has_native_reviews = false
+
+  if product.metafields.judgeme.rating.value != blank
+    assign has_judgeme = true
+    assign rating_value = product.metafields.judgeme.rating.value
+    assign review_count = product.metafields.judgeme.review_count.value
+  elsif product.metafields.reviews.rating.value != blank
+    assign has_native_reviews = true
+    assign rating_value = product.metafields.reviews.rating.value.rating
+    assign review_count = product.metafields.reviews.rating_count.value
+  endif
+-%}
+
+{%- if has_judgeme or has_native_reviews -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "@id": "{{ shop.url }}{{ product.url }}#product-reviews",
+      "name": "{{ product.title | escape }}",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ rating_value }}",
+        "reviewCount": "{{ review_count }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+  </script>
+{%- endif -%}

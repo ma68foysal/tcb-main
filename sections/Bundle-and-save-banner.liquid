@@ -1,0 +1,90 @@
+{% unless customer and customer.tags contains 'wholesale' %}
+<div class="discount_button_custom cp_discountButton">
+  <div class="headingDiv">
+    <div class="block-label text-subdued">Bundle and Save</div>
+    <span class="discountSubHeading">mix and match flavors</span>
+  </div>
+
+  <span id="desktopDivider" class="desktopDivider customDivider"></span>
+
+  <div class="discount_buttons">
+    <div class="discount_button">5 Bars: 5% OFF<span>$9.50 / bar</span></div>
+    <span class="customDivider"></span>
+    <div class="discount_button">10 Bars: 15% OFF<span>$8.50 / bar</span></div>
+    <span class="customDivider"></span>
+    <div class="discount_button">15+ Bars: 20% OFF<span>$8 / bar</span></div>
+  </div>
+</div>
+
+<style>
+      .headingDiv{
+        min-width: fit-content;
+      }
+    .discount_button_custom {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 8px;
+    border: 1px solid rgba(57, 24, 15, 0.12);
+    background: linear-gradient(92deg, #FFD6AF -0.47%, #FFF294 32.58%, #E7FFAF 64.97%, #FFD6AF 98.68%);
+
+    }
+    .block-label, .discountSubHeading, .discount_button{
+        color: #39180F !important;
+
+    }
+    .discount_button span{
+        color: #39180F !important;
+        background: rgba(57, 24, 15, 0.08) !important;
+    }
+    .cp_discountButton {
+    margin-top: 15px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 16px;
+    color: ##39180F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+    @media (max-width: 760px) {
+      .discount_button_custom{
+     margin-right: 16px;
+     margin-left: 16px;
+    }
+    .headingDiv{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cp_discountButton {
+    padding: 8px;
+
+  }
+
+    }
+    @media screen and (min-width: 760px) {
+      .cp_discountButton{
+        gap: 32px
+      }
+
+
+      .discount_button_custom {
+        flex-direction: row;
+      }
+    }
+</style>
+
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Bundle & Save Banner",
+   "presets": [
+    {
+      "name": "Bundle & Save Banner",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

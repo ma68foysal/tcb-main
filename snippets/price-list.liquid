@@ -1,0 +1,1425 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRODUCT PRICE
+----------------------------------------------------------------------------------------------------------------------
+
+This component generates price list for a given product. It handles the rendering of both price, compare at price,
+sale price and unit price
+
+********************************************
+Supported variables
+********************************************
+
+* product: the product from which prices are rendered
+* variant: if a variant is specified, then only the price from this variant is rendered (used in product details)
+* line_item: if a line item is specified, then the price from this line item are rendered
+* hide_unit_price: if set to true, unit pricing are hidden (this is useful for elements that are very size constrained)
+* size: can be either "sm" or "lg". If none is passed it will use the standard size
+* alignment: can be "center" to align the prices
+{%- endcomment -%}
+<style>
+  .hp_price{
+    display: flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+  }
+  .pp_price{
+    display: flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+  }
+  .hp_price .badge{
+    position: absolute;
+  }
+  .pp_price .badge{
+    position: absolute;
+  }
+  .pp_price .isHidden{
+    display: none !important;
+  }
+  .pp_price .isShow{
+    display: block !important;
+  }
+  [data-block-id="payment_terms"]{
+    margin-top: 32px;
+  }
+  .islinethrough{
+        text-decoration: line-through !important;
+  }
+  }
+</style>
+{%- liquid
+  case size
+    when 'lg'
+      assign regular_price_classes = 'text-lg'
+      assign on_sale_price_classes = 'text-lg text-on-sale'
+      assign compare_at_price_classes = 'text-subdued line-through'
+      assign unit_price_classes = 'text-subdued'
+  
+    when 'sm'
+      assign regular_price_classes = 'text-subdued text-sm'
+      assign on_sale_price_classes = 'text-on-sale text-sm'
+      assign compare_at_price_classes = 'text-subdued text-sm line-through'
+      assign unit_price_classes = 'text-subdued text-sm'
+  
+    else
+      assign regular_price_classes = 'text-subdued'
+      assign on_sale_price_classes = 'text-on-sale'
+      assign compare_at_price_classes = 'text-subdued line-through'
+      assign unit_price_classes = 'text-subdued text-sm'
+  endcase
+-%}
+ 
+<price-list class="price-list {% if size == 'lg' %}price-list--lg{% endif %} {% if text_alignment == 'center' %}justify-center{% endif %}">
+  {%- if variant != blank -%}
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    VARIANT CASE (used on product page, quick view...)
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+    <sale-price class="pp_price {% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
+      <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+        {%- assign _pb_parts = '' -%}
+        {%- for _pb in variant.quantity_price_breaks -%}
+          {%- unless forloop.first -%}{%- assign _pb_parts = _pb_parts | append: ',' -%}{%- endunless -%}
+          {%- assign _pb_parts = _pb_parts | append: '{"min":' | append: _pb.minimum_quantity | append: ',"price":' | append: _pb.price | append: '}' -%}
+        {%- endfor -%}
+        {%- assign _pb_json = '[' | append: _pb_parts | append: ']' -%}
+        <span class="regularPrice_noOff" data-product-id="{{ product.id }}" data-unit-price="{{ variant.price }}" data-price-breaks='{{ _pb_json }}'>{{- variant.price | money_with_currency -}}</span>
+        {%- assign price = product.price -%}
+
+        {%- assign discounted_price5 = price | times: 0.95 -%}
+        {%- assign discount_ratio5 = discounted_price5 | divided_by: price -%}
+        {%- assign discount_percentage5_calc = discount_ratio5 | times: 100 -%}
+        {%- assign discount_percentage5 = 100 | minus: discount_percentage5_calc -%}
+        {%- assign discount_amount5 = price | minus: discounted_price5 -%}
+        <span class="price_5" data-product-id="{{ product.id }}" data-price-multiplier="0.95" style="display: none; ">
+          {{ discounted_price5 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage5 | round: 0 }}% off on 5 bars (<span class="igPrice" data-product-id="{{ product.id }}" data-price-multiplier="0.05">-{{ discount_amount5 | money_with_currency }}</span>)</li>
+        </span>
+        
+        {%- assign discounted_price15 = price | times: 0.85 -%}
+        {%- assign discount_ratio15 = discounted_price15 | divided_by: price -%}
+        {%- assign discount_percentage15_calc = discount_ratio15 | times: 100 -%}
+        {%- assign discount_percentage15 = 100 | minus: discount_percentage15_calc -%}
+        {%- assign discount_amount15 = price | minus: discounted_price15 -%}
+        <span class="price_15 " data-product-id="{{ product.id }}" data-price-multiplier="0.85" style="display: none;">
+          {{ discounted_price15 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage15 | round: 0 }}% off on 10 bars (<span class="igPrice" data-product-id="{{ product.id }}" data-price-multiplier="0.15">-{{ discount_amount15 | money_with_currency }}</span>)</li>
+        </span>
+        
+        {%- assign discounted_price20 = price | times: 0.80 -%}
+        {%- assign discount_ratio20 = discounted_price20 | divided_by: price -%}
+        {%- assign discount_percentage20_calc = discount_ratio20 | times: 100 -%}
+        {%- assign discount_percentage20 = 100 | minus: discount_percentage20_calc -%}
+        {%- assign discount_amount20 = price | minus: discounted_price20 -%}
+        <span class="price_20 " data-product-id="{{ product.id }}" data-price-multiplier="0.80" style="display: none;">
+          {{ discounted_price20 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage20 | round: 0 }}% off on 15 bars (<span class="igPrice" data-product-id="{{ product.id }}" data-price-multiplier="0.20">-{{ discount_amount20 | money_with_currency }}</span>)</li>
+        </span>
+    </sale-price>
+
+    {%- if variant.compare_at_price > variant.price -%}
+      <compare-at-price class="{{ compare_at_price_classes }}">
+        <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+
+        {%- if settings.currency_code_enabled -%}
+          {{- variant.compare_at_price | money_with_currency -}}
+        {%- else -%}
+          {{- variant.compare_at_price | money -}}
+        {%- endif -%}
+      </compare-at-price>
+    {%- endif -%}
+  {%- elsif line_item != blank -%}
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    LINE ITEM CASE (used on cart, order page...)
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+    <sale-price class="{% if line_item.original_line_price > line_item.final_line_price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
+      <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+
+      {%- if settings.currency_code_enabled -%}
+        {{- line_item.final_line_price | money_with_currency -}}
+      {%- else -%}
+        {{- line_item.final_line_price | money -}}
+      {%- endif -%}
+    </sale-price>
+
+    {%- if line_item.original_line_price > line_item.final_line_price -%}
+      <compare-at-price class="{{ compare_at_price_classes }}">
+        <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+
+        {%- if settings.currency_code_enabled -%}
+          {{- line_item.original_line_price | money_with_currency -}}
+        {%- else -%}
+          {{- line_item.original_line_price | money -}}
+        {%- endif -%}
+      </compare-at-price>
+    {%- endif -%}
+  {%- else -%}
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT CASE (used on card)
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+    {%- if product.price_varies and product.compare_at_price -%}
+      {%- assign cheapest_variant = product.variants | sort: 'price' | first -%}
+
+      {%- capture price_min -%}
+        {%- if settings.currency_code_enabled -%}
+          {{- cheapest_variant.price | money_with_currency -}}
+        {%- else -%}
+          {{- cheapest_variant.price | money -}}
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- if cheapest_variant.price < cheapest_variant.compare_at_price -%}
+        <sale-price class="{{ on_sale_price_classes }}">
+          <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+          {{- 'product.price.from_price_html' | t: price_min: price_min -}}
+        </sale-price>
+
+        <compare-at-price class="{{ compare_at_price_classes }}">
+          <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+
+          {%- if settings.currency_code_enabled -%}
+            {{- cheapest_variant.compare_at_price | money_with_currency -}}
+          {%- else -%}
+            {{- cheapest_variant.compare_at_price | money -}}
+          {%- endif -%}
+        </compare-at-price>
+      {%- else -%}
+        <sale-price class="{{ regular_price_classes }}">
+          <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+          {{- 'product.price.from_price_html' | t: price_min: price_min -}}
+        </sale-price>
+      {%- endif -%}
+    {%- elsif product.price < product.compare_at_price -%}
+      <sale-price class="{{ on_sale_price_classes }}">
+        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+
+        {%- if settings.currency_code_enabled -%}
+          {{- product.price | money_with_currency -}}
+        {%- else -%}
+          {{- product.price | money -}}
+        {%- endif -%}
+      </sale-price>
+
+      <compare-at-price class="{{ compare_at_price_classes }}">
+        <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+
+        {%- if settings.currency_code_enabled -%}
+          {{- product.compare_at_price | money_with_currency -}}
+        {%- else -%}
+          {{- product.compare_at_price | money -}}
+        {%- endif -%}
+      </compare-at-price>
+    {%- elsif product.price_varies -%}
+      {%- capture price_min -%}
+        {%- if settings.currency_code_enabled -%}
+          {{ product.price_min | money_with_currency }}
+        {%- else -%}
+          {{ product.price_min | money }}
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- capture price_max -%}
+        {%- if settings.currency_code_enabled -%}
+          {{- product.price_max | money_with_currency -}}
+        {%- else -%}
+          {{- product.price_max | money -}}
+        {%- endif -%}
+      {%- endcapture -%}
+
+      <sale-price class="{{ regular_price_classes }}">
+        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+        {{- 'product.price.from_price_html' | t: price_min: price_min, price_max: price_max -}}
+      </sale-price>
+    {%- else -%}
+      {% if product.title == "Raspberry Puff" %}
+      <span class="" data-product-id="{{ product.id }}" style="text-decoration: none;">
+        {{- product.price | money_with_currency -}}
+      </span>
+      {% else %}
+      <sale-price class="hp_price {{ regular_price_classes }}">
+        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+        <span class="regularPrice_noOff" data-product-id="{{ product.id }}">{{- product.price | money_with_currency -}}</span>
+        {%- assign price = product.price -%}
+
+        {%- assign discounted_price5 = price | times: 0.95 -%}
+        {%- assign discount_ratio5 = discounted_price5 | divided_by: price -%}
+        {%- assign discount_percentage5_calc = discount_ratio5 | times: 100 -%}
+        {%- assign discount_percentage5 = 100 | minus: discount_percentage5_calc -%}
+        {%- assign discount_amount5 = price | minus: discounted_price5 -%}
+        <span class="price_5" data-product-id="{{ product.id }}" data-price-multiplier="0.95" style="display: none;">
+          {{ discounted_price5 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage5 | round: 0 }}% off on 5 bars</li>
+        </span>
+        
+        {%- assign discounted_price15 = price | times: 0.85 -%}
+        {%- assign discount_ratio15 = discounted_price15 | divided_by: price -%}
+        {%- assign discount_percentage15_calc = discount_ratio15 | times: 100 -%}
+        {%- assign discount_percentage15 = 100 | minus: discount_percentage15_calc -%}
+        {%- assign discount_amount15 = price | minus: discounted_price15 -%}
+        <span class="price_15" data-product-id="{{ product.id }}" data-price-multiplier="0.85" style="display: none;">
+          {{ discounted_price15 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage15 | round: 0 }}% off on 10 bars</li>
+        </span>
+        
+        {%- assign discounted_price20 = price | times: 0.80 -%}
+        {%- assign discount_ratio20 = discounted_price20 | divided_by: price -%}
+        {%- assign discount_percentage20_calc = discount_ratio20 | times: 100 -%}
+        {%- assign discount_percentage20 = 100 | minus: discount_percentage20_calc -%}
+        {%- assign discount_amount20 = price | minus: discounted_price20 -%}
+        <span class="price_20" data-product-id="{{ product.id }}" data-price-multiplier="0.80" style="display: none;">
+          {{ discounted_price20 | money }}
+          <li class="badge">{%- render 'icon' with 'discount' -%} {{ discount_percentage20 | round: 0 }}% off on 15 bars</li>
+        </span>
+
+      </sale-price>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- unless hide_unit_price -%}
+    {%- assign unit_price_item = variant | default: line_item | default: product.selected_or_first_available_variant -%}
+
+    {%- if unit_price_item.unit_price -%}
+      <unit-price class="{{ unit_price_classes }}">
+        {%- assign unit_price_measurement = unit_price_item.unit_price_measurement -%}
+
+        {%- if unit_price_measurement.reference_value != 1 -%}
+          {%- assign reference_value = unit_price_measurement.reference_value -%}
+        {%- endif -%}
+
+        ({{ unit_price_item.unit_price | money }}/{{ reference_value }}{{ unit_price_measurement.reference_unit }})
+      </unit-price>
+    {%- endif -%}
+  {%- endunless -%}
+</price-list>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+
+  // Intercept remove link clicks BEFORE theme's handler (use capture phase)
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('line-item-quantity a[href*="/cart/change"]');
+
+    if (target) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+
+      console.log('🔴 Intercepted remove link click');
+
+      // Call our dataRemove function
+      if (typeof window.dataRemove === 'function') {
+        window.dataRemove(target, e);
+      }
+
+      return false;
+    }
+  }, true); // true = capture phase (runs BEFORE bubble phase)
+
+   // INSTANT cart count detection (no API calls)
+  function getInstantCartCount() {
+    // Method 1: Try DOM elements
+    const cartElements = $('.count-bubble, [data-cart-count], .cart-count, .cart-item-count');
+    if (cartElements.length) {
+      let cartCountText = cartElements.first().text().trim();
+      let cartCount = parseInt(cartCountText, 10);
+
+      // Handle different formats
+      if (cartCountText.length === 4) {
+        cartCount = Math.floor(cartCount / 100);
+      } else if (cartCountText.length === 2) {
+        cartCount = Math.floor(cartCount / 10);
+      }
+
+      if (!isNaN(cartCount) && cartCount >= 0) {
+        return cartCount;
+      }
+    }
+
+    // Method 2: Check for Shopify cart object
+    if (typeof window.Shopify !== 'undefined' && window.Shopify.cart) {
+      return window.Shopify.cart.item_count || 0;
+    }
+
+    // Method 3: localStorage fallback
+    return parseInt(localStorage.getItem('cartCount')) || 0;
+  }
+
+  // Function to update the UI based on the cart count
+  window.updateCartUI = function(cartCount) {
+    if (cartCount >= 5 && cartCount <= 9) {
+      $('.hp_price .price_5').show();
+      $('.hp_price .price_15, .hp_price .price_20').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+      $('body').addClass('discountshow');
+    } else if (cartCount >= 10 && cartCount <= 14) {
+      $('.hp_price .price_15').show();
+      $('.hp_price .price_5, .hp_price .price_20').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+      $('body').addClass('discountshow');
+    } else if (cartCount > 14) {
+      $('.hp_price .price_20').show();
+      $('.hp_price .price_5, .hp_price .price_15').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+      $('body').addClass('discountshow');
+    } else {
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'none');
+      $('.hp_price .price_5, .hp_price .price_15, .hp_price .price_20').hide();
+      $('body').removeClass('discountshow');
+    }
+  }
+
+  // ===== INSTANT INITIALIZATION (ZERO LAG) =====
+  const initialCartCount = getInstantCartCount();
+  localStorage.setItem('cartCount', initialCartCount);
+  updateCartUI(initialCartCount);
+  updatePPPriceCSS(initialCartCount);
+  
+  // Store original values for all quantity inputs
+  $('.quantity-selector .quantity-input').each(function() {
+    const $input = $(this);
+    $input.attr('data-original-value', $input.val());
+  });
+
+  // Body click handler - instant DOM parsing
+  $('body').on('click', function (e) {
+    // Skip if click was on or inside the discount button
+    if ($(e.target).closest('.discount_button').length) return;
+
+    const cartCountElement = $('.count-bubble');
+    if (cartCountElement.length) {
+      let cartCountText = cartCountElement.text().trim();
+      let cartCount = parseInt(cartCountText, 10);
+
+      // Normalize 2-digit or 4-digit cart counts
+      if (cartCountText.length === 4) {
+        cartCount = Math.floor(cartCount / 100);
+      } else if (cartCountText.length === 2) {
+        cartCount = Math.floor(cartCount / 10);
+      }
+
+      if (!isNaN(cartCount)) {
+        localStorage.setItem('cartCount', cartCount);
+        updateCartUI(cartCount);
+      }
+    } else {
+      console.error('Cart count element (.count-bubble) not found.');
+    }
+  });
+
+   $('.cart-drawer').on('click', function (e) {
+    // Skip if click was on or inside the discount button
+    if ($(e.target).closest('.discount_button').length) return;
+
+    const cartCountElement = $('.count-bubble');
+    if (cartCountElement.length) {
+      let cartCountText = cartCountElement.text().trim();
+      let cartCount = parseInt(cartCountText, 10);
+
+      // Normalize 2-digit or 4-digit cart counts
+      if (cartCountText.length === 4) {
+        cartCount = Math.floor(cartCount / 100);
+      } else if (cartCountText.length === 2) {
+        cartCount = Math.floor(cartCount / 10);
+      }
+
+      if (!isNaN(cartCount)) {
+        localStorage.setItem('cartCount', cartCount);
+        updateCartUI(cartCount);
+        updatePPPriceCSS(cartCount);
+      }
+    } else {
+      console.error('Cart count element (.count-bubble) not found.');
+    }
+  });
+
+
+
+  window.updatePPPriceCSS = function(cartCount) {
+    if (cartCount >= 0 && cartCount <= 4) {
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'none');
+      $('.pp_price .price_5, .pp_price .price_15, .pp_price .price_20').css('display', 'none');
+    } else if (cartCount >= 5 && cartCount <= 9) {
+      $('.pp_price .price_5').css('display', 'block');
+      $('.pp_price .price_15, .pp_price .price_20').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else if (cartCount >= 10 && cartCount <= 14) {
+      $('.pp_price .price_15').css('display', 'block');
+      $('.pp_price .price_5, .pp_price .price_20').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else {
+      $('.pp_price .price_20').css('display', 'block');
+      $('.pp_price .price_5, .pp_price .price_15').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    }
+  }
+
+
+  window.discount_button = function(button) {
+    const $button = $(button);
+    const parentContainer = $button.closest('.discount_button_custom');
+    const productId = parentContainer.attr('data-product-id');
+    let selectedQuantity = parseInt($button.attr('data-value')) || 0;
+    let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    let totalQuantity = selectedQuantity + cartCount;
+    localStorage.setItem('newCartCount', totalQuantity);
+    updatePPPriceCSS(totalQuantity);
+    parentContainer.find('.discount_button').removeClass('active');
+    $button.addClass('active');
+  };
+
+  const cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+  updatePPPriceCSS(cartCount);
+
+  window.cus_atc = function(button) {
+    setTimeout(function () {
+      const cartCountElement = $('.count-bubble');
+      let cartCount = 0;
+
+      if (cartCountElement.length) {
+        let cartCountText = cartCountElement.text().trim();
+        cartCount = parseInt(cartCountText, 10);
+
+        if (cartCountText.length === 4) {
+          cartCount = Math.floor(cartCount / 100);
+        } else if (cartCountText.length === 2) {
+          cartCount = Math.floor(cartCount / 10);
+        }
+
+        if (!isNaN(cartCount)) {
+          localStorage.setItem('cartCount', cartCount);
+        }
+      }
+
+      updateCartUI(cartCount);
+      updatePPPriceCSS(cartCount);
+
+    }, 5000);
+  };
+
+  $(document).on('input', '.quantity-input', function (e) {
+    // Skip ONLY if this input is inside the main cart section (not cart drawer)
+    if ($(this).closest('.shopify-section--main-cart, .order-summary').length > 0) {
+      return;
+    }
+
+    const $input = $(this);
+
+    // Skip processing if this input change was triggered by our buttons
+    if ($input.data('button-triggered')) {
+      $input.removeData('button-triggered');
+      return;
+    }
+
+    setTimeout(function () {
+      const cartCountElement = $('.count-bubble');
+      let cartCount = 0;
+
+      if (cartCountElement.length) {
+        let cartCountText = cartCountElement.text().trim();
+        cartCount = parseInt(cartCountText, 10);
+
+        if (cartCountText.length === 4) {
+          cartCount = Math.floor(cartCount / 100);
+        } else if (cartCountText.length === 2) {
+          cartCount = Math.floor(cartCount / 10);
+        }
+
+        if (!isNaN(cartCount)) {
+          localStorage.setItem('cartCount', cartCount);
+          updateCartUI(cartCount);
+          updatePPPriceCSS(cartCount);
+        }
+      }
+
+    }, 5000);
+  });
+
+  // Debounced cart update functionality
+  let cartUpdateTimeouts = {};
+  let isUpdatingCart = {};
+
+  // Plus/Minus button functionality
+  $(document).on('click', '.quantity-selector__button', function(e) {
+    const $button = $(this);
+
+    // Skip variety pack buttons - check HTML attribute directly, not jQuery cache
+    // Use .attr() instead of .data() to read the actual DOM attribute
+    if ($button.attr('data-variety-instance') || $button.closest('.variety-pack-line-item').length > 0) {
+      console.log('🔵 Variety pack button detected, skipping price-list handler');
+      // Don't call preventDefault or stopPropagation - let variety pack handler run
+      return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    if ($button.prop('disabled')) {
+      console.log('🔴 Button is disabled, ignoring click');
+      return false;
+    }
+
+    const action = $button.data('action');
+    const lineKey = $button.data('line-key');
+    const $input = $button.siblings('.quantity-input').first();
+    const currentQuantity = parseInt($input.val()) || 1;
+    const min = parseInt($input.attr('min')) || 1;
+    const max = parseInt($input.attr('max')) || 999;
+
+    console.log('🔵 === QUANTITY BUTTON CLICKED ===');
+    console.log('Action:', action);
+    console.log('Line Key:', lineKey);
+    console.log('Current Quantity:', currentQuantity);
+
+    let newQuantity = currentQuantity;
+
+    if (action === 'plus') {
+      newQuantity = currentQuantity + 1;
+    } else if (action === 'minus') {
+      newQuantity = currentQuantity - 1;
+    }
+
+    // Ensure bounds
+    newQuantity = Math.max(min, Math.min(newQuantity, max));
+    console.log('New Quantity (after bounds):', newQuantity);
+
+    if (newQuantity !== currentQuantity) {
+      // Update UI immediately for responsive feel
+      $input.val(newQuantity);
+
+      // Update button states immediately
+      const $quantitySelector = $button.closest('.quantity-selector');
+      $quantitySelector.find('.quantity-minus').prop('disabled', newQuantity <= min);
+      $quantitySelector.find('.quantity-plus').prop('disabled', newQuantity >= max);
+
+      // Clear existing timeout for this line item
+      if (cartUpdateTimeouts[lineKey]) {
+        clearTimeout(cartUpdateTimeouts[lineKey]);
+        console.log('🔄 Cleared previous timeout for:', lineKey);
+      }
+
+      // Clear the updating flag if it's stuck from rapid clicks
+      if (isUpdatingCart[lineKey]) {
+        console.log('🔄 Clearing stuck update flag due to new click');
+        delete isUpdatingCart[lineKey];
+      }
+
+      // Set new debounced cart update (500ms delay)
+      cartUpdateTimeouts[lineKey] = setTimeout(() => {
+        debouncedUpdateCart(lineKey, newQuantity, $quantitySelector);
+      }, 500);
+    }
+
+    return false;
+  });
+  
+  function debouncedUpdateCart(lineKey, quantity, $quantitySelector) {
+    console.log('🟢 === DEBOUNCED UPDATE CART CALLED ===');
+    console.log('Line Key:', lineKey);
+    console.log('Quantity:', quantity);
+
+    // Prevent multiple updates for the same line item
+    if (isUpdatingCart[lineKey]) {
+      console.log('⚠️ Already updating this line item, skipping...');
+
+      // Safety: Force clear the flag after 10 seconds in case it got stuck
+      setTimeout(() => {
+        if (isUpdatingCart[lineKey]) {
+          console.log('⚠️ Force clearing stuck update flag for:', lineKey);
+          delete isUpdatingCart[lineKey];
+        }
+      }, 10000);
+
+      return;
+    }
+
+    isUpdatingCart[lineKey] = true;
+    console.log('✅ Set isUpdatingCart flag for:', lineKey);
+
+    const formData = {
+      'updates': {}
+    };
+    formData.updates[lineKey] = quantity;
+
+    // Show loading state - handle both cart drawer and main cart structures
+    // Determine if we're in main cart or cart drawer
+    const isMainCart = $('.shopify-section--main-cart').length > 0;
+
+    let $lineItem;
+
+    if (isMainCart) {
+      // For main cart, find within the main cart section only
+      const $row = $(`.shopify-section--main-cart [data-line-key="${lineKey}"]`).first().closest('tr');
+      $lineItem = $row.find('line-item');
+      console.log('✅ Main cart - Line item found:', $lineItem.length);
+    } else {
+      // For cart drawer, find within cart drawer only
+      $lineItem = $(`.cart-drawer [data-line-key="${lineKey}"]`).first().closest('line-item');
+
+      if (!$lineItem.length) {
+        $lineItem = $(`[data-line-key="${lineKey}"]`).first().closest('line-item');
+      }
+      console.log('✅ Cart drawer - Line item found:', $lineItem.length);
+    }
+
+    const $loader = $lineItem.find('pill-loader');
+    $loader.attr('aria-busy', 'true');
+    console.log('✅ Pill-loader activated in:', isMainCart ? 'Main Cart' : 'Cart Drawer');
+
+    // Prepare bundled sections like the theme does
+    let sectionsToBundle = [];
+    document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", {
+      bubbles: true,
+      detail: { sections: sectionsToBundle }
+    }));
+
+    // If we're on the main cart page, add the cart section to be re-rendered
+    const $mainCartSection = $('.shopify-section--main-cart');
+    if ($mainCartSection.length > 0) {
+      const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+      if (sectionId) {
+        const cleanSectionId = sectionId.replace('shopify-section-', '');
+        sectionsToBundle.push(cleanSectionId);
+        console.log('🔄 Will re-render main cart section:', cleanSectionId);
+      }
+    }
+
+    // Add sections to form data
+    const formDataWithSections = new FormData();
+    Object.keys(formData.updates).forEach(key => {
+      formDataWithSections.set(`updates[${key}]`, formData.updates[key]);
+    });
+    if (sectionsToBundle.length > 0) {
+      formDataWithSections.set("sections", sectionsToBundle.join(","));
+      formDataWithSections.set("sections_url", window.location.pathname);
+    }
+
+    fetch('/cart/update.js', {
+      method: 'POST',
+      body: formDataWithSections
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('📦 === CART API RESPONSE (debouncedUpdateCart) ===');
+      console.log('Full cart data:', data);
+      console.log('Cart items:', data.items);
+      console.log('Number of items:', data.items ? data.items.length : 0);
+      console.log('Looking for line key:', lineKey);
+
+      if (data.items && data.items.length > 0) {
+        console.log('All item keys in cart:');
+        data.items.forEach((item, index) => {
+          console.log(`  Item ${index}: key="${item.key}"`);
+        });
+      }
+
+      // Update cart count bubble immediately
+      const totalItems = data.items.reduce((sum, item) => sum + item.quantity, 0);
+      $('.count-bubble').text(totalItems);
+
+      // Update localStorage and pricing
+      localStorage.setItem('cartCount', totalItems);
+      updateCartUI(totalItems);
+      updatePPPriceCSS(totalItems);
+
+      // If we're on the main cart page and got section HTML, re-render it
+      if (data.sections && $mainCartSection.length > 0) {
+        const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+        if (sectionId) {
+          const cleanSectionId = sectionId.replace('shopify-section-', '');
+          if (data.sections[cleanSectionId]) {
+            console.log('🔄 Re-rendering main cart section with fresh HTML');
+            const $newSection = $(data.sections[cleanSectionId]);
+            const $newContent = $newSection.find('.shopify-section--main-cart').parent();
+
+            if ($newContent.length) {
+              $mainCartSection.closest('.shopify-section').html($newContent.html());
+              console.log('✅ Main cart section re-rendered successfully');
+            } else {
+              // Fallback: replace entire section
+              $mainCartSection.closest('.shopify-section').replaceWith(data.sections[cleanSectionId]);
+              console.log('✅ Main cart section replaced successfully');
+            }
+
+            // Update pricing after re-render
+            updatePPPriceCSS(totalItems);
+
+            // Remove loader and return early - no need for manual updates
+            $loader.removeAttr('aria-busy');
+            return;
+          }
+        }
+      }
+
+      // Update cart totals (both cart drawer and main cart)
+      $('.cart-drawer .h5:contains("Total")').next('.h5').text(
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(data.total_price / 100)
+      );
+
+      // Update main cart subtotal
+      $('.cart-form__totals').find('span').filter(function() {
+        return $(this).prev('span').text().includes('Subtotal');
+      }).text(
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(data.items_subtotal_price / 100)
+      );
+
+      // Update main cart total
+      $('.cart-form__totals').find('.h5').filter(function() {
+        return $(this).text().includes('Total');
+      }).next('.h5').text(
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(data.total_price / 100)
+      );
+
+      // Update line item price display
+      // Extract variant_id from lineKey (format: "variantId:hash")
+      const variantId = lineKey.split(':')[0];
+      console.log('💰 === UPDATING PRICES (debouncedUpdateCart) ===');
+      console.log('Extracted variant ID:', variantId);
+
+      // Find by variant_id instead of key (since key hash changes)
+      const updatedItem = data.items.find(item => item.variant_id == variantId || item.id == variantId);
+      console.log('Updated Item:', updatedItem);
+
+      if (updatedItem) {
+        const formattedPrice = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(updatedItem.final_line_price / 100);
+
+        console.log('Current Price (from cart API):', formattedPrice);
+        console.log('Item Quantity:', updatedItem.quantity);
+        console.log('Item Final Line Price:', updatedItem.final_line_price);
+
+        // Update price in line-item__info (price-list snippet)
+        const $priceList = $lineItem.find('.line-item__info price-list sale-price');
+        console.log('📍 Price-list element found:', $priceList.length);
+        console.log('Price-list current text:', $priceList.length ? $priceList.text().trim() : 'N/A');
+
+        if ($priceList.length) {
+          // Get existing content to preserve structure
+          const $srOnly = $priceList.find('.sr-only');
+          if ($srOnly.length) {
+            // Preserve sr-only span and update the text after it
+            $priceList.contents().filter(function() {
+              return this.nodeType === 3; // Text nodes only
+            }).remove();
+            $priceList.append(formattedPrice);
+            console.log('✅ Updated price-list (with sr-only):', formattedPrice);
+          } else {
+            // No sr-only span, just update text
+            $priceList.text(formattedPrice);
+            console.log('✅ Updated price-list (no sr-only):', formattedPrice);
+          }
+        } else {
+          console.log('❌ Price-list element NOT FOUND');
+        }
+
+        // Update table price cell in main cart (3rd column - individual line total)
+        const $lineTotal = $(`.line-item-total[data-line-key="${lineKey}"]`);
+        console.log('📍 Line total element found:', $lineTotal.length);
+        console.log('Line total current text:', $lineTotal.length ? $lineTotal.text().trim() : 'N/A');
+
+        if ($lineTotal.length) {
+          const oldPrice = $lineTotal.text().trim();
+          $lineTotal.text(formattedPrice);
+          console.log('✅ Updated line total from', oldPrice, 'to', formattedPrice);
+        } else {
+          console.log('❌ Line total element NOT FOUND');
+          console.log('Selector used:', `.line-item-total[data-line-key="${lineKey}"]`);
+        }
+      } else {
+        console.log('❌ Updated item NOT FOUND in cart data');
+      }
+
+      // Update checkout button state for main cart
+      const cartValue = data.total_price / 100;
+      const $checkoutBtn = $('#cart_page_CheckoutBtn button');
+      if (cartValue >= 35) {
+        $('#moq_text').hide();
+        $('#cart_page_CheckoutBtn').css('pointer-events', 'auto');
+        if ($checkoutBtn.length) {
+          $checkoutBtn.css('background-color', '');
+        }
+      } else {
+        $('#moq_text').show();
+        $('#cart_page_CheckoutBtn').css('pointer-events', 'none');
+        if ($checkoutBtn.length) {
+          $checkoutBtn.css('background-color', 'darkgray');
+        }
+      }
+
+      // Trigger cart updated event with cart data
+      document.dispatchEvent(new CustomEvent('cart:updated', {
+        detail: {
+          cart: data
+        }
+      }));
+
+      // Also trigger cart:change event for compatibility with cart drawer
+      document.dispatchEvent(new CustomEvent('cart:change', {
+        bubbles: true,
+        detail: {
+          baseEvent: 'quantity-button:change',
+          cart: data
+        }
+      }));
+
+      // Clean up
+      $loader.removeAttr('aria-busy');
+      delete isUpdatingCart[lineKey];
+      delete cartUpdateTimeouts[lineKey];
+      console.log('✅ Cleared isUpdatingCart flag for:', lineKey);
+    })
+    .catch(error => {
+      console.error('Error updating cart:', error);
+
+      // Revert quantity on error
+      const $input = $quantitySelector.find('.quantity-input').first();
+      const originalQuantity = parseInt($input.attr('data-original-value')) || 1;
+      $input.val(originalQuantity);
+
+      // Update button states based on reverted quantity
+      const min = parseInt($input.attr('min')) || 1;
+      const max = parseInt($input.attr('max')) || 999;
+      $quantitySelector.find('.quantity-minus').prop('disabled', originalQuantity <= min);
+      $quantitySelector.find('.quantity-plus').prop('disabled', originalQuantity >= max);
+
+      // Clean up
+      $loader.removeAttr('aria-busy');
+      delete isUpdatingCart[lineKey];
+      delete cartUpdateTimeouts[lineKey];
+      console.log('✅ Cleared isUpdatingCart flag for:', lineKey);
+    });
+  }
+
+  function updateCartQuantity(lineKey, quantity) {
+    console.log('🟡 === UPDATE CART QUANTITY CALLED ===');
+    console.log('Line Key:', lineKey);
+    console.log('Quantity:', quantity);
+
+    const formData = {
+      'updates': {}
+    };
+    formData.updates[lineKey] = quantity;
+
+    // Show loading state - handle both cart drawer and main cart structures
+    let $lineItem = $(`[data-line-key="${lineKey}"]`).closest('line-item');
+
+    // If not found (main cart case where button is in different td), find by row
+    if (!$lineItem.length) {
+      console.log('⚠️ Line item not found via closest(), trying row method...');
+      const $row = $(`[data-line-key="${lineKey}"]`).first().closest('tr');
+      $lineItem = $row.find('line-item');
+      console.log('Line item found via row:', $lineItem.length);
+    } else {
+      console.log('✅ Line item found via closest():', $lineItem.length);
+    }
+
+    const $loader = $lineItem.find('pill-loader');
+    $loader.attr('aria-busy', 'true');
+    
+    // Prepare bundled sections like the theme does
+    let sectionsToBundle = [];
+    document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", {
+      bubbles: true,
+      detail: { sections: sectionsToBundle }
+    }));
+
+    // If we're on the main cart page, add the cart section to be re-rendered
+    const $mainCartSection = $('.shopify-section--main-cart');
+    if ($mainCartSection.length > 0) {
+      const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+      if (sectionId) {
+        const cleanSectionId = sectionId.replace('shopify-section-', '');
+        sectionsToBundle.push(cleanSectionId);
+        console.log('🔄 Will re-render main cart section:', cleanSectionId);
+      }
+    }
+
+    // Add sections to form data
+    const formDataWithSections = new FormData();
+    Object.keys(formData.updates).forEach(key => {
+      formDataWithSections.set(`updates[${key}]`, formData.updates[key]);
+    });
+    if (sectionsToBundle.length > 0) {
+      formDataWithSections.set("sections", sectionsToBundle.join(","));
+      formDataWithSections.set("sections_url", window.location.pathname);
+    }
+
+    fetch('/cart/update.js', {
+      method: 'POST',
+      body: formDataWithSections
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('📦 === CART API RESPONSE (updateCartQuantity) ===');
+      console.log('Full cart data:', data);
+      console.log('Cart items:', data.items);
+      console.log('Number of items:', data.items ? data.items.length : 0);
+      console.log('Looking for line key:', lineKey);
+
+      if (data.items && data.items.length > 0) {
+        console.log('All item keys in cart:');
+        data.items.forEach((item, index) => {
+          console.log(`  Item ${index}: key="${item.key}"`);
+        });
+      }
+
+      // Update cart count bubble immediately
+      const totalItems = data.items.reduce((sum, item) => sum + item.quantity, 0);
+      $('.count-bubble').text(totalItems);
+
+      // Update localStorage and pricing
+      localStorage.setItem('cartCount', totalItems);
+      updateCartUI(totalItems);
+      updatePPPriceCSS(totalItems);
+
+      // If we're on the main cart page and got section HTML, re-render it
+      if (data.sections && $mainCartSection.length > 0) {
+        const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+        if (sectionId) {
+          const cleanSectionId = sectionId.replace('shopify-section-', '');
+          if (data.sections[cleanSectionId]) {
+            console.log('🔄 Re-rendering main cart section with fresh HTML');
+            const $newSection = $(data.sections[cleanSectionId]);
+            const $newContent = $newSection.find('.shopify-section--main-cart').parent();
+
+            if ($newContent.length) {
+              $mainCartSection.closest('.shopify-section').html($newContent.html());
+              console.log('✅ Main cart section re-rendered successfully');
+            } else {
+              // Fallback: replace entire section
+              $mainCartSection.closest('.shopify-section').replaceWith(data.sections[cleanSectionId]);
+              console.log('✅ Main cart section replaced successfully');
+            }
+
+            // Update pricing after re-render
+            updatePPPriceCSS(totalItems);
+
+            // Remove loader
+            $loader.removeAttr('aria-busy');
+
+            // Trigger cart updated event
+            document.dispatchEvent(new CustomEvent('cart:updated', {
+              detail: {
+                cart: data
+              }
+            }));
+
+            return;
+          }
+        }
+      }
+
+      // Update cart totals
+      $('.cart-drawer .h5:contains("Total")').next('.h5').text(
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(data.total_price / 100)
+      );
+
+      // Update line item price display
+      // Extract variant_id from lineKey (format: "variantId:hash")
+      const variantId = lineKey.split(':')[0];
+      console.log('💰 === UPDATING PRICES (updateCartQuantity) ===');
+      console.log('Extracted variant ID:', variantId);
+
+      // Find by variant_id instead of key (since key hash changes)
+      const updatedItem = data.items.find(item => item.variant_id == variantId || item.id == variantId);
+      console.log('Updated Item:', updatedItem);
+
+      if (updatedItem) {
+        const formattedPrice = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: data.currency || 'USD'
+        }).format(updatedItem.final_line_price / 100);
+
+        console.log('Current Price (from cart API):', formattedPrice);
+        console.log('Item Quantity:', updatedItem.quantity);
+        console.log('Item Final Line Price:', updatedItem.final_line_price);
+
+        // Update price in line-item__info (price-list snippet)
+        const $priceList = $lineItem.find('.line-item__info price-list sale-price');
+        console.log('📍 Price-list element found:', $priceList.length);
+        console.log('Price-list current text:', $priceList.length ? $priceList.text().trim() : 'N/A');
+
+        if ($priceList.length) {
+          // Get existing content to preserve structure
+          const $srOnly = $priceList.find('.sr-only');
+          if ($srOnly.length) {
+            // Preserve sr-only span and update the text after it
+            $priceList.contents().filter(function() {
+              return this.nodeType === 3; // Text nodes only
+            }).remove();
+            $priceList.append(formattedPrice);
+            console.log('✅ Updated price-list (with sr-only):', formattedPrice);
+          } else {
+            // No sr-only span, just update text
+            $priceList.text(formattedPrice);
+            console.log('✅ Updated price-list (no sr-only):', formattedPrice);
+          }
+        } else {
+          console.log('❌ Price-list element NOT FOUND');
+        }
+
+        // Update table price cell in main cart (3rd column - individual line total)
+        const $lineTotal = $(`.line-item-total[data-line-key="${lineKey}"]`);
+        console.log('📍 Line total element found:', $lineTotal.length);
+        console.log('Line total current text:', $lineTotal.length ? $lineTotal.text().trim() : 'N/A');
+
+        if ($lineTotal.length) {
+          const oldPrice = $lineTotal.text().trim();
+          $lineTotal.text(formattedPrice);
+          console.log('✅ Updated line total from', oldPrice, 'to', formattedPrice);
+        } else {
+          console.log('❌ Line total element NOT FOUND');
+          console.log('Selector used:', `.line-item-total[data-line-key="${lineKey}"]`);
+        }
+      } else {
+        console.log('❌ Updated item NOT FOUND in cart data');
+      }
+
+      // Trigger cart updated event with cart data
+      document.dispatchEvent(new CustomEvent('cart:updated', {
+        detail: {
+          cart: data
+        }
+      }));
+      
+      // Also trigger cart:change event for compatibility with cart drawer
+      document.dispatchEvent(new CustomEvent('cart:change', {
+        bubbles: true,
+        detail: {
+          baseEvent: 'quantity-button:change',
+          cart: data
+        }
+      }));
+      
+      // Remove loading state and re-enable buttons
+      $loader.removeAttr('aria-busy');
+      const $input = $(`[data-line-key="${lineKey}"]`);
+      const $quantitySelector = $input.closest('.quantity-selector');
+      $quantitySelector.find('.quantity-selector__button').prop('disabled', false);
+      
+      // Update button states based on new quantity
+      const newQty = parseInt($input.val()) || 1;
+      const min = parseInt($input.attr('min')) || 1;
+      const max = parseInt($input.attr('max')) || 999;
+      $quantitySelector.find('.quantity-minus').prop('disabled', newQty <= min);
+      $quantitySelector.find('.quantity-plus').prop('disabled', newQty >= max);
+    })
+    .catch(error => {
+      console.error('Error updating cart:', error);
+      
+      // Revert the quantity input on error
+      const $input = $(`[data-line-key="${lineKey}"]`);
+      const originalQuantity = $input.data('original-quantity') || 1;
+      $input.val(originalQuantity);
+      
+      // Remove loading state and re-enable buttons
+      $loader.removeAttr('aria-busy');
+      const $quantitySelector = $input.closest('.quantity-selector');
+      $quantitySelector.find('.quantity-selector__button').prop('disabled', false);
+      
+      // Update button states based on original quantity
+      const min = parseInt($input.attr('min')) || 1;
+      const max = parseInt($input.attr('max')) || 999;
+      $quantitySelector.find('.quantity-minus').prop('disabled', originalQuantity <= min);
+      $quantitySelector.find('.quantity-plus').prop('disabled', originalQuantity >= max);
+    });
+  }
+
+  window.dataRemove = function(button, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+    }
+
+    console.log('🗑️ === REMOVE ITEM CLICKED ===');
+
+    // Find the line key from the button or its siblings
+    const $button = $(button);
+    const lineKey = $button.closest('line-item-quantity').find('[data-line-key]').first().attr('data-line-key') ||
+                    $button.closest('tr').find('[data-line-key]').first().attr('data-line-key');
+
+    console.log('Line Key:', lineKey);
+
+    if (!lineKey) {
+      console.error('❌ Could not find line key for removal');
+      return false;
+    }
+
+    // Check if this is a variety pack item - if so, don't allow individual removal
+    const $lineItemContainer = $button.closest('line-item, .variety-pack-line-item');
+    if ($lineItemContainer.hasClass('variety-pack-line-item')) {
+      console.log('❌ Cannot remove variety pack item individually - use variety pack remove function');
+      return false;
+    }
+
+    // Find the line item element
+    let $lineItem = $(`[data-line-key="${lineKey}"]`).first().closest('line-item');
+    if (!$lineItem.length) {
+      const $row = $(`[data-line-key="${lineKey}"]`).first().closest('tr');
+      $lineItem = $row.find('line-item');
+    }
+
+    // Show pill-loader for visual feedback
+    $lineItem.addClass('is-loading');
+    const $loader = $lineItem.find('pill-loader');
+    if ($loader.length) {
+      $loader.addClass('loading');
+      $loader.attr('aria-busy', 'true');
+    }
+
+    // Prepare form data to remove item (set quantity to 0)
+    // IMPORTANT: Only remove this specific line key, not all items with the same variant
+    const formData = {
+      'updates': {}
+    };
+    formData.updates[lineKey] = 0;
+
+    console.log('Removing only line key:', lineKey);
+
+    // First, fetch current cart to log the state before removal
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cartBefore => {
+        console.log('📊 Cart state BEFORE removal:');
+        cartBefore.items.forEach((item, index) => {
+          const isVarietyPack = item.properties && item.properties['_variety_pack'] === 'true';
+          const highlight = item.key === lineKey ? '👉' : '  ';
+          console.log(`${highlight} ${index + 1}. ${item.product_title} (key: ${item.key}, variant: ${item.variant_id}, variety_pack: ${isVarietyPack})`);
+        });
+      })
+      .catch(err => console.error('Error fetching cart before removal:', err));
+
+    // Prepare bundled sections for re-rendering
+    let sectionsToBundle = [];
+    document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", {
+      bubbles: true,
+      detail: { sections: sectionsToBundle }
+    }));
+
+    // If we're on the main cart page, add the cart section to be re-rendered
+    const $mainCartSection = $('.shopify-section--main-cart');
+    if ($mainCartSection.length > 0) {
+      const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+      if (sectionId) {
+        const cleanSectionId = sectionId.replace('shopify-section-', '');
+        sectionsToBundle.push(cleanSectionId);
+        console.log('🔄 Will re-render main cart section:', cleanSectionId);
+      }
+    }
+
+    // Use /cart/change.js with URL parameters for precise line key matching
+    // Encode the line key properly for URL
+    const encodedLineKey = encodeURIComponent(lineKey);
+    const changeUrl = `/cart/change.js?id=${encodedLineKey}&quantity=0`;
+
+    console.log('🌐 Using /cart/change.js for precise removal:');
+    console.log('  URL:', changeUrl);
+    console.log('  Line Key:', lineKey);
+
+    // Use /cart/change.js with URL parameters which respects exact line keys
+    fetch(changeUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('✅ Item removed successfully');
+      console.log('Updated cart data:', data);
+
+      // Check if response has items array (successful removal)
+      if (data && data.items) {
+        console.log('📊 Cart items after removal:');
+        data.items.forEach((item, index) => {
+          const isVarietyPack = item.properties && item.properties['_variety_pack'] === 'true';
+          console.log(`  ${index + 1}. ${item.product_title} (key: ${item.key}, variant: ${item.variant_id}, variety_pack: ${isVarietyPack})`);
+        });
+
+        // Verify the removed item is actually gone and variety pack items are intact
+        const removedItemStillExists = data.items.find(item => item.key === lineKey);
+        if (removedItemStillExists) {
+          console.error('⚠️ WARNING: Removed item still exists in cart!', removedItemStillExists);
+        }
+
+        // Count variety pack items to ensure they weren't affected
+        const varietyPackItems = data.items.filter(item =>
+          item.properties && item.properties['_variety_pack'] === 'true'
+        );
+        console.log(`✅ Variety pack items remaining: ${varietyPackItems.length}`);
+
+        // Update cart count bubble
+        const totalItems = data.items.reduce((sum, item) => sum + item.quantity, 0);
+        $('.count-bubble').text(totalItems);
+
+        // Update localStorage and pricing
+        localStorage.setItem('cartCount', totalItems);
+        updateCartUI(totalItems);
+        updatePPPriceCSS(totalItems);
+
+        // FAST: Remove the line item from DOM with animation instead of reloading
+        $lineItem.fadeOut(300, function() {
+          // Remove pill-loader before removing element
+          if ($loader.length) {
+            $loader.removeClass('loading');
+            $loader.removeAttr('aria-busy');
+          }
+          $lineItem.removeClass('is-loading');
+
+          $(this).remove();
+
+          // Update cart totals
+          const $cartDrawer = $('#cart-drawer');
+          const totalPriceFormatted = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: data.currency || 'USD'
+          }).format(data.total_price / 100);
+
+          $cartDrawer.find('.h5:contains("Total")').next('.h5').text(totalPriceFormatted);
+
+          console.log('✅ Line item removed from DOM instantly');
+        });
+      } else {
+        console.log('⚠️ Response does not contain items array:', data);
+
+        // Fallback: remove item even if response is invalid
+        $lineItem.fadeOut(300, function() {
+          if ($loader.length) {
+            $loader.removeClass('loading');
+            $loader.removeAttr('aria-busy');
+          }
+          $lineItem.removeClass('is-loading');
+          $(this).remove();
+        });
+      }
+
+      // If we're on the main cart page and got section HTML, re-render it
+      if (data.sections && $mainCartSection.length > 0) {
+        const sectionId = $mainCartSection.closest('.shopify-section').attr('id');
+        if (sectionId) {
+          const cleanSectionId = sectionId.replace('shopify-section-', '');
+          if (data.sections[cleanSectionId]) {
+            console.log('🔄 Re-rendering main cart section with fresh HTML');
+            const $newSection = $(data.sections[cleanSectionId]);
+            const $newContent = $newSection.find('.shopify-section--main-cart').parent();
+
+            if ($newContent.length) {
+              $mainCartSection.closest('.shopify-section').html($newContent.html());
+              console.log('✅ Main cart section re-rendered successfully');
+            } else {
+              // Fallback: replace entire section
+              $mainCartSection.closest('.shopify-section').replaceWith(data.sections[cleanSectionId]);
+              console.log('✅ Main cart section replaced successfully');
+            }
+
+            // Update pricing after re-render
+            updatePPPriceCSS(totalItems);
+            return;
+          }
+        }
+      }
+
+      // Don't trigger cart events to avoid multiple loaders
+      // The UI updates are already handled above
+    })
+    .catch(error => {
+      console.error('❌ Error removing item:', error);
+
+      // Even on error, remove the item from DOM (optimistic update)
+      // The backend removal might have succeeded even if the response failed
+      $lineItem.fadeOut(300, function() {
+        if ($loader.length) {
+          $loader.removeClass('loading');
+          $loader.removeAttr('aria-busy');
+        }
+        $lineItem.removeClass('is-loading');
+        $(this).remove();
+        console.log('⚠️ Removed item from DOM despite error');
+      });
+    });
+
+    return false;
+  };
+
+  let cartCountVal = parseInt(localStorage.getItem("cartCount")) || 0;
+  let newCartCount = cartCountVal;
+  let firstClickPlus = true;
+
+  function updateCartCount() {
+    localStorage.setItem("newCartCount", newCartCount);
+    updatePriceDisplay();
+  }
+
+  function updatePriceDisplay() {
+    if (newCartCount >= 5 && newCartCount <= 9) {
+      $(".pp_price .price_5").show();
+      $(".pp_price .price_15, .pp_price .price_20").hide();
+      $(".pp_price .regularPrice_noOff").css("text-decoration", "line-through");
+    } else if (newCartCount >= 10 && newCartCount <= 14) {
+      $(".pp_price .price_15").show();
+      $(".pp_price .price_5, .pp_price .price_20").hide();
+      $(".pp_price .regularPrice_noOff").css("text-decoration", "line-through");
+    } else if (newCartCount > 14) {
+      $(".pp_price .price_20").show();
+      $(".pp_price .price_5, .pp_price .price_15").hide();
+      $(".pp_price .regularPrice_noOff").css("text-decoration", "line-through");
+    } else {
+      $(".pp_price .regularPrice_noOff").css("text-decoration", "none");
+      $(".pp_price .price_5, .pp_price .price_15, .pp_price .price_20").hide();
+    }
+  }
+
+  updatePriceDisplay();
+
+  // ✅ Updated event listener using data-action - for price display updates
+$(".quantity-selector").on("click", ".quantity-selector__button", function () {
+  const action = $(this).data("action");
+
+  if (action === "plus") {
+    if (firstClickPlus) {
+      newCartCount += 2;
+      firstClickPlus = false;
+    } else {
+      newCartCount += 1;
+    }
+  } else if (action === "minus") {
+    newCartCount -= 1;
+    if (newCartCount < 0) newCartCount = 0;
+  }
+
+  updateCartCount();
+});
+
+// ✅ Quantity input live update - for price display updates
+$(".quantity-selector__input").on("input", function () {
+  let cartCountVal2 = parseInt(localStorage.getItem("cartCount")) || 0;
+  let inputVal = parseInt($(this).val()) || 0;
+  newCartCount = cartCountVal2 + inputVal;
+  updateCartCount();
+  updatePPPriceCSS(newCartCount);
+});
+
+});
+</script>

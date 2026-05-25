@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_XHP3Cd": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "🎉 Early Access Black Friday: Buy 10 Get 5 Free – Use code: 5FREE",
+            "url": ""
+          }
+        },
+        "81bb3df9-1263-4a38-bbbd-6b1a0956b118": {
+          "type": "message",
+          "settings": {
+            "text": "FREE SHIPPING ON ALL ORDERS OVER $70",
+            "url": ""
+          }
+        },
+        "message_mJH8MM": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "⭐ WE REBRANDED! ⭐",
+            "url": ""
+          }
+        },
+        "message": {
+          "type": "message",
+          "settings": {
+            "text": "SUBSCRIBE & SAVE UP TO 30%",
+            "url": "https://theconsciousbar.co/apps/subscriptions/bb/l13whyk1"
+          }
+        }
+      },
+      "block_order": [
+        "message_XHP3Cd",
+        "81bb3df9-1263-4a38-bbbd-6b1a0956b118",
+        "message_mJH8MM",
+        "message"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "autoplay": false,
+        "cycle_speed": 7,
+        "text_size": "text-xs",
+        "navigation_mode": "arrows",
+        "scrolling_speed": 10,
+        "background": "#39180f",
+        "background_gradient": "",
+        "text_color": "#e5dac6"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_QGCxTT": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "SHOP",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_1": "shopify://shop_images/bundle_subscribe_1.jpg",
+            "image_heading_1": "",
+            "image_link_1": "https://theconsciousbar.co/apps/subscriptions/bb/l13whyk1",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "collection": "mega-menu",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "show"
+          }
+        },
+        "mega_menu_dnR3bK": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "TIENDA",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_1": "shopify://shop_images/bundle_subscribe_mobile_-_ESPANOL.jpg",
+            "image_heading_1": "",
+            "image_link_1": "https://theconsciousbar.co/apps/subscriptions/bb/l13whyk1",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "collection": "mega-menu",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "show"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_QGCxTT",
+        "mega_menu_dnR3bK"
+      ],
+      "custom_css": [
+        "#megamenu_pSlider [tabindex=\"0\"] {display: none; opacity: 0;}"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify://shop_images/Logo_4.png",
+        "logo_max_width": 180,
+        "logo_mobile_max_width": 155,
+        "menu": "main-menu",
+        "sidebar_menu": "main-menu",
+        "secondary_menu": "",
+        "menu_open_trigger": "click",
+        "opening_from": "bottom",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": true,
+        "show_country_name": false,
+        "transparent_header_text_color": "#e5dac6",
+        "transparent_logo": "shopify://shop_images/Logo_3.png",
+        "reduce_padding": true,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,156 @@
+<style>
+  .pp_discountsButton .discount_buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pp_discountsButton .discount_button {
+  color: #2f130c;
+  background: #ece5d4;
+  font-size: 15.88px;
+  font-weight: 700;
+  line-height: 1.68;
+  width: calc(25% - (8px * 3 / 4));
+  /* border: 1px solid #2F130C; */
+  min-height: 79px;
+  border-radius: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding: 8px;
+  transition: 0.3s;
+  flex-direction: column;
+  text-align: center;
+}
+
+.pp_discountsButton .discount_button.active,
+.pp_discountsButton .discount_button:hover {
+  color: #ece5d4;
+  background: #2f130c;
+}
+
+.pp_discountsButton .discount_button span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #628036;
+  background: #FDF8EE;
+  min-height: 22px;
+  border-radius: 40px;
+  padding: 6px 8px;
+  pointer-events: none;
+}
+
+.pp_discountsButton .discount_button.active span,
+.pp_discountsButton .discount_button:hover span {
+  color: #2f130c;
+  background: #fff;
+}
+
+.pp_discountsButton .discount_button * {
+  pointer-events: none;
+}
+.pp_discountsButton .discount_button_custom {
+  margin-top: 15px;
+}
+.pp_discountsButton{
+  padding-top: 16px;
+}  
+.pp_discountsButton .block-label{
+  color: #2F130C !important;
+}  
+  @media (max-width: 749px) {
+  .pp_discountsButton .discount_buttons {
+    gap: 4px;
+    justify-content: center;
+  }
+  .pp_discountsButton .discount_button {
+    font-size: 14px;
+    gap: 2px 8px;
+    width: calc(25% - 3px);
+  }
+
+  .pp_discountsButton .discount_button span {
+    font-size: 11px;
+    padding: 5px 8px 4px;
+  }
+}
+  @media (max-width: 350px){
+  .pp_discountsButton .discount_button span {
+    font-size: 9px !important;
+    padding: 7px 4px 4px !important;
+  }
+  }
+</style>
+{%- liquid 
+               assign variant = product.selected_or_first_available_variant 
+               assign variantPrice = variant.price | money_without_currency
+               assign percentage = product.metafields.custom.discount_percentage_on_quantity.value
+               
+               assign percentage3Bars = percentage[0]
+               assign calcDiscountPrice3Bars = percentage3Bars | times: 1 | divided_by: 100.00
+               assign multiplyDiscountPrice3Bars = variantPrice | times: calcDiscountPrice3Bars
+               assign discountPrice3Bars = variantPrice | minus: multiplyDiscountPrice3Bars
+               
+               assign percentage6Bars = percentage[1]
+               assign calcDiscountPrice6Bars = percentage6Bars | times: 1 | divided_by: 100.00
+               assign multiplyDiscountPrice6Bars = variantPrice | times: calcDiscountPrice6Bars
+               assign discountPrice6Bars = variantPrice | minus: multiplyDiscountPrice6Bars
+               
+               assign percentage12Bars = percentage[2]
+               assign calcDiscountPrice12Bars = percentage12Bars | times: 1 | divided_by: 100.00
+               assign multiplyDiscountPrice12Bars = variantPrice | times: calcDiscountPrice12Bars
+               assign discountPrice12Bars = variantPrice | minus: multiplyDiscountPrice12Bars
+
+            -%}
+<div class="discount_button_custom pp_discountsButton" data-product-id="{{product.id}}">
+    <div class="block-label text-subdued"><strong>Bundle and Save</strong><span> (Includes items in cart)</span></div>
+    <div class="block-label_onlybundle text-subdued" style="display: none;"><strong>Bundle</strong></div>
+    <div class="discount_buttons">
+        <div class="discount_button active" data-value="1" data-percentage="0" onclick="discount_button(this)">One Bar</div>
+        <div class="discount_button" data-value="5" data-percentage="5" onclick="discount_button(this)">5 Bars <span>20% OFF</span></div>
+        <div class="discount_button" data-value="10" data-percentage="15" onclick="discount_button(this)">10 Bars <span>20% OFF</span></div>
+        <div class="discount_button" data-value="15" data-percentage="20" onclick="discount_button(this)">15 Bars <span>20% OFF</span></div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+  // Function to update discount percentages dynamically
+  function updateDiscountPercentages() {
+    let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+
+    $('.discount_button').each(function () {
+      let dataValue = parseInt($(this).attr('data-value')) || 0;
+      let newValue = cartCount + dataValue;
+      let discountText = '';
+
+      if (newValue >= 0 && newValue <= 9) {
+        discountText = '5% OFF';
+      } else if (newValue >= 10 && newValue <= 14) {
+        discountText = '15% OFF';
+      } else if (newValue > 14) {
+        discountText = '20% OFF';
+      }
+
+      if (discountText) {
+        $(this).find('span').text(discountText);
+      }
+    });
+  }
+
+  // Run the function after page load
+  updateDiscountPercentages();
+
+  // Run the function when clicking anywhere in the body
+  $('body').on('click', function () {
+    updateDiscountPercentages();
+  });
+});
+
+</script>

@@ -1,0 +1,982 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mhH3b8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Meta_Landing_page_v2_-_Desktop.jpg",
+            "mobile_image": "shopify://shop_images/Meta_Landing_page_v2_-_Mobile_extended.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-end-center text-center",
+            "desktop_text_position": "sm:place-self-end-start sm:text-start",
+            "subheading": "",
+            "title": "",
+            "title2": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "shopify://collections/all-products",
+            "text_color": "#ffffff",
+            "button_background": "#f5edde",
+            "button_text_color": "#39180f",
+            "overlay_color": "#39180f",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_mhH3b8"
+      ],
+      "custom_css": [
+        ".h0 {font-size: 86px;}",
+        ".subheading {font-family: \"Quincy CF\"; font-size: 22px; font-weight: 500;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_and": true,
+        "allow_transparent_header": false,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "numbers",
+        "transition_type": "fade",
+        "autoplay": false,
+        "cycle_speed": 4,
+        "background": "#f2f2f2",
+        "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
+      }
+    },
+    "0ac4efdd-8104-4480-9021-457928aac34c": {
+      "type": "impact-text",
+      "blocks": {
+        "9889fdb0-51fd-475b-a0e9-56e091fab9ae": {
+          "type": "item",
+          "settings": {
+            "title": "FIRST ORDER · 20% OFF",
+            "title2": "",
+            "subheading": "Your 20% is locked in - applied automatically",
+            "content": "",
+            "button_text": "Shop the Bestsellers ↓",
+            "button_url": "shopify://collections/all-products",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "9889fdb0-51fd-475b-a0e9-56e091fab9ae"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 700px) {h2 {font-size: 48px; }}",
+        ".section-full {padding-top: 40px; padding-bottom: 0px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": false,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "line",
+        "impact_text_size_ratio": 0.7,
+        "background": "#fdf8ee",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#2f130c",
+        "button_background": "#2f130c",
+        "button_text_color": "#e5dac6"
+      }
+    },
+    "impact_text_iYYEKk": {
+      "type": "impact-text",
+      "blocks": {
+        "item_qQnXfr": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "subheading": "",
+            "content": "<p>Free shipping when your cart hits $70</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_qQnXfr"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 700px) {h2 {font-size: 48px; }}",
+        ".section-full {padding-top: 4px; padding-bottom: 0px;}",
+        "p {font-size: 0.8rem; opacity: 80%;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 1,
+        "background": "#fdf8ee",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "new_scrolling_image_Lcjpbt": {
+      "type": "new-scrolling-image",
+      "blocks": {
+        "scrolling_text_TtpH9E": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Gluten_Free.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_hTDe3B": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/No_Preservatives_e609ffe1-7900-4a3e-9f26-909892d5383b.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_Kmp6xY": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Non_Gmo_fe8edba8-ab72-4d7e-9880-be0a402a0270.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_f8kPG4": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/No_Added_Sugar_f3f2ad82-3f88-4df0-8c7f-cb7f3c2f6f4d.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_hH6xDH": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Keto_Friendly_d262804f-9150-4ca5-b9fa-6b9761cff360.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_taFK6H": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/USDA_SMALLER.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_hqX6FJ": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Kosher.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_WeDYj6": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Vegan_4fd43020-6ad0-406c-8f99-21088bb427b7.png",
+            "height": 80
+          }
+        },
+        "scrolling_text_VHF9QF": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Paleo_Approved.png",
+            "height": 80
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_TtpH9E",
+        "scrolling_text_hTDe3B",
+        "scrolling_text_Kmp6xY",
+        "scrolling_text_f8kPG4",
+        "scrolling_text_hH6xDH",
+        "scrolling_text_taFK6H",
+        "scrolling_text_hqX6FJ",
+        "scrolling_text_WeDYj6",
+        "scrolling_text_VHF9QF"
+      ],
+      "custom_css": [
+        ".section-full {padding-top: 6px; padding-bottom: 30px;}"
+      ],
+      "settings": {
+        "speed": 1.6,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "#fdf8ee",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".prose p {margin-top: 16px;}",
+        "@media screen and (min-width: 700px) {}",
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "collection": "all-products",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 8,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "BEST SELLERS",
+        "heading_tag": "h2",
+        "content": "<p><em>Your 20% applies automatically at checkout.</em></p>",
+        "link_url": "shopify://collections/all-products",
+        "link_text": "View all",
+        "background": "#f5edde",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "testimonials_RbAMjB": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_9RK99b": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Angie M.",
+            "title": "Best Dark Chocolate Ever!",
+            "content": "<p>\"I was a bit skeptical about how this chocolate bar would taste with just 3 ingredients, but one bite changed my relationship with chocolate. The Conscious Bar is the only bar I will eat now. Thank you.\"</p>"
+          }
+        },
+        "testimonial_DA3rFc": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Catherine D.",
+            "title": "It is definitely smooth and rich in chocolate!",
+            "content": "<p>\"I am so spoiled now. No other chocolate, and I have tasted plenty, is as delicious and satisfying as the Conscious bar. And it is not too sweet. The use of dates for sweetening makes the taste so much more chocolatey.\"</p>"
+          }
+        },
+        "testimonial_b76JAA": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Phyllis",
+            "title": "Delicious",
+            "content": "<p>\"Bar is delicious and doesn't raise glucose.\"</p>"
+          }
+        },
+        "testimonial_LTHwf3": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Terri G.",
+            "title": "",
+            "content": "<p>\"Im diabetic and cant eat many things that are sweet and tasty. This is a treasure. I allow myself 2 squares a night and my numbers are good. This chocolate is fantastic.\"</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_9RK99b",
+        "testimonial_DA3rFc",
+        "testimonial_b76JAA",
+        "testimonial_LTHwf3"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "full_width": true,
+        "stack_testimonials": true,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "testimonial_card_background": "",
+        "testimonial_card_text_color": ""
+      }
+    },
+    "impact_text_BpJ6tQ": {
+      "type": "impact-text",
+      "blocks": {
+        "item_6iWVgz": {
+          "type": "item",
+          "settings": {
+            "title": "Why Dates?",
+            "title2": "",
+            "subheading": "",
+            "content": "<p>Inherits the full-width comparison infographic from the control. No body copy required - the image carries the story.</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": true,
+            "animate_impact_text_duration": 2.7
+          }
+        }
+      },
+      "block_order": [
+        "item_6iWVgz"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 88px; }}",
+        ".section-blends {padding-top: 20px; padding-bottom: 10px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "line",
+        "impact_text_size_ratio": 0.9,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#2f130c",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "slideshow_QijWGX": {
+      "type": "slideshow",
+      "blocks": {
+        "image_i88Tpg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/website_dates_vs_sugar_1.jpg",
+            "mobile_image": "shopify://shop_images/website_dates_vs_sugar_mobile.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "title2": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#b58348",
+            "overlay_opacity": 11,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_i88Tpg"
+      ],
+      "custom_css": [
+        ".slideshow {padding-top: 16px; padding-bottom: 48px;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "show_and": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f5edde",
+        "background_gradient": ""
+      }
+    },
+    "impact_text_TQLDzq": {
+      "type": "impact-text",
+      "blocks": {
+        "item_Mw3FGg": {
+          "type": "item",
+          "settings": {
+            "title": "The Benefits Of Cacao",
+            "title2": "",
+            "subheading": "",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_Mw3FGg"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 88px; }}",
+        ".section-blends {padding-top: 20px; padding-bottom: 20px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.8,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#2f130c",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "images_with_text_scrolling_ECV7kL": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_rqhXk8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_1.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Antioxidant Powerhouse, Nature’s Shield",
+            "content": "<p>Think of cacao as your body’s personal bouncer, kicking out free radicals before they can crash the health party. Packed with antioxidants, cacao’s powerful flavonoids go to work defending your cells against premature aging and disease.</p>"
+          }
+        },
+        "item_m7CrKT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_2.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Natural Mood Booster",
+            "content": "<p>When life needs a little brightness, cacao steps in as the ultimate feel-good agent. It’s rich in compounds that encourage serotonin, dopamine, and endorphins—turning every bite into a mini happiness boost. Forget sugar highs and crashes; with cacao, you’re getting a natural lift that’s as steady as it is delicious.</p>"
+          }
+        },
+        "item_cL8Jd8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_3.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Nutritional Powerhouse",
+            "content": "<p>Cacao may come in a humble bean, but it’s packed with essentials like magnesium, iron, and fiber. This is no empty treat; it’s full-on nourishment, giving you minerals that are essential for muscles, mood, and energy. In short, cacao is as nourishing as it is flavorful.</p>"
+          }
+        },
+        "item_KAU3Wz": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_4.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Naturally Energizing",
+            "content": "<p>Need energy but tired of the caffeine spikes? Cacao has theobromine, a gentle stimulant that offers sustained energy without the jitters. It’s a natural lift that keeps you focused and ready for anything, making cacao a perfect pick-me-up any time of the day.</p>"
+          }
+        },
+        "item_NGNqGj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_5.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Heart Health Hero",
+            "content": "<p>With a heart as golden as its flavor, cacao supports cardiovascular health with a special dose of love. High in flavonoids, it helps improve blood flow and reduces blood pressure, giving your heart the boost it deserves. It's like a little cardio session you can savor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_rqhXk8",
+        "item_m7CrKT",
+        "item_cL8Jd8",
+        "item_KAU3Wz",
+        "item_NGNqGj"
+      ],
+      "custom_css": [
+        ".section-blends {padding-top: 24px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "featured_collection_9mrTdH": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".prose p {margin-top: 16px;}",
+        "@media screen and (min-width: 700px) {}",
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "collection": "all-products",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 8,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "Pick Your Bars",
+        "heading_tag": "h2",
+        "content": "<p><em>Your 20% applies automatically at checkout.</em></p>",
+        "link_url": "shopify://collections/all-products",
+        "link_text": "View all",
+        "background": "#f5edde",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "multi_column_g639E8": {
+      "type": "multi-column",
+      "blocks": {
+        "item_9KMWKG": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "title": "Minimum Order",
+            "heading_tag": "h3",
+            "content": "<p>Order minimum is $35 - most first boxes are 5 to 7 bars. Free shipping kicks in at $70.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_xPpkn4": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "title": "",
+            "heading_tag": "h3",
+            "content": "<p>✓ 20% auto-applied · ✓ Free ship $70+ · ✓ Plastic-free pack</p>",
+            "link_url": "",
+            "link_text": "Shop the Bestsellers - 20% Auto-Applied →",
+            "link_style": "button"
+          }
+        }
+      },
+      "block_order": [
+        "item_9KMWKG",
+        "item_xPpkn4"
+      ],
+      "custom_css": [
+        ".prose {opacity: 72%;}",
+        ".multi-column__item .text-center {border: 1px dashed #cfb993; border-radius: 12px; padding: 14px;}",
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}",
+        "button {background-color: #2f130c;}"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "gap": "small",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "media_grid_qWxfwD": {
+      "type": "media-grid",
+      "blocks": {
+        "image_dWhzMj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bundle_2.png",
+            "title": "",
+            "title2": "",
+            "title3": "",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/new-collectionxyzxyz",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_VyUC7F": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/build_your_own_bundle_and_save_b.jpg",
+            "title": "Build",
+            "title2": "your own|bundle",
+            "title3": "and save",
+            "heading_tag": "h1",
+            "link_url": "shopify://collections/new-collectionxyzxyz",
+            "link_text": "SAVE NOW",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 2,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#e5dac6",
+            "text_gradient": "",
+            "button_background": "#e5dac6",
+            "button_text_color": "#2f130c",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_aFmmyn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/img_84854-1677048997413.webp",
+            "title": "",
+            "title2": "",
+            "title3": "",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/new-collectionxyzxyz",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_dWhzMj",
+        "image_VyUC7F",
+        "image_aFmmyn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 48px; padding-bottom: 40px;}",
+        ".mediagrid_title2 {font-family: Legitima; font-style: italic;}",
+        ".mediagrid_title1,.mediagrid_title2,.mediagrid_title3 {display: inline;}",
+        ".mediagrid_title1,.mediagrid_title3 {font-family: \"Quincy CF\";}"
+      ],
+      "settings": {
+        "full_width": true,
+        "reduce_width": false,
+        "desktop_row_height": 290,
+        "mobile_row_height": 150,
+        "background": "",
+        "background_gradient": ""
+      }
+    },
+    "testimonials_DjKdJg": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_DePw6A": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7257_823cbf0f-516a-4309-96cb-3b982a54321a.jpg",
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Andrés Preschel | Exercise Physiologist, Lifestyle Medicine Author and Podcast Host",
+            "title": "",
+            "content": "<p>“I’m a big believer in transparency... how you do one thing is how you do everything. The Conscious Bar is no exception; it’s clearly an extremely healthy, truly sustainable and ethically sourced chocolate bar that you can feel REALLY good about all the way through. The chocolate is exquisite, but this brand sets the bar high for so much more than its mere indulgence. Thank you!\"</p>"
+          }
+        },
+        "testimonial_zMTQA3": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/liana.jpg",
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Liana Werner-Gray | Certified Nutritionist & Best-Selling Author 'Cancer-Free with Food'",
+            "title": "",
+            "content": "<p>“The first thing I did when I saw The Conscious Bar chocolate was to look at the ingredients and I must say, wow! A premium chocolate bar, vegan & gently sweetened with organic dates! I was so excited to try it, and as soon as I tasted it I was amazed. The flavors are incredible, very uplifting and you can clearly taste the pure ingredients which are essentially two superfoods and nothing else.<br/></p>"
+          }
+        },
+        "testimonial_TNaBtc": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/test.jpg",
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "John Iatrellis | Corporate Executive Chef, Lifehouse Hotels",
+            "title": "",
+            "content": "<p>\"The Conscious Bar is truly innovating the craft chocolate space. As a Chef we try to speak the language of the foods from the lands in which our journey has allowed us to experience. These guys speak in the most fluent and natural epicurean language with delicious, clean & honest ingredients that fuel the soul and literally give back to mother nature through their commitment to sustainability.\"</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_DePw6A",
+        "testimonial_zMTQA3",
+        "testimonial_TNaBtc"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_testimonials": false,
+        "subheading": "",
+        "title": "What Experts Are Saying:",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "#ffffff",
+        "background_gradient": "linear-gradient(180deg, rgba(245, 237, 222, 1), rgba(181, 131, 72, 0.27) 100%)",
+        "text_color": "#39180f",
+        "heading_color": "",
+        "heading_gradient": "",
+        "testimonial_card_background": "rgba(0,0,0,0)",
+        "testimonial_card_text_color": "#2f130c"
+      }
+    },
+    "scrolling_text_zdynWa": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [
+        ".section--tight {padding-top: 20px; padding-bottom: 20px;}",
+        ".scrolling-text__text {text-transform: none;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "text": "Who We Are",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 12,
+        "background": "#39180f",
+        "background_gradient": "",
+        "text_color": "#f5edde",
+        "text_gradient": ""
+      }
+    },
+    "multi_column_jaRpmw": {
+      "type": "multi-column",
+      "blocks": {
+        "item_FGKt3m": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/website_direct_trade.jpg",
+            "column_size": "3",
+            "title": "Direct Trade",
+            "heading_tag": "h1",
+            "content": "<p><strong>Working directly with farmers</strong> enables us to ensure the welfare and success of the entire value chain. This also allows us to provide & market our products responsibility so that our customers can enjoy the experience of indulging in our products while feeling at ease that our farmers are well taken care of. </p>",
+            "link_url": "shopify://pages/direct-trade",
+            "link_text": "LEARN MORE",
+            "link_style": "button"
+          }
+        },
+        "item_fUmkwE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/website_sustainability.jpg",
+            "column_size": "3",
+            "title": "Sustainability",
+            "heading_tag": "h1",
+            "content": "<p>Our packaging is<strong> plastic free</strong>, made entirely with post consumer waste products (<strong>PCW</strong>). Our interior film wrappers and exterior sealing stickers are also <strong>compostable & biodegradable</strong>, made out of eco-friendly materials such as eucalyptus wood pulp obtained from controlled plantations...</p>",
+            "link_url": "shopify://pages/sustainability",
+            "link_text": "LEARN MORE",
+            "link_style": "button"
+          }
+        },
+        "item_ULqRxD": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/website_nourishment.jpg",
+            "column_size": "3",
+            "title": "Nourishment",
+            "heading_tag": "h1",
+            "content": "<p>Chocolate can be more than a treat—it can be a powerhouse of nutrition. With <strong>Organic Cacao</strong> and <strong>Organic Dates</strong> as our main ingredients, The Conscious Bar offers indulgence that’s as nourishing as it is delicious – and we have the science to back it up. Let’s dive into the data, shall we?</p>",
+            "link_url": "shopify://pages/the-science",
+            "link_text": "LEARN MORE",
+            "link_style": "button"
+          }
+        }
+      },
+      "block_order": [
+        "item_FGKt3m",
+        "item_fUmkwE",
+        "item_ULqRxD"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 32px; padding-bottom: 48px;}",
+        ".button {background-color: transparent; color: rgb(var(--button-outline-color) / var(--button-background-opacity, 1)); box-shadow: inset 0 0 0 2px currentColor !important;}",
+        ".button:hover {background-color: rgb(var(--button-background)) !important; color: rgb(var(--button-text-color)) !important;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "small",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "We don't cut corners.",
+        "content": "<p>We set out to build a chocolate brand you can trust, all the way through. From our farmers to our ingredients, to our packaging, we are intentional in making sure sustainability and ethics lie at the core of what we do.</p>",
+        "background": "",
+        "background_gradient": "linear-gradient(180deg, rgba(181, 131, 72, 0.27), rgba(255, 255, 255, 0.27) 99%)",
+        "text_color": ""
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "166442457738b23caf-0": {
+          "type": "item",
+          "settings": {
+            "title": "What makes The Conscious Bar healthier than other chocolate?",
+            "content": "<p>We consciously created bean-to-bar chocolate using two superfoods – Organic Cacao & Organic Dates. We intentionally wanted to use a sweetener that is rich both in taste and nutrients to create a memorable, and guilt free experience.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "166442457738b23caf-1": {
+          "type": "item",
+          "settings": {
+            "title": "What does Indulge Freely mean exactly?",
+            "content": "<p>If you’ve had one of our bars, you’ve noticed the words “Indulge Freely” molded into each chocolate square. We believe that these two words embody the essence of why The Conscious Bar was created to begin with. We wanted to create a delicious guilt free chocolate bar that would stand the tests of flavor, ethics & environmental responsibility. Rest assure that you can indeed Indulge Freely when biting into one of our bar.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "166442457738b23caf-2": {
+          "type": "item",
+          "settings": {
+            "title": "What are the Health Benefits of Dark Chocolate?",
+            "content": "<p>We use premium organic ingredients in all the bars to bring forth rich, unmatched flavor. All The Conscious Bars have a minimum of 72% cacao solids. In many studies, the consumption of dark chocolate has been shown to lower blood pressure. Dark chocolate is rich in antioxidants (specifically cocoa polyphenols), which can help to combat free radicals - destructive molecules that are implicated in heart disease and other ailments.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "8fdc3aff-47bf-44b9-a85b-42b75a97c678": {
+          "type": "item",
+          "settings": {
+            "title": "Why do we use organic dates to sweeten our bars?",
+            "content": "<p>We decided to sweeten our chocolate bars with organic dates not only because of it’s rich and delicious flavor, but also because of its magnificent nutritional value. Dates are stacked with fiber, antioxidants and minerals. Other benefits shown in studies claim that dates can contribute towards helping reduce inflammation, act as an energy booster & promote heart and brain health.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "0713233d-b7ad-42d4-8e4f-6bad3cfc8201": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Question",
+            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "166442457738b23caf-0",
+        "166442457738b23caf-1",
+        "166442457738b23caf-2",
+        "8fdc3aff-47bf-44b9-a85b-42b75a97c678",
+        "0713233d-b7ad-42d4-8e4f-6bad3cfc8201"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-full {padding-top: 48px; padding-bottom: 48px;}",
+        ".button {background-color: transparent; color: rgb(var(--button-outline-color) / var(--button-background-opacity, 1)); box-shadow: inset 0 0 0 2px currentColor !important;}",
+        ".button:hover {background-color: rgb(var(--button-background)) !important; color: rgb(var(--button-text-color)) !important;}",
+        "h2 {font-family: Legitma; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "SEE MORE",
+        "button_url": "shopify://pages/faq",
+        "text_position": "center",
+        "background": "#e5dac6",
+        "background_gradient": "",
+        "text_color": "#39180f",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "#39180f",
+        "button_text_color": "#e5dac6",
+        "accordion_background": "#e5dac6",
+        "accordion_text_color": "#39180f"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "0ac4efdd-8104-4480-9021-457928aac34c",
+    "impact_text_iYYEKk",
+    "new_scrolling_image_Lcjpbt",
+    "featured-collection",
+    "testimonials_RbAMjB",
+    "impact_text_BpJ6tQ",
+    "slideshow_QijWGX",
+    "impact_text_TQLDzq",
+    "images_with_text_scrolling_ECV7kL",
+    "featured_collection_9mrTdH",
+    "multi_column_g639E8",
+    "media_grid_qWxfwD",
+    "testimonials_DjKdJg",
+    "scrolling_text_zdynWa",
+    "multi_column_jaRpmw",
+    "faq"
+  ]
+}

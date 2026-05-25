@@ -1,0 +1,133 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "custom_css": [
+        ".featured_product_heading2 {font-family: legitima-italic; font-style: italic; font-size: 34px; opacity: 80%;}",
+        "@media (max-width: 767px) {.featured_product_heading2 {font-size: 26px; }}"
+      ],
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "",
+        "featured_product_heading": "Date Sweetened Chocolate",
+        "featured_product_heading2": "LIMITED EDITION FLAVORS",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "custom_liquid_VrDQDF": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".section-blends {padding-top: 0; padding-bottom: 0; align-items: center; margin-top: -18px;}",
+        ".discount_button_custom {max-width: 800px; margin: 0 auto; background: #fdf8ee;}",
+        "@media (max-width: 760px) {.headingDiv {margin-bottom: 12px; }}",
+        "@media screen and (min-width: 760px) {.headingDiv {min-width: 190px; } .discount_button_custom {flex-direction: row; }}"
+      ],
+      "settings": {
+        "full_width": false,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<div class=\"discount_button_custom cp_discountButton\">\n\n<div class=\"headingDiv\">\n                  <div class=\"block-label text-subdued\">Bundle and Save\n</div>\n                  <span class=\"discountSubHeading\">mix and match flavors</span>\n\n\n</div>\n\n\n<span id=\"desktopDivider\" class=\"desktopDivider customDivider\"></span>\n\n                  <div class=\"discount_buttons\">\n                    \n                    <div class=\"discount_button\" >5 Bars: 5% OFF<span>$9.50 / bar</span></div>\n                    <span class=\"customDivider\"></span>\n                    <div class=\"discount_button\" >10 Bars: 15% OFF<span>$8.50 / bar</span></div>\n                    <span class=\"customDivider\"></span>\n                    \n                    <div class=\"discount_button\" >15+ Bars: 20% OFF<span>$8 / bar</span></div>\n                  </div>\n                </div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "bundle_and_save_banner_8JP3fn": {
+      "type": "Bundle-and-save-banner",
+      "disabled": true,
+      "custom_css": [
+        ".discount_button_custom {background: linear-gradient( 129deg, rgba(47, 19, 12, 1) 9%, rgba(93, 59, 25, 1) 39%, rgba(93, 59, 25, 1) 60%, rgba(57, 24, 15, 1) 84% ); color: #e5dac6; border: 1px solid #e5dac6;}",
+        ".cp_discountButton .discount_button {color: #e5dac6 !important;}",
+        ".discount_button span {color: #e5dac6 !important;}",
+        ".cp_discountButton .block-label {color: #e5dac6 !important;}",
+        ".cp_discountButton .discountSubHeading {color: #e5dac6 !important;}",
+        ".customDivider {background: #e5dac6 !important;}"
+      ],
+      "settings": {}
+    },
+    "impact_text_aK9fdB": {
+      "type": "impact-text",
+      "blocks": {
+        "item_REAVmL": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "subheading": "5 BARS: 5% OFF | 10 BARS: 15% OFF | 15+ BARS: 20% OFF",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_REAVmL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 80px; }}",
+        ".section-blends {padding-top: 5px; padding-bottom: 5px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 1,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "custom_css": [],
+      "settings": {
+        "products_per_page": 24,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 3,
+        "filter_layout": "horizontal",
+        "show_sort_by": false,
+        "show_filters": false,
+        "show_filter_group_name": false,
+        "show_filter_values_count": false,
+        "open_first_filter_group": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "custom_liquid_VrDQDF",
+    "bundle_and_save_banner_8JP3fn",
+    "impact_text_aK9fdB",
+    "main"
+  ]
+}

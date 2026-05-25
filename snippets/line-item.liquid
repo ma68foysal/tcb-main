@@ -1,0 +1,209 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+LINE ITEM
+----------------------------------------------------------------------------------------------------------------------
+
+This component renders a single line item product information, and is used on order and cart page.
+
+********************************************
+Supported variables
+********************************************
+
+* line_item: the line item to render (required)
+* show_desktop_quantity: if set to true (for instance on cart drawer), the quantity is also shown on the line
+{%- endcomment -%}
+
+{% liquid
+  assign max_quantity = nil
+
+  if line_item.variant.inventory_management != blank and line_item.variant.inventory_policy == 'deny'
+    assign current_quantity_for_variant = cart | item_count_for_variant: line_item.variant.id
+    assign max_quantity = line_item.variant.inventory_quantity | minus: current_quantity_for_variant | plus: line_item.quantity
+  endif
+
+  if line_item.variant.quantity_rule.max != nil
+    assign max_quantity = max_quantity | default: 999999 | at_most: line_item.variant.quantity_rule.max
+  endif
+
+  assign line_qty_min = line_item.variant.quantity_rule.min | default: 1
+%}
+
+<line-item class="line-item">
+  {%- comment -%}Check if this is a variety pack item and use variety pack image{%- endcomment -%}
+  {%- assign is_variety_pack = false -%}
+  {%- assign variety_pack_image = '' -%}
+  {%- for property in line_item.properties -%}
+    {%- if property.first == '_variety_pack' and property.last == 'true' -%}
+      {%- assign is_variety_pack = true -%}
+    {%- endif -%}
+    {%- if property.first == '_variety_pack_image' and property.last != blank -%}
+      {%- assign variety_pack_image = property.last -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if is_variety_pack and variety_pack_image != blank -%}
+    <div class="line-item__media-wrapper">
+      <img src="{{ variety_pack_image }}" loading="lazy" sizes="(max-width: 740px) 80px, 96px" class="line-item__media rounded-xs" alt="{{ line_item.product.title }}">
+      <pill-loader class="pill-loader"></pill-loader>
+    </div>
+  {%- elsif line_item.image != blank -%}
+    <div class="line-item__media-wrapper">
+      {{- line_item.image | image_url: width: line_item.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 80px, 96px', widths: '80,96,160,192', class: 'line-item__media rounded-xs' -}}
+
+      <pill-loader class="pill-loader"></pill-loader>
+    </div>
+  {%- endif -%}
+
+  <div class="line-item__info">
+    <div class="v-stack gap-0.5">
+      {%- if line_item.url != blank -%}
+        <a href="{{ line_item.url }}" class="bold">
+          <span class="reversed-link hover:show">{{ line_item.product.title | default: line_item.title }}</span>
+        </a>
+      {%- else -%}
+        <p class="bold">{{ line_item.product.title | default: line_item.title }}</p>
+      {%- endif -%}
+
+      {%- render 'price-list', line_item: line_item -%}
+      {%- if line_item.variant.inventory_policy == 'continue' and line_item.variant.inventory_quantity < 1 -%}
+        {%- render 'product-badge-backordered', product: line_item.product, class: 'product-info__badge-list badge_backordered' -%}
+      {%- endif -%}
+    </div>
+
+    {%- unless line_item.product.has_only_default_variant or line_item.gift_card -%}
+      <p class="text-sm text-subdued">{{ line_item.variant.title }}</p>
+    {%- endunless -%}
+
+    {%- if line_item.selling_plan_allocation -%}
+      <p class="text-sm text-subdued">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
+    {%- endif -%}
+
+    {%- unless line_item.properties == blank -%}
+      <ul class="list-disc">
+        {%- for property in line_item.properties -%}
+          {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
+
+          {%- if property.last == blank or first_character_in_key == '_' -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          <li class="text-sm text-subdued">
+            {%- if property.last contains '/uploads/' -%}
+              <a href="{{ property.last }}" class="link">{{ property.last | split: '/' | last }}</a>
+            {%- else -%}
+              {{ property.first }}: {{ property.last }}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endunless -%}
+
+
+    {%- if line_item.line_level_discount_allocations != blank -%}
+      <ul class="contents discount-badges" role="list" data-line-key="{{ line_item.key }}">
+        {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+          <li class="badge">
+            {%- render 'icon' with 'discount' -%} {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <div class="text-sm text-subdued sm:hidden">
+      {%- if line_item.url_to_remove -%}
+        <line-item-quantity class="v-stack gap-2">
+          <div class="quantity-selector h-stack gap-2 items-center justify-center">
+            <button 
+              type="button" 
+              class="quantity-selector__button quantity-minus" 
+              data-action="minus"
+              data-line-key="{{ line_item.key }}"
+              data-quantity="{{ line_item.quantity }}"
+              aria-label="Decrease quantity"
+              {% if line_item.quantity <= line_qty_min %}disabled{% endif %}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="1" viewBox="0 0 12 1" fill="none">
+                <path d="M12 0.5C12 0.632608 11.9473 0.759786 11.8536 0.853554C11.7598 0.947322 11.6326 1 11.5 1H0.5C0.367392 1 0.240215 0.947322 0.146447 0.853554C0.0526785 0.759786 0 0.632608 0 0.5C0 0.367392 0.0526785 0.240215 0.146447 0.146447C0.240215 0.0526785 0.367392 0 0.5 0H11.5C11.6326 0 11.7598 0.0526785 11.8536 0.146447C11.9473 0.240215 12 0.367392 12 0.5Z" fill="#39180F"/>
+              </svg>
+            </button>
+            
+            <input class="quantity-input quantity-selector__input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_qty_min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+            
+            <button 
+              type="button" 
+              class="quantity-selector__button quantity-plus" 
+              data-action="plus"
+              data-line-key="{{ line_item.key }}"
+              data-quantity="{{ line_item.quantity }}"
+              aria-label="Increase quantity"
+              {% if max_quantity != nil and line_item.quantity >= max_quantity %}disabled{% endif %}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                <path d="M12 6.5C12 6.63261 11.9473 6.75979 11.8536 6.85355C11.7598 6.94732 11.6326 7 11.5 7H6.5V12C6.5 12.1326 6.44732 12.2598 6.35355 12.3536C6.25979 12.4473 6.13261 12.5 6 12.5C5.86739 12.5 5.74021 12.4473 5.64645 12.3536C5.55268 12.2598 5.5 12.1326 5.5 12V7H0.5C0.367392 7 0.240215 6.94732 0.146447 6.85355C0.0526785 6.75979 0 6.63261 0 6.5C0 6.36739 0.0526785 6.24021 0.146447 6.14645C0.240215 6.05268 0.367392 6 0.5 6H5.5V1C5.5 0.867392 5.55268 0.740215 5.64645 0.646447C5.74021 0.552679 5.86739 0.5 6 0.5C6.13261 0.5 6.25979 0.552679 6.35355 0.646447C6.44732 0.740215 6.5 0.867392 6.5 1V6H11.5C11.6326 6 11.7598 6.05268 11.8536 6.14645C11.9473 6.24021 12 6.36739 12 6.5Z" fill="#39180F"/>
+              </svg>
+            </button>
+          </div>
+
+          <span class="text-xs text-center removeIcon">
+            <a href="{{ line_item.url_to_remove }}" class="link" onclick="event.preventDefault(); dataRemove(this, event); return false;" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M8.77201 1.22867L1.22934 8.77133L8.77201 1.22867ZM8.77201 8.77133L1.22934 1.22867L8.77201 8.77133Z" fill="#39180F"/>
+                <path d="M8.77201 1.22867L1.22934 8.77133M8.77201 8.77133L1.22934 1.22867" stroke="#39180F"/>
+              </svg>
+            </a>
+          </span>
+        </line-item-quantity>
+      {%- else -%}
+        {{- 'customer.order.quantity' | t }}: {{ line_item.quantity -}}
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  {%- if show_desktop_quantity -%}
+    <div class="line-item__actions text-subdued hidden sm:block">
+      <line-item-quantity class="v-stack gap-2">
+        <div class="quantity-selector h-stack gap-2 items-center">
+          <button 
+            type="button" 
+            class="quantity-selector__button quantity-minus" 
+            data-action="minus"
+            data-line-key="{{ line_item.key }}"
+            data-quantity="{{ line_item.quantity }}"
+            aria-label="Decrease quantity"
+            {% if line_item.quantity <= line_qty_min %}disabled{% endif %}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="1" viewBox="0 0 12 1" fill="none">
+              <path d="M12 0.5C12 0.632608 11.9473 0.759786 11.8536 0.853554C11.7598 0.947322 11.6326 1 11.5 1H0.5C0.367392 1 0.240215 0.947322 0.146447 0.853554C0.0526785 0.759786 0 0.632608 0 0.5C0 0.367392 0.0526785 0.240215 0.146447 0.146447C0.240215 0.0526785 0.367392 0 0.5 0H11.5C11.6326 0 11.7598 0.0526785 11.8536 0.146447C11.9473 0.240215 12 0.367392 12 0.5Z" fill="#39180F"/>
+            </svg>
+          </button>
+          
+          <input class="quantity-input quantity-selector__input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_qty_min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+          
+          <button 
+            type="button" 
+            class="quantity-selector__button quantity-plus" 
+            data-action="plus"
+            data-line-key="{{ line_item.key }}"
+            data-quantity="{{ line_item.quantity }}"
+            aria-label="Increase quantity"
+            {% if max_quantity != nil and line_item.quantity >= max_quantity %}disabled{% endif %}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+              <path d="M12 6.5C12 6.63261 11.9473 6.75979 11.8536 6.85355C11.7598 6.94732 11.6326 7 11.5 7H6.5V12C6.5 12.1326 6.44732 12.2598 6.35355 12.3536C6.25979 12.4473 6.13261 12.5 6 12.5C5.86739 12.5 5.74021 12.4473 5.64645 12.3536C5.55268 12.2598 5.5 12.1326 5.5 12V7H0.5C0.367392 7 0.240215 6.94732 0.146447 6.85355C0.0526785 6.75979 0 6.63261 0 6.5C0 6.36739 0.0526785 6.24021 0.146447 6.14645C0.240215 6.05268 0.367392 6 0.5 6H5.5V1C5.5 0.867392 5.55268 0.740215 5.64645 0.646447C5.74021 0.552679 5.86739 0.5 6 0.5C6.13261 0.5 6.25979 0.552679 6.35355 0.646447C6.44732 0.740215 6.5 0.867392 6.5 1V6H11.5C11.6326 6 11.7598 6.05268 11.8536 6.14645C11.9473 6.24021 12 6.36739 12 6.5Z" fill="#39180F"/>
+            </svg>
+          </button>
+        </div>
+
+        <span class="text-xs text-center">
+          <a href="{{ line_item.url_to_remove }}" class="link" onclick="event.preventDefault(); dataRemove(this, event); return false;" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M8.77201 1.22867L1.22934 8.77133L8.77201 1.22867ZM8.77201 8.77133L1.22934 1.22867L8.77201 8.77133Z" fill="#39180F"/>
+              <path d="M8.77201 1.22867L1.22934 8.77133M8.77201 8.77133L1.22934 1.22867" stroke="#39180F"/>
+            </svg>
+          </a>
+        </span>
+      </line-item-quantity>
+    </div>
+  {%- endif -%}
+</line-item>

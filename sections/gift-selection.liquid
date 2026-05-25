@@ -1,0 +1,589 @@
+<style>
+  .gift-selection-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica', sans-serif;
+  }
+
+  .gift-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .gift-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2f2118;
+  }
+
+  .gift-header .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+  }
+
+  .gift-counter {
+    background: transparent;
+    color: #2f2118;
+    border: 2px solid #2f2118;
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 1.1rem;
+  }
+
+  .gift-counter strong {
+    font-size: 1.3rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  @media (max-width: 640px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .gift-header h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  /* ── Card shell ── */
+  .product-card {
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+  }
+
+  .product-card.selected {
+    border-color: #5a3a28;
+    box-shadow: 0 6px 20px rgba(90,58,40,0.25);
+  }
+
+  .product-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* ── Image area ── */
+  .card-image-wrap {
+    height: 270px;
+    overflow: hidden;
+  }
+
+  .card-polaroid img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── Info area ── */
+  .card-info {
+    background: #f5efe8;
+    padding: 14px 16px 16px;
+  }
+
+  .card-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .card-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2f2118;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .card-info-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .card-price {
+    font-size: 0.88rem;
+    color: #5a3a28;
+    font-weight: 600;
+    margin: 0;
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  /* ── Quantity Controls ── */
+  .qty-controls {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #d1c8c1;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .qty-btn {
+    background: transparent;
+    color: #2f2118;
+    border: none;
+    padding: 6px 14px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .qty-btn:hover:not(:disabled) {
+    background: #f0e9e1;
+  }
+
+  .qty-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .qty-count {
+    padding: 0 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2f2118;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  /* ── Selected Quantity Badge Overlay ── */
+  .product-card.selected .card-image-wrap::after {
+    content: attr(data-qty);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #5a3a28;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  /* ── Submit section ── */
+  .submit-section {
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  .submit-btn {
+    background: #2f2118;
+    color: #fff;
+    border: none;
+    padding: 16px 48px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background: #5a3a28;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47,33,24,0.3);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* ── Messages ── */
+  .error-message {
+    background: #fef2f2;
+    color: #991b1b;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #dc2626;
+    margin: 20px 0;
+  }
+
+  .success-message {
+    background: #f0fdf4;
+    color: #166534;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid #bbf7d0;
+    margin: 20px 0;
+  }
+
+  .success-message h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .locked-message {
+    background: #fefce8;
+    color: #854d0e;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid #fde68a;
+    margin: 40px 0;
+  }
+
+  .locked-message h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .locked-message p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+  }
+
+  /* ── Loading overlay ── */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .loading-overlay.hidden { display: none; }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e5e7eb;
+    border-top-color: #2f2118;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<div class="gift-selection-page">
+  <!-- Loading -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Error container -->
+  <div id="error-container"></div>
+
+  <!-- Locked/Applied message (hidden by default) -->
+  <div id="locked-container" style="display:none;"></div>
+
+  <!-- Success message (hidden by default) -->
+  <div id="success-container"></div>
+
+  <!-- Main content (hidden until verified) -->
+  <div id="main-content" style="display:none;">
+    <div class="gift-header">
+      <h1>Select Your Free Bars</h1>
+      <p class="subtitle">Choose your favorite flavors as a gift from us to you.</p>
+      <div class="gift-counter">
+        Selected: <strong><span id="selected-count">0</span> / <span id="max-gifts">0</span></strong>
+      </div>
+    </div>
+
+    <div id="products-container">
+      <div id="products-grid" class="products-grid"></div>
+    </div>
+
+    <div id="submit-section" class="submit-section">
+      <button id="submit-btn" class="submit-btn" disabled onclick="submitGiftSelection()">
+        Confirm My Selections
+      </button>
+      <p style="margin-top: 12px; color: #666; font-size: 0.9rem;">
+        You can change your selections at any time before your order is processed.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Configuration ──
+  const APP_URL = 'https://tcbgiftapp.apps.batinstudio.com';
+
+  // ── Read URL parameters ──
+  const urlParams = new URLSearchParams(window.location.search);
+  const tierNumber = urlParams.get('tier');
+  const customerEmail = urlParams.get('email');
+
+  let selectedProducts = [];
+  let requiredCount = 0;
+
+  // ── Init ──
+  if (!tierNumber || !customerEmail) {
+    document.getElementById('loading-overlay').classList.add('hidden');
+    showError('Invalid link. Please use the gift selection link from your email.');
+  } else {
+    verifyAndLoad();
+  }
+
+  // ── Step 1: Verify tier + email, get eligible products ──
+  async function verifyAndLoad() {
+    try {
+      const verifyUrl = `${APP_URL}/api/gift/verify?tier=${encodeURIComponent(tierNumber)}&email=${encodeURIComponent(customerEmail)}`;
+      const response = await fetch(verifyUrl, { mode: 'cors' });
+      const data = await response.json();
+
+      document.getElementById('loading-overlay').classList.add('hidden');
+
+      if (!data.valid) {
+        // Check if it's a lock message (applied/locked status)
+        if (data.status === 'applied' || data.status === 'locked') {
+          showLockedMessage(data.message);
+        } else {
+          showError(data.message || 'This gift offer is not currently available.');
+        }
+        return;
+      }
+
+      // Set up the page
+      requiredCount = data.productCount;
+      document.getElementById('max-gifts').textContent = requiredCount;
+      document.getElementById('main-content').style.display = 'block';
+
+      // Render eligible products
+      renderProducts(data.eligibleProducts || []);
+
+      // If returning with existing selections, pre-check them
+      if (data.changeable && data.currentSelections && data.currentSelections.length > 0) {
+        preSelectProducts(data.currentSelections);
+      }
+
+    } catch (error) {
+      document.getElementById('loading-overlay').classList.add('hidden');
+      showError('Unable to connect to the gift system. Please try again later.');
+    }
+  }
+
+  // ── Step 2: Render product grid ──
+  function renderProducts(products) {
+    const grid = document.getElementById('products-grid');
+
+    if (products.length === 0) {
+      grid.innerHTML = '<p style="text-align: center; grid-column: 1/-1; padding: 40px;">No products available at this time.</p>';
+      return;
+    }
+
+    grid.innerHTML = products.map(product => `
+      <div class="product-card"
+           data-variant-id="${product.variantId}"
+           data-product-id="${product.productId}"
+           data-title="${product.title}"
+           data-variant-title="${product.variantTitle || ''}"
+           data-image-url="${product.imageUrl || ''}"
+           onclick="updateQty(event, this, 1)">
+
+        <div class="card-image-wrap" data-qty="0">
+          <div class="card-polaroid">
+            <img src="${product.imageUrl || 'https://via.placeholder.com/300x270?text=No+Image'}"
+                 alt="${product.title}"
+                 loading="lazy">
+          </div>
+        </div>
+
+        <div class="card-info">
+          <div class="card-info-top">
+            <p class="card-name">${product.title}${product.variantTitle ? ' — ' + product.variantTitle : ''}</p>
+          </div>
+          <div class="card-info-bottom">
+            <p class="card-price">FREE</p>
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty(event, this, -1)">−</button>
+              <span class="qty-count">0</span>
+              <button class="qty-btn" onclick="updateQty(event, this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── Step 3: Pre-select returning customer's products ──
+  function preSelectProducts(currentSelections) {
+    // currentSelections is an array of 1 object per item slot
+    for (const item of currentSelections) {
+      selectedProducts.push({
+        variantId: item.variantId,
+        productTitle: item.productTitle,
+        variantTitle: item.variantTitle || null,
+        imageUrl: item.imageUrl || null,
+      });
+    }
+    updateUI();
+  }
+
+  // ── Toggle product selection ──
+  function updateQty(event, btnElement, delta) {
+    event.stopPropagation();
+    const card = btnElement.closest('.product-card');
+    if (card.classList.contains('disabled') && delta > 0) return;
+
+    const variantId = card.dataset.variantId;
+    const currentQty = selectedProducts.filter(p => p.variantId === variantId).length;
+
+    if (delta > 0) {
+      if (selectedProducts.length >= requiredCount) {
+        alert(`Please select exactly ${requiredCount} product${requiredCount === 1 ? '' : 's'}.`);
+        return;
+      }
+      // Add one to selection
+      selectedProducts.push({
+        variantId: variantId,
+        productTitle: card.dataset.title,
+        variantTitle: card.dataset.variantTitle || null,
+        imageUrl: card.dataset.imageUrl || null,
+      });
+    } else if (delta < 0) {
+      if (currentQty === 0) return;
+      // Remove exactly one from selection
+      const index = selectedProducts.findIndex(p => p.variantId === variantId);
+      if (index !== -1) {
+        selectedProducts.splice(index, 1);
+      }
+    }
+
+    updateUI();
+  }
+
+  // ── Update UI state ──
+  function updateUI() {
+    document.getElementById('selected-count').textContent = selectedProducts.length;
+
+    // Enable submit ONLY when exact count is reached
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = selectedProducts.length !== requiredCount;
+    submitBtn.textContent = selectedProducts.length === requiredCount
+      ? 'Confirm My Selections'
+      : `Select ${requiredCount - selectedProducts.length} more`;
+
+    // Process each card safely handling all the logic
+    document.querySelectorAll('.product-card').forEach(card => {
+      const variantId = card.dataset.variantId;
+      const qty = selectedProducts.filter(p => p.variantId === variantId).length;
+      
+      const countEl = card.querySelector('.qty-count');
+      const minusBtn = card.querySelector('.qty-btn:first-child');
+      const imageWrap = card.querySelector('.card-image-wrap');
+      
+      if (countEl) countEl.textContent = qty;
+      if (minusBtn) minusBtn.disabled = qty === 0;
+
+      if (qty > 0) {
+        card.classList.add('selected');
+        if (imageWrap) imageWrap.setAttribute('data-qty', qty);
+      } else {
+        card.classList.remove('selected');
+      }
+
+      // Disable unselected/0-qty cards when limit reached
+      if (selectedProducts.length >= requiredCount && qty === 0) {
+        card.classList.add('disabled');
+      } else {
+        card.classList.remove('disabled');
+      }
+    });
+  }
+
+  // ── Submit selection ──
+  async function submitGiftSelection() {
+    if (selectedProducts.length !== requiredCount) {
+      alert(`Please select exactly ${requiredCount} product${requiredCount === 1 ? '' : 's'}.`);
+      return;
+    }
+
+    document.getElementById('loading-overlay').classList.remove('hidden');
+
+    try {
+      const response = await fetch(`${APP_URL}/api/gift/select`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        body: JSON.stringify({
+          email: customerEmail,
+          tier: parseInt(tierNumber),
+          products: selectedProducts,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        showSuccess(result.message);
+      } else {
+        showError(result.message || 'Failed to save your selections. Please try again.');
+      }
+    } catch (error) {
+      showError('Network error. Please check your connection and try again.');
+    } finally {
+      document.getElementById('loading-overlay').classList.add('hidden');
+    }
+  }
+
+  // ── UI Helpers ──
+  function showError(message) {
+    document.getElementById('error-container').innerHTML = `
+      <div class="error-message">
+        <strong>Oops!</strong> ${message}
+      </div>
+    `;
+  }
+
+  function showLockedMessage(message) {
+    document.getElementById('locked-container').style.display = 'block';
+    document.getElementById('locked-container').innerHTML = `
+      <div class="locked-message">
+        <h2>Your Free Gifts Have Been Confirmed!</h2>
+        <p>${message || 'Your selected products have been added to your upcoming subscription order at no extra charge.'}</p>
+        <p style="margin-top: 20px;">Thank you for being a valued subscriber!</p>
+      </div>
+    `;
+    document.getElementById('main-content').style.display = 'none';
+  }
+
+  function showSuccess(message) {
+    document.getElementById('success-container').innerHTML = `
+      <div class="success-message">
+        <h2>🎉 Selections Saved!</h2>
+        <p>${message || 'Your gift selections have been saved successfully.'}</p>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+          You can revisit this page to change your selections before your order is processed.
+        </p>
+      </div>
+    `;
+    document.getElementById('main-content').style.display = 'none';
+  }
+</script>

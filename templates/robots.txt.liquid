@@ -1,0 +1,27 @@
+{%- comment -%}
+  Simplified robots.txt for Maximum Crawlability
+  ===============================================
+  Allows all crawlers (search engines + AI) to access everything
+  except truly sensitive pages. Optimized for SEO and AEO.
+
+  Reference: https://shopify.dev/docs/storefronts/themes/seo/robots-txt
+{%- endcomment -%}
+
+# Allow all crawlers maximum access
+User-agent: *
+Allow: /
+
+# Block only sensitive/private pages
+Disallow: /admin
+Disallow: /cart
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /account
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+
+# Sitemap for discovery
+Sitemap: {{ shop.url }}/sitemap.xml
+
+# LLMs.txt - AI-friendly content for this website
+# Full brand context available at: {{ shop.url }}/pages/llms-txt

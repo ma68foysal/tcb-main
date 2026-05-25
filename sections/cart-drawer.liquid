@@ -1,0 +1,1594 @@
+<style>
+/* Remove disabled overlay */
+#checkoutWrapper.disabled {
+  position: static;
+}
+#checkoutWrapper.disabled::after {
+  display: none;
+}
+#showModalBtn{
+  position: absolute;
+  bottom: 40px;
+  right: 5%;
+  z-index: 99;
+  width: 43%;
+}
+
+/* Variety Pack Line Item Styles */
+
+.variety-pack-view-btn {
+  color: #39180F;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+}
+.variety-pack-view-btn:hover {
+  opacity: 0.7;
+}
+
+/* Variety Pack Modal */
+#varietyPackModal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FDF8EE;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.25);
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+#varietyPackModal.active {
+  display: block;
+}
+#varietyPackModal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(57, 24, 15, 0.15);
+}
+#varietyPackModal .modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #39180F;
+}
+#varietyPackModal .modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+#varietyPackModal .modal-close:hover {
+  opacity: 1;
+}
+#varietyPackModal .variety-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#varietyPackModal .variety-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(57, 24, 15, 0.1);
+}
+#varietyPackModal .variety-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+#varietyPackModal .variety-item-info {
+  flex: 1;
+}
+#varietyPackModal .variety-item-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #39180F;
+  margin: 0 0 4px 0;
+}
+#varietyPackModal .variety-item-price {
+  font-size: 13px;
+  color: #39180F;
+  opacity: 0.7;
+}
+.variety-pack-modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+.variety-pack-modal-backdrop.active {
+  display: block;
+}
+
+/* Modal styling */
+#checkoutModal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FDF8EE;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 520px;
+}
+#checkoutModal .circle-chevron {
+  width: 44px !important;
+  height: 28px !important;
+  border-radius: 40px !important;
+  background: #F5EDDE !important;
+  border: 1px solid #39180F1A;
+}
+#checkoutModal .circle-chevron:hover {
+  background: #39180F !important;
+  color: #fff !important;
+}
+#checkoutModal.active {
+  display: block;
+}
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 9998;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+.modal-backdrop.active {
+  display: block;
+}
+
+#cartdrawer_checkoutBtn{
+  width: 100%;
+}
+.button_backshop{
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #39180F1A;
+  font-size: 14px;
+  font-weight: 400;
+  height: 46px;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal_toptext{
+  border-bottom: 1px solid #39180f2b;
+  padding-bottom: 7px;
+}
+#checkoutModalText{
+  background: #E5F0E5;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 4px 16px;
+  border-radius: 30px;
+  border: 1px solid #39180F1A;
+  font-size: 13px;
+  font-weight: 400;
+  color: #39180F;
+}  
+.close-modal img{
+  width: 12px;
+  height: 12px;
+  transform: translate(0px, 8px);
+}  
+.slider-top-text{
+  font-weight: 500;
+  font-size: 16px;
+} 
+#checkoutModal .horizontal-product{
+  border: 1px solid #39180F1A;
+  border-radius: 8px;
+}  
+
+#checkoutModal #cartdrawer_checkoutBtn{
+  background: #39180F;
+  color: #fff;
+  font-weight: 400;
+}
+.modal_toptext{
+  font-size: 14px;
+  font-weight: 500;
+}
+  #promoText{
+    color: #39180F;
+    text-align: center;
+    opacity: 0.5;
+    padding-top: 6px;
+  }
+  .modal_buttons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .showcheckout #realCheckoutBtn{
+    display: block !important;
+  }
+  .showcheckout .button_backshop {
+    width: 50% !important;
+    margin-top: 0 !important;
+  }
+  .showcheckout #modal_checkoutBtn {
+    display: flex;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+  .showcheckout{
+    padding-top: 20px;
+  }
+.savedText{
+  margin-right: 4px;
+}
+  @media (min-width: 768px){
+    
+  .showcheckout #checkoutWrapper{
+    width: 50% !important;
+  }
+  }
+@media (max-width: 767px){
+  #showModalBtn{
+  bottom: 25px !important;
+}
+  .modal-slider-buttons{
+    display: flex !important;
+  }
+   .modal_buttons {
+    flex-direction: column-reverse;
+}
+  
+  .showcheckout #checkoutWrapper{
+    width: 100% !important;
+  }
+  .showcheckout .button_backshop {
+    width: 100% !important;
+  }
+}
+@media (max-width: 360px){
+.viewCart{
+  max-width: 50% !important;
+} 
+.cart-drawer .buy-buttons  {
+  gap: 0 !important;
+}
+}
+  
+</style>
+
+{%- if customer and customer.tags contains "wholesale" -%}
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div id="checkoutModal">
+    <button class="close-modal" style="float:right;"><img src="https://cdn.shopify.com/s/files/1/0511/7067/2831/files/modal-close-button.png?v=1747840726" alt="Modal close button"></button>
+    <p class="modal_toptext">You're almost there!</p>
+    <p id="checkoutModalText">Must have at least 3 cases in your cart.</p>
+    <div style="margin: 10px 0; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+      <div style="background: #00a34130; height: 4px; border-radius: 5px; overflow: hidden; width: 100%; ">
+        <div id="checkoutProgressBar" style="background: #00a341; height: 100%; width: 0%;"></div>
+      </div>
+      <p id="checkoutProgressLabel" style="font-size: 14px; text-align: right; text-wrap-mode: nowrap;"></p>
+    </div>
+
+    {%- liquid
+      if customer and customer.tags contains 'wholesale'
+        assign modal_rec_products = collections['wholesale'].products
+        assign modal_has_products = true
+      elsif section.settings.products.count > 0
+        assign modal_rec_products = section.settings.products
+        assign modal_has_products = true
+      else
+        assign modal_has_products = false
+      endif
+    -%}
+    {%- if modal_has_products -%}
+            <div class="cart-drawer__recommendations">
+              <div class="v-stack gap-2.5 sm:gap-4">
+                {%- capture carousel_id -%}cart-drawer-recommendations{%- endcapture -%}
+
+                {%- liquid
+                  assign horizontal_products_blends = true
+                  assign product_card_background = section.settings.product_card_background | default: product.settings.product_card_background
+
+                  if product_card_background != 'rgba(0,0,0,0)' and product_card_background != blank and product_card_background != settings.dialog_background
+                    assign horizontal_products_blends = false
+                  endif
+
+                  assign rendered_recommendations = 0
+
+                  capture recommendations
+                    for recommended_product in modal_rec_products
+                      render 'horizontal-product', product: recommended_product, show_add_to_cart: true, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color
+                      assign rendered_recommendations = rendered_recommendations | plus: 1
+                    endfor
+                  endcapture
+                -%}
+
+                {%- if rendered_recommendations > 0 -%}
+                  <div class="h-stack justify-between gap-4">
+                      <p class="slider-top-text">Add More Chocolates</p>
+
+                    {%- if rendered_recommendations > 1 -%}
+                      <div class="modal-slider-buttons h-stack gap-2 hidden sm:flex">
+                        <button
+                          is="prev-button"
+                          class="prev-button circle-chevron hover:colors"
+                          aria-controls="{{ carousel_id }}"
+                          aria-label="{{ 'general.accessibility.previous' | t | escape }}"
+                          disabled
+                        >
+                          {%- render 'icon' with 'chevron-left-small', direction_aware: true -%}
+                        </button>
+                        <button
+                          is="next-button"
+                          class="next-button circle-chevron hover:colors"
+                          aria-controls="{{ carousel_id }}"
+                          aria-label="{{ 'general.accessibility.next' | t | escape }}"
+                        >
+                          {%- render 'icon' with 'chevron-right-small', direction_aware: true -%}
+                        </button>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+                {%- if recommendations != blank -%}
+                  <scroll-carousel
+                    selector=".horizontal-product"
+                    class="modal_upsell horizontal-product-list-carousel {% unless horizontal_products_blends %}separate{% endunless %} scroll-area bleed"
+                  >
+                    <div class="horizontal-product-list {% if horizontal_products_blends %}divide-x{% else %}separate{% endif %}">
+                      {{- recommendations -}}
+                    </div>
+                  </scroll-carousel>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+          <div class="modal_buttons">
+          <button class="close-modal button_backshop button button--xl button--secondary" data-no-instant="">Back to shopping</button>
+          <div id="checkoutWrapper">
+            <div id="ModalrealCheckoutBtn" style="">
+              <button id="modal_checkoutBtn" type="submit" class="button button--xl" name="checkout" value="Checkout">
+                <div class="text-with-icon justify-center">Checkout</div>
+              </button>
+            </div>
+          </div>
+        </div>
+  </div>
+{% endif %}
+
+<cart-drawer
+  {% if request.design_mode %}
+    handle-section-events
+  {% endif %}
+  class="cart-drawer drawer drawer--lg"
+  id="cart-drawer"
+>
+  {%- if cart.item_count == 0 -%}
+    <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+      {%- render 'icon' with 'close' -%}
+    </button>
+
+    <div class="empty-state align-self-center">
+      <div class="empty-state__icon-wrapper">
+        {%- render 'icon' with 'cart', width: 32, height: 32, stroke_width: 1 -%}
+        <span class="count-bubble count-bubble--lg">0</span>
+      </div>
+
+      <div class="prose">
+        <p class="h5">{{ 'cart.general.empty' | t }}</p>
+
+        {%- assign button_content = 'cart.general.continue_shopping' | t -%}
+        {%- render 'button', href: settings.cart_empty_button_link, size: 'xl', content: button_content -%}
+      </div>
+    </div>
+  {%- else -%}
+    <div class="cart-drawer__inner">
+      <div class="cart-drawer__top">
+        <div class="h-stack items-center justify-between">
+          <div class="h-stack grow gap-2 sm:gap-2.5">
+            <p class="h5">{{- 'cart.general.title' | t -}}</p>
+
+            <cart-count class="count-bubble count-bubble--md">{{ cart.item_count }}</cart-count>
+          </div>
+
+          <button type="button" is="close-button" class="drawer__close-icon">
+            <span class="sr-only">{{ 'general.accessibility.close' | t }}</span>
+            {%- render 'icon' with 'close' -%}
+          </button>
+        </div>
+        {%- if customer and customer.tags contains "wholesale" -%}
+          <strong style="font-size:110%">Minimum order: $234 USD</strong>
+        {%- else -%}
+          <strong style="font-size:110%">Minimum order: $35 USD</strong>
+        {%- endif -%}
+
+        {%- if settings.cart_show_free_shipping_threshold -%}
+          {%- render 'free-shipping-bar' -%}
+        {%- endif -%}
+      </div>
+      <div id="totalItems" data-total-items="{{ cart.item_count }}"></div>
+      <div class="v-stack gap-6 sm:gap-8">
+        <div class="cart-drawer__line-items">
+          {%- comment -%} Group variety pack items by instance ID {%- endcomment -%}
+          {%- assign variety_pack_instances = '' -%}
+          {%- assign processed_variety_items = '' -%}
+
+          {%- for line_item in cart.items -%}
+            {%- assign is_variety_pack_item = false -%}
+            {%- assign variety_instance_id = '' -%}
+
+            {%- for property in line_item.properties -%}
+              {%- if property.first == '_variety_pack' and property.last == 'true' -%}
+                {%- assign is_variety_pack_item = true -%}
+              {%- endif -%}
+              {%- if property.first == '_variety_pack_instance' -%}
+                {%- assign variety_instance_id = property.last -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if is_variety_pack_item and variety_instance_id != '' -%}
+              {%- unless variety_pack_instances contains variety_instance_id -%}
+                {%- if variety_pack_instances != '' -%}
+                  {%- assign variety_pack_instances = variety_pack_instances | append: ',' | append: variety_instance_id -%}
+                {%- else -%}
+                  {%- assign variety_pack_instances = variety_instance_id -%}
+                {%- endif -%}
+
+                {%- comment -%} Get pack info from first item {%- endcomment -%}
+                {%- assign pack_name = '' -%}
+                {%- assign pack_image = '' -%}
+                {%- assign pack_price = 0 -%}
+                {%- assign pack_items_count = 0 -%}
+                {%- assign pack_total_price = 0 -%}
+                {%- assign pack_line_keys = '' -%}
+                {%- assign pack_quantity = 1 -%}
+
+                {%- for item in cart.items -%}
+                  {%- assign item_instance = '' -%}
+                  {%- assign item_is_variety = false -%}
+                  {%- for prop in item.properties -%}
+                    {%- if prop.first == '_variety_pack_instance' and prop.last == variety_instance_id -%}
+                      {%- assign item_instance = prop.last -%}
+                    {%- endif -%}
+                    {%- if prop.first == '_variety_pack' and prop.last == 'true' -%}
+                      {%- assign item_is_variety = true -%}
+                    {%- endif -%}
+                    {%- if prop.first == '_variety_pack_name' -%}
+                      {%- assign pack_name = prop.last -%}
+                    {%- endif -%}
+                    {%- if prop.first == '_variety_pack_image' -%}
+                      {%- assign pack_image = prop.last -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+
+                  {%- if item_is_variety and item_instance == variety_instance_id -%}
+                    {%- assign pack_items_count = pack_items_count | plus: 1 -%}
+                    {%- assign pack_total_price = pack_total_price | plus: item.final_line_price -%}
+                    {%- if pack_quantity == 1 -%}
+                      {%- assign pack_quantity = item.quantity -%}
+                    {%- endif -%}
+                    {%- if pack_line_keys != '' -%}
+                      {%- assign pack_line_keys = pack_line_keys | append: ',' | append: item.key -%}
+                    {%- else -%}
+                      {%- assign pack_line_keys = item.key -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- comment -%} Render variety pack custom line item {%- endcomment -%}
+                <div class="variety-pack-line-item line-item" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}">
+                  <div class="line-item__media-wrapper">
+                    {%- if pack_image != '' -%}
+                      <img src="{{ pack_image }}" alt="{{ pack_name }}" class="line-item__media rounded-xs" loading="lazy" width="96" height="96">
+                    {%- endif -%}
+                    <pill-loader class="pill-loader"></pill-loader>
+                  </div>
+
+                  <div class="line-item__info">
+                    <div class="v-stack gap-0.5">
+                      <p class="bold">{{ pack_name }}</p>
+                      <span class="text-subdued variety-pack-total-price" data-variety-instance="{{ variety_instance_id }}">{{ pack_total_price | money }}</span>
+                    </div>
+
+                    <p class="text-sm text-subdued">{{ pack_items_count }} items included</p>
+
+                    <button type="button" class="variety-pack-view-btn text-sm link" data-variety-instance="{{ variety_instance_id }}" onclick="openVarietyPackModal('{{ variety_instance_id }}')">
+                      Show variety products
+                    </button>
+
+                    {%- comment -%} Mobile quantity selector {%- endcomment -%}
+                    <div class="text-sm text-subdued sm:hidden">
+                      <line-item-quantity class="v-stack gap-2">
+                        <div class="quantity-selector h-stack gap-2 items-center justify-center">
+                          <button type="button" class="quantity-selector__button quantity-minus" data-action="minus" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" data-quantity="{{ pack_quantity }}" aria-label="Decrease quantity" {% if pack_quantity <= 1 %}disabled{% endif %}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="1" viewBox="0 0 12 1" fill="none">
+                              <path d="M12 0.5C12 0.632608 11.9473 0.759786 11.8536 0.853554C11.7598 0.947322 11.6326 1 11.5 1H0.5C0.367392 1 0.240215 0.947322 0.146447 0.853554C0.0526785 0.759786 0 0.632608 0 0.5C0 0.367392 0.0526785 0.240215 0.146447 0.146447C0.240215 0.0526785 0.367392 0 0.5 0H11.5C11.6326 0 11.7598 0.0526785 11.8536 0.146447C11.9473 0.240215 12 0.367392 12 0.5Z" fill="#39180F"/>
+                            </svg>
+                          </button>
+
+                          <input class="quantity-input quantity-selector__input variety-pack-quantity-input" type="number" inputmode="numeric" min="1" step="1" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" aria-label="Change quantity" value="{{ pack_quantity }}" data-current-quantity="{{ pack_quantity }}">
+
+                          <button type="button" class="quantity-selector__button quantity-plus" data-action="plus" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" data-quantity="{{ pack_quantity }}" aria-label="Increase quantity">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                              <path d="M12 6.5C12 6.63261 11.9473 6.75979 11.8536 6.85355C11.7598 6.94732 11.6326 7 11.5 7H6.5V12C6.5 12.1326 6.44732 12.2598 6.35355 12.3536C6.25979 12.4473 6.13261 12.5 6 12.5C5.86739 12.5 5.74021 12.4473 5.64645 12.3536C5.55268 12.2598 5.5 12.1326 5.5 12V7H0.5C0.367392 7 0.240215 6.94732 0.146447 6.85355C0.0526785 6.75979 0 6.63261 0 6.5C0 6.36739 0.0526785 6.24021 0.146447 6.14645C0.240215 6.05268 0.367392 6 0.5 6H5.5V1C5.5 0.867392 5.55268 0.740215 5.64645 0.646447C5.74021 0.552679 5.86739 0.5 6 0.5C6.13261 0.5 6.25979 0.552679 6.35355 0.646447C6.44732 0.740215 6.5 0.867392 6.5 1V6H11.5C11.6326 6 11.7598 6.05268 11.8536 6.14645C11.9473 6.24021 12 6.36739 12 6.5Z" fill="#39180F"/>
+                            </svg>
+                          </button>
+                        </div>
+
+                        <span class="text-xs text-center removeIcon">
+                          <a href="#" class="link" onclick="event.preventDefault(); removeVarietyPack('{{ variety_instance_id }}'); return false;" aria-label="Remove variety pack">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                              <path d="M8.77201 1.22867L1.22934 8.77133L8.77201 1.22867ZM8.77201 8.77133L1.22934 1.22867L8.77201 8.77133Z" fill="#39180F"/>
+                              <path d="M8.77201 1.22867L1.22934 8.77133M8.77201 8.77133L1.22934 1.22867" stroke="#39180F"/>
+                            </svg>
+                          </a>
+                        </span>
+                      </line-item-quantity>
+                    </div>
+                  </div>
+
+                  {%- comment -%} Desktop quantity selector {%- endcomment -%}
+                  <div class="line-item__actions text-subdued hidden sm:block">
+                    <line-item-quantity class="v-stack gap-2">
+                      <div class="quantity-selector h-stack gap-2 items-center">
+                        <button type="button" class="quantity-selector__button quantity-minus" data-action="minus" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" data-quantity="{{ pack_quantity }}" aria-label="Decrease quantity" {% if pack_quantity <= 1 %}disabled{% endif %}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="1" viewBox="0 0 12 1" fill="none">
+                            <path d="M12 0.5C12 0.632608 11.9473 0.759786 11.8536 0.853554C11.7598 0.947322 11.6326 1 11.5 1H0.5C0.367392 1 0.240215 0.947322 0.146447 0.853554C0.0526785 0.759786 0 0.632608 0 0.5C0 0.367392 0.0526785 0.240215 0.146447 0.146447C0.240215 0.0526785 0.367392 0 0.5 0H11.5C11.6326 0 11.7598 0.0526785 11.8536 0.146447C11.9473 0.240215 12 0.367392 12 0.5Z" fill="#39180F"></path>
+                          </svg>
+                        </button>
+
+                        <input class="quantity-input quantity-selector__input variety-pack-quantity-input" type="number" inputmode="numeric" min="1" step="1" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" aria-label="Change quantity" value="{{ pack_quantity }}" data-current-quantity="{{ pack_quantity }}">
+
+                        <button type="button" class="quantity-selector__button quantity-plus" data-action="plus" data-variety-instance="{{ variety_instance_id }}" data-line-keys="{{ pack_line_keys }}" data-quantity="{{ pack_quantity }}" aria-label="Increase quantity">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                            <path d="M12 6.5C12 6.63261 11.9473 6.75979 11.8536 6.85355C11.7598 6.94732 11.6326 7 11.5 7H6.5V12C6.5 12.1326 6.44732 12.2598 6.35355 12.3536C6.25979 12.4473 6.13261 12.5 6 12.5C5.86739 12.5 5.74021 12.4473 5.64645 12.3536C5.55268 12.2598 5.5 12.1326 5.5 12V7H0.5C0.367392 7 0.240215 6.94732 0.146447 6.85355C0.0526785 6.75979 0 6.63261 0 6.5C0 6.36739 0.0526785 6.24021 0.146447 6.14645C0.240215 6.05268 0.367392 6 0.5 6H5.5V1C5.5 0.867392 5.55268 0.740215 5.64645 0.646447C5.74021 0.552679 5.86739 0.5 6 0.5C6.13261 0.5 6.25979 0.552679 6.35355 0.646447C6.44732 0.740215 6.5 0.867392 6.5 1V6H11.5C11.6326 6 11.7598 6.05268 11.8536 6.14645C11.9473 6.24021 12 6.36739 12 6.5Z" fill="#39180F"></path>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <span class="text-xs text-center removeIcon">
+                        <a href="#" class="link" onclick="event.preventDefault(); removeVarietyPack('{{ variety_instance_id }}'); return false;" aria-label="Remove variety pack">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                            <path d="M8.77201 1.22867L1.22934 8.77133L8.77201 1.22867ZM8.77201 8.77133L1.22934 1.22867L8.77201 8.77133Z" fill="#39180F"/>
+                            <path d="M8.77201 1.22867L1.22934 8.77133M8.77201 8.77133L1.22934 1.22867" stroke="#39180F"/>
+                          </svg>
+                        </a>
+                      </span>
+                    </line-item-quantity>
+                  </div>
+                </div>
+              {%- endunless -%}
+              {%- assign processed_variety_items = processed_variety_items | append: line_item.key | append: ',' -%}
+            {%- else -%}
+              {%- render 'line-item', line_item: line_item, show_desktop_quantity: true -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.products.count > 0 -%}
+          <div class="cart-drawer__recommendations">
+            <div class="v-stack gap-2.5 sm:gap-4">
+              {%- capture carousel_id -%}cart-drawer-recommendations{%- endcapture -%}
+
+              {%- liquid
+                assign horizontal_products_blends = true
+                assign product_card_background = section.settings.product_card_background | default: product.settings.product_card_background
+
+                if product_card_background != 'rgba(0,0,0,0)' and product_card_background != blank and product_card_background != settings.dialog_background
+                  assign horizontal_products_blends = false
+                endif
+
+                assign rendered_recommendations = 0
+
+                capture recommendations
+                  for recommended_product in section.settings.products
+                    assign item_count_in_cart = cart | line_items_for: recommended_product
+
+                    if item_count_in_cart.size == 0
+                      render 'horizontal-product', product: recommended_product, show_add_to_cart: true, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color
+                      assign rendered_recommendations = rendered_recommendations | plus: 1
+                    endif
+                  endfor
+                endcapture
+              -%}
+
+              {%- if rendered_recommendations > 0 -%}
+                <div class="h-stack justify-between gap-4">
+                  {%- if section.settings.recommendations_title != blank -%}
+                    <p>{{ section.settings.recommendations_title | escape }}</p>
+                  {%- endif -%}
+
+                  {%- if rendered_recommendations > 1 -%}
+                    <div class="h-stack gap-2 hidden sm:flex">
+                      <button
+                        is="prev-button"
+                        class="prev-button circle-chevron hover:colors"
+                        aria-controls="{{ carousel_id }}"
+                        aria-label="{{ 'general.accessibility.previous' | t | escape }}"
+                        disabled
+                      >
+                        {%- render 'icon' with 'chevron-left-small', direction_aware: true -%}
+                      </button>
+                      <button
+                        is="next-button"
+                        class="prev-button circle-chevron hover:colors"
+                        aria-controls="{{ carousel_id }}"
+                        aria-label="{{ 'general.accessibility.next' | t | escape }}"
+                      >
+                        {%- render 'icon' with 'chevron-right-small', direction_aware: true -%}
+                      </button>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              <div class="h6 offerBubbleOnCart">5 BARS: 5% OFF | 10 BARS: 15% OFF | 15+ BARS: 20% OFF</div>
+
+              {%- if recommendations != blank -%}
+                <scroll-carousel
+                  selector=".horizontal-product"
+                  id="{{ carousel_id }}"
+                  class="horizontal-product-list-carousel {% unless horizontal_products_blends %}separate{% endunless %} scroll-area bleed"
+                >
+                  <div id="cartDrawe_upsell_slider" class="horizontal-product-list {% if horizontal_products_blends %}divide-x{% else %}separate{% endif %}">
+                    {{- recommendations -}}
+                  </div>
+                </scroll-carousel>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="v-stack gap-4 sm:gap-6 drawer-footer" slot="footer">
+      <div class="v-stack gap-1">
+        {% for discount_application in cart.cart_level_discount_applications %}
+          <div class="h-stack gap-4 justify-between">
+            <div class="badge">
+              {%- render 'icon' with 'discount' -%}
+              {{- discount_application.title -}}
+            </div>
+
+            <span class="text-subdued">-{{ discount_application.total_allocated_amount | money }}</span>
+          </div>
+        {% endfor %}
+
+        <div class="h-stack gap-4 justify-between">
+          <span class="h5">{{ 'cart.general.total' | t }}</span>
+          {%- if cart.total_discount > 0 -%}
+            {%- assign original_total = 0 -%}
+            {%- for item in cart.items -%}
+              {%- assign original_total = original_total | plus: item.original_line_price -%}
+            {%- endfor -%}
+            <span class="wsgAjaxSubtotal h5">
+              <span style="text-decoration: line-through; font-weight: 300; font-size: 16px; margin-right: 2px;">{{- original_total | money -}}</span>
+              <strong>{{- cart.total_price | money -}}</strong>
+            </span>
+          {%- else -%}
+            <span class="h5" style="font-size: 18px;">{{- cart.total_price | money_with_currency -}}</span>
+          {%- endif -%}
+        </div>
+        <div class="h-stack gap-4 justify-between">
+          <span class="h5"> </span>
+          {%- if cart.total_discount > 0 -%}
+            {%- assign original_total = 0 -%}
+            {%- for item in cart.items -%}
+              {%- assign original_total = original_total | plus: item.original_line_price -%}
+            {%- endfor -%}
+            <span style="color: rgba(57, 24, 15, 1); font-size: 14px;">
+              (<span class="savedText">Saving</span>  {{- cart.total_discount | money -}})
+            </span>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.show_shipping_text -%}
+          {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            <p class="text-subdued text-sm">
+              {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            </p>
+          {%- elsif cart.taxes_included -%}
+            <p class="text-subdued text-sm">{{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}</p>
+          {%- elsif shop.shipping_policy.body != blank -%}
+            <p class="text-subdued text-sm">
+              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+            </p>
+          {%- else -%}
+            <p class="text-subdued text-sm">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</p>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_cart_note -%}
+          <button type="button" class="justify-self-start" aria-controls="cart-drawer-note">
+            <span class="link text-sm text-subdued">
+              {%- if cart.note == blank -%}
+                {{- 'cart.general.add_order_note' | t -}}
+              {%- else -%}
+                {{- 'cart.general.edit_order_note' | t -}}
+              {%- endif -%}
+            </span>
+          </button>
+
+          <cart-note-dialog id="cart-drawer-note" class="cart-drawer__note">
+            <div class="cart-drawer__note-inner">
+              <div class="v-stack gap-4 sm:gap-6">
+                <p class="h5">{{ 'cart.general.order_note' | t }}</p>
+
+                <cart-note class="v-stack gap-4">
+                  {%- assign order_note = 'cart.general.order_note' | t -%}
+                  {%- assign order_save_label = 'cart.general.save_note' | t -%}
+
+                  {%- render 'input', name: 'note', multiline: 3, label: order_note, value: cart.note -%}
+
+                  <div class="justify-self-start">
+                    {%- render 'button',
+                      type: 'button',
+                      content: order_save_label,
+                      size: 'lg',
+                      is: 'close-button',
+                      secondary: true
+                    -%}
+                  </div>
+                </cart-note>
+              </div>
+            </div>
+          </cart-note-dialog>
+        {%- endif -%}
+      </div>
+
+      <form
+        action="{{ routes.cart_url }}"
+        method="POST"
+        class="buy-buttons {% if section.settings.show_checkout_button %}buy-buttons--compact{% endif %}"
+      >
+        {%- assign checkout_label = 'cart.general.checkout' | t -%}
+
+        {%- if section.settings.show_view_cart_button or section.settings.show_checkout_button == false -%}
+          <a
+            href="{{ routes.cart_url }}"
+            class="viewCart button button--xl {% if section.settings.show_checkout_button %}button--secondary{% endif %}"
+            data-no-instant
+          >
+            {{- 'cart.general.view_cart' | t -}}
+          </a>
+        {%- endif -%}
+
+        <div id="checkoutWrapper">
+          {%- if section.settings.show_checkout_button -%}
+            <div id="realCheckoutBtn" style="display: none;">
+              {%- render 'button',
+                type: 'submit',
+                content: checkout_label,
+                icon: 'picto-lock',
+                name: 'checkout',
+                size: 'xl'
+              -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </form>
+    </div>
+  {%- endif -%}
+  <button id="showModalBtn" type="button" class="button button--xl" >Checkout</button>
+ 
+</cart-drawer>
+
+<script>
+  const wholesaleCustomer = {% if customer and customer.tags contains 'wholesale' %}true{% else %}false{% endif %};
+  console.log("wholesaleCustomer", wholesaleCustomer);
+
+function initCartDrawerJQuery() {
+function getCartTotal() {
+  return $.getJSON('/cart.js').then(cart => {
+    const totalPrice = cart.items.reduce((sum, item) => {
+      return sum + (item.original_line_price || item.line_price);
+    }, 0) / 100;
+
+    const totalItems = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+
+    return { totalPrice, totalItems };
+  });
+}
+
+function updateCheckoutButtonState() {
+  getCartTotal().then(({ totalItems }) => {
+    const needed = 3;
+    const remaining = Math.max(needed - totalItems, 0);
+    const percentage = Math.min((totalItems / needed) * 100, 100);
+
+    const $showModalBtn = $('#showModalBtn');
+    const $realCheckoutBtn = $('#realCheckoutBtn');
+    const $label = $('#checkoutProgressLabel');
+    const $progress = $('#checkoutProgressBar');
+
+    if (wholesaleCustomer) {
+      if (totalItems >= needed) {
+        $realCheckoutBtn.show();
+        $showModalBtn.hide();
+        $label.text(`${needed}/${needed} cases (🎉 Congrats)`);
+        $progress.css('width', '100%');
+        $('.modal_buttons').addClass('showcheckout');
+        $('#ModalrealCheckoutBtn').show();
+      } else if (totalItems > 0) {
+        $realCheckoutBtn.hide();
+        $showModalBtn.show();
+        $label.text(`${totalItems}/${needed} cases (Add ${remaining} more)`);
+        $progress.css('width', `${percentage}%`);
+        $('.modal_buttons').removeClass('showcheckout');
+        $('#ModalrealCheckoutBtn').hide();
+      } else {
+        $realCheckoutBtn.hide();
+        $showModalBtn.hide();
+        $label.text(`0/${needed} cases (Add ${needed} to continue)`);
+        $progress.css('width', '0%');
+        $('.modal_buttons').removeClass('showcheckout');
+        $('#ModalrealCheckoutBtn').hide();
+      }
+    } else {
+      $realCheckoutBtn.show();
+      $showModalBtn.hide();
+    }
+  });
+}
+
+function openModal() {
+  getCartTotal().then(({ totalItems }) => {
+    const needed = 3;
+    const remaining = Math.max(needed - totalItems, 0);
+    const percentage = Math.min((totalItems / needed) * 100, 100);
+
+    $('#checkoutProgressLabel').text(
+      totalItems >= needed
+        ? `${needed}/${needed} cases (🎉 Congrats)`
+        : `${totalItems}/${needed} cases (Add ${remaining} more)`
+    );
+    $('#checkoutProgressBar').css('width', `${percentage}%`);
+
+    $('#cart-drawer').removeAttr('open');
+
+    $('#checkoutModal').addClass('active');
+    $('#modalBackdrop').addClass('active');
+
+    $('.modal_upsell').attr('id', 'cart-drawer-recommendations');
+  });
+}
+
+function closeModal() {
+  $('#checkoutModal').removeClass('active');
+  $('#modalBackdrop').removeClass('active');
+  $('.modal_upsell').removeAttr('id');
+}
+
+function attachModalEvents() {
+  $(document).off('click', '#showModalBtn').on('click', '#showModalBtn', openModal);
+}
+
+
+// Define pricing update functions if they don't exist yet
+if (typeof window.updateCartUI !== 'function') {
+  window.updateCartUI = function(cartCount) {
+    if (cartCount >= 5 && cartCount <= 9) {
+      $('.hp_price .price_5').show();
+      $('.hp_price .price_15, .hp_price .price_20').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else if (cartCount >= 10 && cartCount <= 14) {
+      $('.hp_price .price_15').show();
+      $('.hp_price .price_5, .hp_price .price_20').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else if (cartCount > 14) {
+      $('.hp_price .price_20').show();
+      $('.hp_price .price_5, .hp_price .price_15').hide();
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else {
+      $('.hp_price .regularPrice_noOff').css('text-decoration', 'none');
+      $('.hp_price .price_5, .hp_price .price_15, .hp_price .price_20').hide();
+    }
+  };
+}
+
+if (typeof window.updatePPPriceCSS !== 'function') {
+  window.updatePPPriceCSS = function(cartCount) {
+    if (cartCount >= 0 && cartCount <= 4) {
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'none');
+      $('.pp_price .price_5, .pp_price .price_15, .pp_price .price_20').css('display', 'none');
+    } else if (cartCount >= 5 && cartCount <= 9) {
+      $('.pp_price .price_5').css('display', 'block');
+      $('.pp_price .price_15, .pp_price .price_20').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else if (cartCount >= 10 && cartCount <= 14) {
+      $('.pp_price .price_15').css('display', 'block');
+      $('.pp_price .price_5, .pp_price .price_20').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    } else {
+      $('.pp_price .price_20').css('display', 'block');
+      $('.pp_price .price_5, .pp_price .price_15').css('display', 'none');
+      $('.pp_price .regularPrice_noOff').css('text-decoration', 'line-through');
+    }
+  };
+}
+
+$(document).ready(function () {
+  updateCheckoutButtonState();
+  attachModalEvents();
+
+  // Refresh state when cart icon clicked
+  $(document).on('click', '.icon-cart', updateCheckoutButtonState);
+
+  // Enable prev button when next clicked
+  $(document).on('click', '.next-button', function () {
+    $('.prev-button').removeAttr('disabled');
+  });
+
+  // Modal close
+  $(document).on('click', '#modalBackdrop, .close-modal', closeModal);
+
+  // Listen for cart change events 
+  document.addEventListener('cart:change', function(event) {
+    if (event.detail && event.detail.cart) {
+      const totalItems = event.detail.cart.items.reduce((sum, item) => sum + item.quantity, 0);
+      const baseEvent = event.detail.baseEvent;
+
+      setTimeout(() => {
+        updateCheckoutButtonState();
+
+        // Re-apply pricing badge logic after cart drawer content updates
+        if (typeof window.updateCartUI === 'function') {
+          window.updateCartUI(totalItems);
+        }
+        if (typeof window.updatePPPriceCSS === 'function') {
+          window.updatePPPriceCSS(totalItems);
+        }
+
+        // Additional delay for cart drawer content replacement timing
+        // Theme replaces content at 1250ms for non-variant:add events, 0ms for variant:add
+        const replacementDelay = baseEvent === "variant:add" ? 100 : 1400;
+        setTimeout(() => {
+          if (typeof window.updateCartUI === 'function') {
+            window.updateCartUI(totalItems);
+          }
+          if (typeof window.updatePPPriceCSS === 'function') {
+            window.updatePPPriceCSS(totalItems);
+          }
+        }, replacementDelay);
+      }, 300);
+    } else {
+      // No cart data in event detail
+    }
+  });
+
+  // Remove duplicate cart:updated listener - keep the original one
+  // document.addEventListener('cart:updated', updateCheckoutButtonState);
+
+
+  // Monitor cart drawer opening
+  const cartDrawer = document.querySelector('#cart-drawer');
+  if (cartDrawer) {
+    const drawerObserver = new MutationObserver(mutations => {
+      mutations.forEach(m => {
+        if (m.attributeName === 'open' && cartDrawer.hasAttribute('open')) {
+          updateCheckoutButtonState();
+        }
+      });
+    });
+    drawerObserver.observe(cartDrawer, { attributes: true });
+  }
+
+  // Patch fetch to trigger updates
+  const originalFetch = window.fetch;
+  window.fetch = async (...args) => {
+    const [url, options = {}] = args;
+    const isCustom = options?.headers?.['X-Custom-Caller'] === 'checkout-button-state';
+    const response = await originalFetch(...args);
+
+    if (!isCustom && typeof url === 'string' && url.match(/\/cart\/(add|change|update|clear)/)) {
+      setTimeout(() => {
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+      }, 200);
+    }
+
+    return response;
+  };
+});
+
+
+
+// Handle "Add to Cart" inside modal with variety pack support
+$(document).on('click', '#checkoutModal #cartdrawer_checkoutBtn', async function (e) {
+  e.preventDefault();
+
+  const $button = $(this);
+  const form = $button.closest('form');
+  const productCard = form.closest('.horizontal-product');
+  const productHandle = productCard ? productCard.attr('data-product-handle') : null;
+
+  // Check if this is a variety pack product
+  const isVarietyPack = productHandle === 'variety-pack';
+
+  if (isVarietyPack) {
+    // Handle variety pack add-to-cart
+    console.log('Adding variety pack from checkout modal');
+
+    const varietyPackHandles = [
+      'almond-sea-salt',
+      'creamy-tahini',
+      'espresso-crunch',
+      'orange-blossom',
+      'roasted-hazelnut',
+      'smooth-dark-chocolate',
+      'toasted-coconut-flakes'
+    ];
+
+    // Function to fetch variant ID from product handle
+    async function getVariantId(handle) {
+      try {
+        const response = await fetch(`/products/${handle}.js`);
+        const product = await response.json();
+        return product.variants[0].id;
+      } catch (error) {
+        console.error(`Failed to fetch product: ${handle}`, error);
+        return null;
+      }
+    }
+
+    // Get quantity from the form
+    const quantityInput = form.find('input[name="quantity"]');
+    const quantity = quantityInput.length ? parseInt(quantityInput.val()) || 1 : 1;
+
+    // Fetch variety pack product info
+    let varietyPackProduct = null;
+    try {
+      const packResponse = await fetch(`/products/${productHandle}.js`);
+      varietyPackProduct = await packResponse.json();
+    } catch (error) {
+      console.error('Failed to fetch variety pack product:', error);
+    }
+
+    // Fetch all variety product variant IDs
+    const variantPromises = varietyPackHandles.map(handle => getVariantId(handle));
+    const variantIds = await Promise.all(variantPromises);
+    const validVariantIds = variantIds.filter(id => id !== null);
+
+    if (validVariantIds.length === 0) {
+      console.error('No valid variety products found');
+      return;
+    }
+
+    // Generate unique pack ID
+    const packInstanceId = Date.now().toString(36);
+
+    // Prepare items array for batch add with Variety Pack properties
+    const items = validVariantIds.map(variantId => ({
+      id: variantId,
+      quantity: quantity,
+      properties: {
+        '_variety_pack': 'true',
+        '_variety_pack_id': varietyPackProduct ? varietyPackProduct.id : productHandle,
+        '_variety_pack_instance': packInstanceId,
+        '_variety_pack_name': varietyPackProduct ? varietyPackProduct.title : 'Variety Pack',
+        '_variety_pack_image': varietyPackProduct && varietyPackProduct.featured_image ? varietyPackProduct.featured_image : ''
+      }
+    }));
+
+    try {
+      $button.text('Adding...').prop('disabled', true);
+
+      const addResponse = await fetch(`${Shopify.routes.root}cart/add.js`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({ items: items })
+      });
+
+      const responseJson = await addResponse.json();
+
+      if (addResponse.ok) {
+        const originalText = $button.data('original-text') || 'Add to cart';
+        $button.text('Added!');
+        setTimeout(() => {
+          $button.text(originalText).prop('disabled', false);
+        }, 2000);
+
+        // Update cart
+        const cartResponse = await fetch('/cart.js');
+        const cart = await cartResponse.json();
+        const totalItems = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+        $('.header__cart-count .count-bubble').text(totalItems);
+
+        updateCheckoutButtonState();
+
+        // Reload cart drawer contents
+        $('#cart-drawer').load(window.location.href + ' #cart-drawer > *', () => {
+          attachModalEvents();
+          updateCheckoutButtonState();
+        });
+
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+      } else {
+        throw new Error(responseJson.description || 'Failed to add variety pack');
+      }
+    } catch (error) {
+      console.error('Error adding variety pack to cart:', error);
+      $button.text('Error').prop('disabled', false);
+      setTimeout(() => {
+        $button.text($button.data('original-text') || 'Add to cart').prop('disabled', false);
+      }, 2000);
+    }
+  } else {
+    // Standard add-to-cart for non-variety pack products
+    const formData = form.serialize();
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Custom-Caller': 'checkout-button-state'
+      },
+      body: formData
+    })
+      .then(res => res.json())
+      .then(() => {
+        const originalText = $button.text();
+        $button.text('Added').prop('disabled', true);
+        setTimeout(() => {
+          $button.text(originalText).prop('disabled', false);
+        }, 2000);
+
+        // Update cart icon count
+        fetch('/cart.js')
+          .then(res => res.json())
+          .then(cart => {
+            const totalItems = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+            $('.header__cart-count .count-bubble').text(totalItems);
+
+            // Update button visibility using cart total
+            updateCheckoutButtonState();
+          });
+
+        // Reload cart drawer contents
+        $('#cart-drawer').load(window.location.href + ' #cart-drawer > *', () => {
+          attachModalEvents();
+          updateCheckoutButtonState();
+        });
+
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+      })
+      .catch(err => {
+        console.error('Error adding product to cart:', err);
+      });
+  }
+
+  $('#cart-drawer').removeAttr('open').css({ opacity: 0, visibility: 'hidden' });
+});
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const checkoutBtn = document.getElementById("modal_checkoutBtn");
+
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // prevent form submission if necessary
+        window.location.href = "/checkout";
+      });
+    }
+  });
+
+  // Variety Pack Modal Functions
+  window.openVarietyPackModal = async function(instanceId) {
+    const modal = document.getElementById('varietyPackModal');
+    const backdrop = document.getElementById('varietyPackModalBackdrop');
+    const itemsList = document.getElementById('varietyPackItemsList');
+    const modalTitle = document.getElementById('varietyPackModalTitle');
+
+    if (!modal || !itemsList) return;
+
+    // Show loading state
+    itemsList.innerHTML = '<p style="text-align: center; padding: 20px;">Loading...</p>';
+    modal.classList.add('active');
+    backdrop.classList.add('active');
+
+    try {
+      // Fetch current cart
+      const cartResponse = await fetch('/cart.js');
+      const cart = await cartResponse.json();
+
+      // Find items belonging to this variety pack instance
+      const varietyItems = cart.items.filter(item => {
+        return item.properties &&
+               item.properties['_variety_pack'] === 'true' &&
+               item.properties['_variety_pack_instance'] === instanceId;
+      });
+
+      if (varietyItems.length > 0) {
+        // Get pack name from first item
+        const packName = varietyItems[0].properties['_variety_pack_name'] || 'Variety Pack';
+        modalTitle.textContent = packName;
+
+        // Render items
+        itemsList.innerHTML = varietyItems.map(item => `
+          <div class="variety-item">
+            <img src="${item.image || ''}" alt="${item.product_title}" onerror="this.style.display='none'">
+            <div class="variety-item-info">
+              <p class="variety-item-title">${item.product_title}</p>
+              <p class="variety-item-price">${item.variant_title ? item.variant_title + ' - ' : ''}${Shopify.formatMoney ? Shopify.formatMoney(item.final_line_price) : '$' + (item.final_line_price / 100).toFixed(2)}</p>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        itemsList.innerHTML = '<p style="text-align: center; padding: 20px;">No items found</p>';
+      }
+    } catch (error) {
+      console.error('Error loading variety pack items:', error);
+      itemsList.innerHTML = '<p style="text-align: center; padding: 20px;">Error loading items</p>';
+    }
+  };
+
+  window.closeVarietyPackModal = function() {
+    const modal = document.getElementById('varietyPackModal');
+    const backdrop = document.getElementById('varietyPackModalBackdrop');
+    if (modal) modal.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+  };
+
+  window.removeVarietyPack = async function(instanceId) {
+    const lineItem = document.querySelector(`.variety-pack-line-item[data-variety-instance="${instanceId}"]`);
+    if (!lineItem) return;
+
+    const lineKeys = lineItem.dataset.lineKeys;
+    if (!lineKeys) return;
+
+    const keys = lineKeys.split(',');
+
+    // Show loading state
+    lineItem.classList.add('is-loading');
+    const loader = lineItem.querySelector('pill-loader');
+    if (loader) {
+      loader.classList.add('loading');
+      loader.setAttribute('aria-busy', 'true');
+    }
+
+    try {
+      // Build updates object to set all items to 0
+      const updates = {};
+      keys.forEach(key => {
+        updates[key] = 0;
+      });
+
+      // Prepare bundled sections like the theme does
+      let sectionsToBundle = [];
+      document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", {
+        bubbles: true,
+        detail: { sections: sectionsToBundle }
+      }));
+
+      // Add sections to form data
+      const formData = new FormData();
+      Object.keys(updates).forEach(key => {
+        formData.set(`updates[${key}]`, updates[key]);
+      });
+      if (sectionsToBundle.length > 0) {
+        formData.set("sections", sectionsToBundle.join(","));
+        formData.set("sections_url", window.location.pathname);
+      }
+
+      const response = await fetch('/cart/update.js', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        // Refresh cart drawer
+        document.dispatchEvent(new CustomEvent('cart:refresh'));
+
+        // Optionally reload the drawer content
+        const cartDrawer = document.querySelector('#cart-drawer');
+        if (cartDrawer && typeof $ !== 'undefined') {
+          $('#cart-drawer').load(window.location.href + ' #cart-drawer > *');
+        } else {
+          window.location.reload();
+        }
+      }
+    } catch (error) {
+      console.error('Error removing variety pack:', error);
+      // Hide loading state on error
+      lineItem.classList.remove('is-loading');
+      if (loader) {
+        loader.classList.remove('loading');
+        loader.removeAttribute('aria-busy');
+      }
+    }
+  };
+
+  // Handle variety pack quantity changes
+  window.updateVarietyPackQuantity = async function(instanceId, lineKeys, newQuantity) {
+    const lineItem = document.querySelector(`.variety-pack-line-item[data-variety-instance="${instanceId}"]`);
+    if (!lineItem) return;
+
+    const keys = lineKeys.split(',');
+
+    // Show loading state
+    lineItem.classList.add('is-loading');
+    const loader = lineItem.querySelector('pill-loader');
+    if (loader) {
+      loader.classList.add('loading');
+      loader.setAttribute('aria-busy', 'true');
+    }
+
+    try {
+      // Build updates object to set all items to new quantity
+      const updates = {};
+      keys.forEach(key => {
+        updates[key] = newQuantity;
+      });
+
+      // Prepare bundled sections like the theme does
+      let sectionsToBundle = [];
+      document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", {
+        bubbles: true,
+        detail: { sections: sectionsToBundle }
+      }));
+
+      // Add sections to form data
+      const formData = new FormData();
+      Object.keys(updates).forEach(key => {
+        formData.set(`updates[${key}]`, updates[key]);
+      });
+      if (sectionsToBundle.length > 0) {
+        formData.set("sections", sectionsToBundle.join(","));
+        formData.set("sections_url", window.location.pathname);
+      }
+
+      const response = await fetch('/cart/update.js', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        const cart = await response.json();
+
+        // Update the UI - use querySelectorAll to update ALL instances (mobile + desktop)
+        const quantityInputs = lineItem.querySelectorAll('.variety-pack-quantity-input');
+        const minusButtons = lineItem.querySelectorAll('.quantity-minus');
+        const plusButtons = lineItem.querySelectorAll('.quantity-plus');
+
+        quantityInputs.forEach(input => {
+          input.value = newQuantity;
+          input.setAttribute('data-current-quantity', newQuantity);
+          input.dataset.currentQuantity = newQuantity;
+        });
+
+        minusButtons.forEach(button => {
+          button.setAttribute('data-quantity', newQuantity);
+          button.dataset.quantity = newQuantity;
+          if (newQuantity <= 1) {
+            button.setAttribute('disabled', '');
+          } else {
+            button.removeAttribute('disabled');
+          }
+        });
+
+        plusButtons.forEach(button => {
+          button.setAttribute('data-quantity', newQuantity);
+          button.dataset.quantity = newQuantity;
+        });
+
+        // Update total price for the variety pack
+        const priceElement = lineItem.querySelector('.text-subdued');
+        if (priceElement) {
+          let totalPrice = 0;
+          cart.items.forEach(item => {
+            if (item.properties &&
+                item.properties['_variety_pack'] === 'true' &&
+                item.properties['_variety_pack_instance'] === instanceId) {
+              totalPrice += item.final_line_price;
+            }
+          });
+          if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+            priceElement.textContent = Shopify.formatMoney(totalPrice);
+          } else {
+            priceElement.textContent = '$' + (totalPrice / 100).toFixed(2);
+          }
+        }
+
+        // Dispatch cart change event
+        document.dispatchEvent(new CustomEvent('cart:refresh'));
+        document.dispatchEvent(new CustomEvent('cart:change', {
+          detail: { cart: cart, baseEvent: 'variant:update' }
+        }));
+
+        updateCheckoutButtonState();
+      }
+    } catch (error) {
+      console.error('Error updating variety pack quantity:', error);
+    } finally {
+      // Hide loading state
+      lineItem.classList.remove('is-loading');
+      if (loader) {
+        loader.classList.remove('loading');
+        loader.removeAttribute('aria-busy');
+      }
+    }
+  };
+
+  // Event listeners for variety pack quantity buttons
+  $(document).on('click', '.variety-pack-line-item .quantity-minus, .variety-pack-line-item .quantity-plus', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const button = $(this);
+    console.log('🟢 === VARIETY PACK BUTTON CLICKED (cart-drawer handler) ===');
+    console.log('Button:', button[0]);
+
+    // Use .attr() instead of .data() to read fresh DOM attributes (not cached values)
+    const instanceId = button.attr('data-variety-instance');
+    const lineKeys = button.attr('data-line-keys');
+    const currentQuantity = parseInt(button.attr('data-quantity')) || 1;
+    const action = button.attr('data-action');
+
+    console.log('Instance ID:', instanceId);
+    console.log('Line Keys:', lineKeys);
+    console.log('Current Quantity:', currentQuantity);
+    console.log('Action:', action);
+
+    let newQuantity = currentQuantity;
+    if (action === 'plus') {
+      newQuantity = currentQuantity + 1;
+    } else if (action === 'minus' && currentQuantity > 1) {
+      newQuantity = currentQuantity - 1;
+    }
+
+    console.log('New Quantity:', newQuantity);
+
+    if (newQuantity !== currentQuantity) {
+      console.log('Calling updateVarietyPackQuantity...');
+      updateVarietyPackQuantity(instanceId, lineKeys, newQuantity);
+    } else {
+      console.log('Quantity unchanged, not updating');
+    }
+  });
+
+  // Event listener for variety pack quantity input changes
+  $(document).on('change', '.variety-pack-quantity-input', function(e) {
+    const input = $(this);
+    // Use .attr() instead of .data() to read fresh DOM attributes (not cached values)
+    const instanceId = input.attr('data-variety-instance');
+    const lineKeys = input.attr('data-line-keys');
+    const currentQuantity = parseInt(input.attr('data-current-quantity')) || 1;
+    let newQuantity = parseInt(input.val()) || 1;
+
+    // Ensure minimum quantity is 1
+    if (newQuantity < 1) {
+      newQuantity = 1;
+      input.val(newQuantity);
+    }
+
+    if (newQuantity !== currentQuantity) {
+      updateVarietyPackQuantity(instanceId, lineKeys, newQuantity);
+    }
+  });
+}
+
+// Wait for jQuery to load before initializing
+(function checkjQuery() {
+  if (typeof jQuery !== 'undefined' && typeof $ !== 'undefined') {
+    initCartDrawerJQuery();
+  } else {
+    setTimeout(checkjQuery, 50);
+  }
+})();
+</script>
+
+<!-- Variety Pack Modal -->
+<div id="varietyPackModalBackdrop" class="variety-pack-modal-backdrop" onclick="closeVarietyPackModal()"></div>
+<div id="varietyPackModal">
+  <div class="modal-header">
+    <h3 id="varietyPackModalTitle">Variety Pack</h3>
+    <button type="button" class="modal-close" onclick="closeVarietyPackModal()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 10 10" fill="none">
+        <path d="M8.77201 1.22867L1.22934 8.77133M8.77201 8.77133L1.22934 1.22867" stroke="#39180F" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </div>
+  <div id="varietyPackItemsList" class="variety-items-list">
+    <!-- Items will be loaded dynamically -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Cart drawer won't appear to your customers if you have set the cart type to Page in the global theme settings."
+    },
+    {
+      "type": "paragraph",
+      "content": "Free shipping bar can be configured in global cart settings."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart_note",
+      "label": "Show cart note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_text",
+      "label": "Show shipping text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_cart_button",
+      "label": "Show view cart button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_button",
+      "label": "Show checkout button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Product recommendations"
+    },
+    {
+      "type": "text",
+      "id": "recommendations_title",
+      "label": "Heading",
+      "default": "Trending this month"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Recommendations",
+      "info": "Suggest additional products to your customers. Recommendations already in the cart are automatically hidden.",
+      "limit": 10
+    },
+    {
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background"
+    },
+    {
+      "type": "color",
+      "id": "product_card_text_color",
+      "label": "Product card text"
+    },
+    {
+      "type": "checkbox",
+      "id": "change_button_text",
+      "label": "Change button text",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

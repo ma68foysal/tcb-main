@@ -1,0 +1,670 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "text_hiYWk3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Limited Edition</strong></p>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "be6997b2-338d-47a0-b287-f2a78af38549": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_f98fKb": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"product-info__block-item\" data-block-id=\"price\" data-block-type=\"price\">\n  <div class=\"product-info__price\">\n    <div class=\"rating-with-text\">\n      <price-list class=\"price-list price-list--lg \">\n        <sale-price class=\"text-lg\">\n          <span data-product-id=\"{{ product.id }}\" style=\"text-decoration: none;\">{{ product.price | money_with_currency }}</span>\n        </sale-price>\n      </price-list>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "disabled": true,
+          "settings": {}
+        },
+        "text_KWmbJa": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Our warehouse is closed on Monday (May 26) for Memorial day. Weekend orders will be shipping on Tuesday (May 27).</p>"
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+            "discount_qty_label": "<strong>Bundle and Save</strong>",
+            "product_list_label": "Flavor",
+            "color_plist_label": "#714838",
+            "color_plist_title": "#714838",
+            "color_plist_button_bg": "#fee2a3",
+            "color_plist_button_gradient_bg": "",
+            "color_plist_dropdown_title": "#714838",
+            "color_plist_dropdown_bg": "#fee2a3",
+            "color_plist_dropdown_gradient_bg": "",
+            "color_plist_item_hover_bg": "#ffe8b6"
+          }
+        },
+        "text_7xQR3r": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": false,
+            "atc_button_background": "#fdb71a",
+            "atc_button_text_color": "#714838",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "offer_Ve3YkB": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-coupon",
+            "icon_width": 20,
+            "title": "BUNDLE & SAVE",
+            "content": "<ul><li>5 BARS: <strong>5% OFF</strong> </li><li>10 BARS: <strong>15% OFF</strong></li></ul>",
+            "background": "#fdf8ee",
+            "text_color": "#890208"
+          }
+        },
+        "8e46cc11-213f-4779-b680-1084d9c3bc40": {
+          "type": "offer",
+          "settings": {
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-truck",
+            "icon_width": 20,
+            "title": "FREE SHIPPING",
+            "content": "<ul><li>All orders over $70 get<strong> FREE </strong>shipping | Standard shipping rate: $9.99</li></ul>",
+            "background": "#fee2a3",
+            "text_color": "#714838"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "10a1c0bc-5e61-42d1-9573-d4827e4ca884": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Ingredients",
+            "content": "<p>{{ product.metafields.custom.Ingredients | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_zEhXT8": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Nutrition Label",
+            "content": "",
+            "page": "",
+            "image": "{{ product.metafields.custom.nutrition_label.value }}"
+          }
+        },
+        "collapsible_text_BnLVca": {
+          "type": "collapsible_text",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping Note",
+            "content": "<p>It's Summer Time! That means lots of great sunshine and also much higher temperatures. To preserve  the quality of your bars, please note that <strong>we ship orders Monday through Thursday</strong> to avoid potential weekend delays.</p>",
+            "page": ""
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "2a37846f-d066-41cc-8f05-927189b61e83": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/SQUARE_NUTRITION_WEB_df909ef9-cd6c-49c6-970d-dab7d96b9db0.jpg",
+            "alignment": "center",
+            "max_width": 500
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "text_hiYWk3",
+        "title",
+        "be6997b2-338d-47a0-b287-f2a78af38549",
+        "price",
+        "liquid_f98fKb",
+        "rating",
+        "payment_terms",
+        "text_KWmbJa",
+        "separator",
+        "quantity_selector",
+        "text_7xQR3r",
+        "buy_buttons",
+        "offer_Ve3YkB",
+        "8e46cc11-213f-4779-b680-1084d9c3bc40",
+        "description",
+        "10a1c0bc-5e61-42d1-9573-d4827e4ca884",
+        "collapsible_text_zEhXT8",
+        "collapsible_text_BnLVca",
+        "badges",
+        "variant_picker",
+        "2a37846f-d066-41cc-8f05-927189b61e83"
+      ],
+      "custom_css": [
+        ".section-full {padding-top: 0px; padding-bottom: 16px;}",
+        ".discount_button_custom {display: none;}",
+        ".jdgm-star {color: #890208;}",
+        ".button {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "price_atc": false,
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "background": "#fff1d1",
+        "background_gradient": "",
+        "text_color": "#714838",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "370363ba-7991-4783-86e3-97f55e222b95": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all-products",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 7,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "BUNDLE & SAVE!",
+        "heading_tag": "h2",
+        "content": "<h5>5 BARS: 5% OFF | 10 BARS: 15% OFF | 15+ BARS: 20% OFF</h5>",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "linear-gradient(0deg, rgba(245, 237, 222, 1), rgba(255, 241, 209, 1) 100%)",
+        "text_color": "#714838",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "impact_text_i7L4pg": {
+      "type": "impact-text",
+      "blocks": {
+        "item_hj6May": {
+          "type": "item",
+          "settings": {
+            "title": "Why Dates?",
+            "title2": "",
+            "subheading": "",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": true,
+            "animate_impact_text_duration": 2.7
+          }
+        }
+      },
+      "block_order": [
+        "item_hj6May"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 80px; } .section-blends {padding-bottom: 16px; }}",
+        ".section-blends {padding-top: 20px; padding-bottom: 32px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "line",
+        "impact_text_size_ratio": 0.7,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#39180f",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "slideshow_Xnt7cT": {
+      "type": "slideshow",
+      "blocks": {
+        "image_64VNLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/website_dates_vs_sugar_1.jpg",
+            "mobile_image": "shopify://shop_images/website_dates_vs_sugar_mobile.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "title2": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "#f5edde",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_64VNLY"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_and": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "impact_text_NekcYk": {
+      "type": "impact-text",
+      "blocks": {
+        "item_XwcDdX": {
+          "type": "item",
+          "settings": {
+            "title": "Dates vs The Rest",
+            "title2": "",
+            "subheading": "Compare Our Sweetener To Other Popular Sweeteners",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": true,
+            "animate_impact_text_duration": 2.7
+          }
+        }
+      },
+      "block_order": [
+        "item_XwcDdX"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 80px; }}",
+        ".section-full {padding-top: 48px; padding-bottom: 8px;}",
+        ".h4 {font-family: Legitima; font-style: italic;}",
+        ".impactTitle1 {font-family: Legitima; font-style: italic;}",
+        "h2 {margin: 8px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "line",
+        "impact_text_size_ratio": 0.7,
+        "background": "#ece5d4",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "#39180f",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "slideshow_84aLtG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_W4Pn3J": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Our_Organic_Dates_99d275b8-7772-40c6-8e19-f38e98b5df6c.png",
+            "mobile_image": "shopify://shop_images/Our_Organic_Dates_mobile_2.png",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "title2": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_W4Pn3J"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_and": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "none",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#ece5d4",
+        "background_gradient": ""
+      }
+    },
+    "impact_text_UJ4GMG": {
+      "type": "impact-text",
+      "blocks": {
+        "item_APGGTA": {
+          "type": "item",
+          "settings": {
+            "title": "The Benefits Of Cacao",
+            "title2": "",
+            "subheading": "",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_APGGTA"
+      ],
+      "custom_css": [
+        "@media (min-width: 749px) {.heading {font-size: 88px; }}",
+        ".section-blends {padding-top: 60px; padding-bottom: 30px;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.8,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "images_with_text_scrolling_UWjd9b": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_EBVAAG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_1.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Antioxidant Powerhouse, Nature’s Shield",
+            "content": "<p>Think of cacao as your body’s personal bouncer, kicking out free radicals before they can crash the health party. Packed with antioxidants, cacao’s powerful flavonoids go to work defending your cells against premature aging and disease.</p>"
+          }
+        },
+        "item_i6Ydni": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_2.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Natural Mood Booster",
+            "content": "<p>When life needs a little brightness, cacao steps in as the ultimate feel-good agent. It’s rich in compounds that encourage serotonin, dopamine, and endorphins—turning every bite into a mini happiness boost. Forget sugar highs and crashes; with cacao, you’re getting a natural lift that’s as steady as it is delicious.</p>"
+          }
+        },
+        "item_fFRGTm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_3.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Nutritional Powerhouse",
+            "content": "<p>Cacao may come in a humble bean, but it’s packed with essentials like magnesium, iron, and fiber. This is no empty treat; it’s full-on nourishment, giving you minerals that are essential for muscles, mood, and energy. In short, cacao is as nourishing as it is flavorful.</p>"
+          }
+        },
+        "item_DDVCxc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_4.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Naturally Energizing",
+            "content": "<p>Need energy but tired of the caffeine spikes? Cacao has theobromine, a gentle stimulant that offers sustained energy without the jitters. It’s a natural lift that keeps you focused and ready for anything, making cacao a perfect pick-me-up any time of the day.</p>"
+          }
+        },
+        "item_hNn3E3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Benefits_Of_Cacao_5.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Heart Health Hero",
+            "content": "<p>With a heart as golden as its flavor, cacao supports cardiovascular health with a special dose of love. High in flavonoids, it helps improve blood flow and reduces blood pressure, giving your heart the boost it deserves. It's like a little cardio session you can savor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_EBVAAG",
+        "item_i6Ydni",
+        "item_fFRGTm",
+        "item_DDVCxc",
+        "item_hNn3E3"
+      ],
+      "custom_css": [
+        ".section-blends {padding-top: 24px; padding-bottom: 32px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "apps_4GXP4t": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_LYTGbB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_LYTGbB"
+      ],
+      "custom_css": [
+        ".section-blends {padding-top: 40px; padding-bottom: 40px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "faq_3tfUfq": {
+      "type": "faq",
+      "blocks": {
+        "item_imGf9c": {
+          "type": "item",
+          "settings": {
+            "title": "What makes The Conscious Bar healthier than other chocolate?",
+            "content": "<p>We consciously created bean-to-bar chocolate using two superfoods – Organic Cacao & Organic Dates. We intentionally wanted to use a sweetener that is rich both in taste and nutrients to create a memorable, and guilt free experience.</p>"
+          }
+        },
+        "item_UcXdRe": {
+          "type": "item",
+          "settings": {
+            "title": "What does Indulge Freely mean exactly?",
+            "content": "<p>We use premium organic ingredients in all the bars to create an unmatched flavor All the Conscious bars are of a minimum of 72% cacao solids. In studies, the consumption of dark chocolate has been shown to lower blood pressure. Dark chocolate is rich in antioxidants (specifically cocoa polyphenols), which can help to combat free radicals, destructive molecules that are implicated in heart disease and other ailments.</p>"
+          }
+        },
+        "item_a8JRKa": {
+          "type": "item",
+          "settings": {
+            "title": "What are the Health Benefits of Dark Chocolate?",
+            "content": "<p>We use premium organic ingredients in all the bars to bring forth rich, unmatched flavor. All The Conscious Bars have a minimum of 72% cacao solids. In many studies, the consumption of dark chocolate has been shown to lower blood pressure. Dark chocolate is rich in antioxidants (specifically cocoa polyphenols), which can help to combat free radicals - destructive molecules that are implicated in heart disease and other ailments.</p>"
+          }
+        },
+        "item_4pVfQC": {
+          "type": "item",
+          "settings": {
+            "title": "Why do we use organic dates to sweeten our bars?",
+            "content": "<p>We decided to sweeten our chocolate bars with organic dates not only because of it’s rich and delicious flavor, but also because of its magnificent nutritional value. Dates are stacked with fiber, antioxidants and minerals. Other benefits shown in studies claim that dates can contribute towards helping reduce inflammation, act as an energy booster & promote heart and brain health.</p>"
+          }
+        },
+        "item_wXWEnw": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Question",
+            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_imGf9c",
+        "item_UcXdRe",
+        "item_a8JRKa",
+        "item_4pVfQC",
+        "item_wXWEnw"
+      ],
+      "custom_css": [
+        ".button {background-color: transparent; color: rgb(var(--button-outline-color) / var(--button-background-opacity, 1)); box-shadow: inset 0 0 0 2px currentColor !important;}",
+        ".button:hover {background-color: rgb(var(--button-background)) !important; color: rgb(var(--button-text-color)) !important;}",
+        "h2 {font-family: Legitima; font-style: italic;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "SEE MORE",
+        "button_url": "shopify://pages/faq",
+        "text_position": "center",
+        "background": "#fffef5",
+        "background_gradient": "",
+        "text_color": "#2f130c",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "#2f130c",
+        "button_text_color": "#e5dac6",
+        "accordion_background": "#fffef5",
+        "accordion_text_color": "#2e130c"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "370363ba-7991-4783-86e3-97f55e222b95",
+    "impact_text_i7L4pg",
+    "slideshow_Xnt7cT",
+    "impact_text_NekcYk",
+    "slideshow_84aLtG",
+    "impact_text_UJ4GMG",
+    "images_with_text_scrolling_UWjd9b",
+    "apps_4GXP4t",
+    "faq_3tfUfq"
+  ]
+}
